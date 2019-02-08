@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.embed.swing.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainMenu">
+   <children>
+      <ToolBar layoutX="3.0" prefHeight="42.0" prefWidth="1046.0">
+        <items>
+            <Button mnemonicParsing="false" onAction="#goToOrderScreen" text="Make an Order" />
+            <SplitMenuButton mnemonicParsing="false" text="Options">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#goToMainScreen" text="Logout" />
+              </items>
+               <opaqueInsets>
+                  <Insets top="50.0" />
+               </opaqueInsets>
+            </SplitMenuButton>
+        </items>
+      </ToolBar>
+   </children>
+</AnchorPane>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SideFoodController">
+   <children>
+      <ScrollPane layoutX="-2.0" prefHeight="401.0" prefWidth="610.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="403.0" prefWidth="613.0">
+               <children>
+                  <ToolBar prefHeight="40.0" prefWidth="867.0">
+                    <items>
+                      <Button mnemonicParsing="false" onAction="#goToStatic" text="Back" />
+                    </items>
+                  </ToolBar>
+                  <Button layoutX="43.0" layoutY="102.0" mnemonicParsing="false" onAction="#getBeans" prefHeight="76.0" prefWidth="147.0" text="Beans">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="14.0" layoutY="49.0" prefHeight="35.0" prefWidth="122.0" style="-fx-background-color: orange;" text="Side Orders" />
+                  <Button layoutX="218.0" layoutY="102.0" mnemonicParsing="false" onAction="#getChips" prefHeight="76.0" prefWidth="147.0" text="Chips">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="43.0" layoutY="202.0" mnemonicParsing="false" onAction="#getColeslaw" prefHeight="76.0" prefWidth="147.0" text="Coleslaw">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="43.0" layoutY="294.0" mnemonicParsing="false" onAction="#getOnionRings" prefHeight="76.0" prefWidth="147.0" text="Onion-rings">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="218.0" layoutY="202.0" mnemonicParsing="false" onAction="#getGarlicbread" prefHeight="76.0" prefWidth="147.0" text="Garlic-Bread">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

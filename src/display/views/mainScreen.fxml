@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="389.0" prefWidth="719.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainScreen">
+    <children>
+        <ImageView fitHeight="389.0" fitWidth="753.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../resources/food.jpg" />
+            </image>
+        </ImageView>
+        <Circle layoutX="192.0" layoutY="220.0" radius="143.0" stroke="BLACK" strokeType="INSIDE">
+            <fill>
+                <RadialGradient centerX="0.5168539325842696" centerY="0.3942307692307693" cycleMethod="REPEAT" focusAngle="97.13" radius="0.5238095238095238">
+                    <stops>
+                        <Stop color="#0079ff" />
+                        <Stop color="#360000c5" offset="1.0" />
+                    </stops>
+                </RadialGradient>
+            </fill>
+        </Circle>
+        <Text layoutX="172.0" layoutY="225.0" scaleX="4.0" scaleY="4.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" />
+        <Button layoutX="42.0" layoutY="80.0" mnemonicParsing="false" onAction="#goToLogin" opacity="0.0" prefHeight="286.0" prefWidth="304.0" text="Login" textOverrun="CLIP" />
+        <Circle layoutX="605.0" layoutY="114.0" radius="100.0" stroke="BLACK" strokeType="INSIDE">
+            <fill>
+                <RadialGradient centerX="0.5168539325842696" centerY="0.3942307692307693" cycleMethod="REPEAT" focusAngle="97.13" radius="0.5238095238095238">
+                    <stops>
+                        <Stop color="#00ffe9" />
+                        <Stop color="#00ffe9" offset="0.007434944237918215" />
+                        <Stop color="#000cff" offset="1.0" />
+                    </stops>
+                </RadialGradient>
+            </fill>
+        </Circle>
+        <Text layoutX="579.0" layoutY="119.0" scaleX="3.0" scaleY="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register" />
+      <Button layoutX="497.0" layoutY="14.0" mnemonicParsing="false" onAction="#goToRegistration" opacity="0.0" prefHeight="200.0" prefWidth="218.0" text="register" textOverrun="CLIP" />
+    </children>
+</AnchorPane>

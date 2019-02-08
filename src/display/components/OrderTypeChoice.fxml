@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="rootPane" prefHeight="303.0" prefWidth="541.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OrderTypeChoiceController">
+   <children>
+      <Label fx:id="paneTitle" layoutX="28.0" layoutY="14.0" prefHeight="31.0" prefWidth="103.0" text="Label" />
+      <AnchorPane layoutX="14.0" layoutY="45.0" prefHeight="214.0" prefWidth="527.0">
+         <children>
+            <VBox fx:id="foodChoice" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="152.0" onMouseClicked="#foodChoiceClicked">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../resources/food-200x200.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="54.0" prefWidth="204.0" text="Food" textAlignment="CENTER" />
+               </children>
+            </VBox>
+            <VBox fx:id="sideChoice" layoutX="194.0" layoutY="14.0" prefHeight="200.0" prefWidth="152.0" onMouseClicked="#sideChoiceClicked">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../resources/sides-200x200.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="54.0" prefWidth="204.0" text="Sides">
+                     <VBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </VBox.margin></Label>
+               </children>
+            </VBox>
+            <VBox fx:id="drinkChoice" layoutX="362.0" layoutY="14.0" prefHeight="200.0" prefWidth="152.0" onMouseClicked="#drinkChoiceClicked">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../resources/drinks-200x200.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="54.0" prefWidth="204.0" text="Drinks" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <Button fx:id="backButton" layoutX="238.0" layoutY="259.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="31.0" prefWidth="71.0" text="Back" />
+   </children>
+</AnchorPane>
