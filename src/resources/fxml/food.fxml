@@ -18,7 +18,7 @@
             </ToolBar>
             <ImageView fitHeight="71.0" fitWidth="105.0" layoutX="6.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/burger.png" />
+                  <Image url="@../images/burger.png" />
                </image>
             </ImageView>
             <Button layoutX="122.0" layoutY="53.0" mnemonicParsing="false" onAction="#getLargeBurger" prefHeight="67.0" prefWidth="106.0" text="Large Burger" />
@@ -26,12 +26,12 @@
             <Button layoutX="399.0" layoutY="53.0" mnemonicParsing="false" onAction="#getSmallBurger" prefHeight="66.0" prefWidth="115.0" text="Small Burger" />
             <ImageView fitHeight="82.0" fitWidth="108.0" layoutX="6.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/kebab.png" />
+                  <Image url="@../images/kebab.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="80.0" fitWidth="123.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/pizza.png" />
+                  <Image url="@../images/pizza.png" />
                </image>
             </ImageView>
             <Button layoutX="397.0" layoutY="166.0" mnemonicParsing="false" onAction="#getSmallKebab" prefHeight="66.0" prefWidth="120.0" text="Small kebab" />

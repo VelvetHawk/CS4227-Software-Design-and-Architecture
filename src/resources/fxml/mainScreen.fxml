@@ -14,7 +14,7 @@
     <children>
         <ImageView fitHeight="389.0" fitWidth="753.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../resources/food.jpg" />
+                <Image url="@../images/food.jpg" />
             </image>
         </ImageView>
         <Circle layoutX="192.0" layoutY="220.0" radius="143.0" stroke="BLACK" strokeType="INSIDE">

@@ -14,49 +14,49 @@
          <children>
             <ImageView fitHeight="83.0" fitWidth="78.0" layoutX="23.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/clubOrange.png" />
+                  <Image url="@../images/clubOrange.png" />
                </image>
             </ImageView>
             <Button layoutX="28.0" layoutY="63.0" mnemonicParsing="false" onAction="#getClubOrange" opacity="0.0" prefHeight="79.0" prefWidth="56.0" text="club-orange" />
             <ImageView fitHeight="83.0" fitWidth="64.0" layoutX="92.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/cocacola.png" />
+                  <Image url="@../images/cocacola.png" />
                </image>
             </ImageView>
             <Button layoutX="94.0" layoutY="63.0" mnemonicParsing="false" onAction="#getCocacola" opacity="0.0" prefHeight="79.0" prefWidth="56.0" text="coca-cola" />
             <ImageView fitHeight="85.0" fitWidth="60.0" layoutX="169.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/dietCo.png" />
+                  <Image url="@../images/dietCo.png" />
                </image>
             </ImageView>
             <Button layoutX="165.0" layoutY="62.0" mnemonicParsing="false" onAction="#getDietcocacola" opacity="0.0" prefHeight="82.0" prefWidth="56.0" text="diet-co" />
             <ImageView fitHeight="78.0" fitWidth="67.0" layoutX="231.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/pepsi.png" />
+                  <Image url="@../images/pepsi.png" />
                </image>
             </ImageView>
             <Button layoutX="231.0" layoutY="61.0" mnemonicParsing="false" onAction="#getPepsi" opacity="0.0" prefHeight="84.0" prefWidth="56.0" text="pepsi" />
             <ImageView fitHeight="81.0" fitWidth="64.0" layoutX="166.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/pepsiMax.png" />
+                  <Image url="@../images/pepsiMax.png" />
                </image>
             </ImageView>
             <Button layoutX="165.0" layoutY="161.0" mnemonicParsing="false" onAction="#getPepsiMax" opacity="0.0" prefHeight="79.0" prefWidth="56.0" text="max-pepsi" />
             <ImageView fitHeight="80.0" fitWidth="55.0" layoutX="35.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/7Up.png" />
+                  <Image url="@../images/7Up.png" />
                </image>
             </ImageView>
             <Button layoutX="28.0" layoutY="161.0" mnemonicParsing="false" onAction="#getSevenUp" opacity="0.0" prefHeight="79.0" prefWidth="56.0" text="7up" />
             <ImageView fitHeight="85.0" fitWidth="58.0" layoutX="94.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/sprite.png" />
+                  <Image url="@../images/sprite.png" />
                </image>
             </ImageView>
             <Button layoutX="94.0" layoutY="159.0" mnemonicParsing="false" onAction="#getSprite" opacity="0.0" prefHeight="79.0" prefWidth="56.0" text="sprit" />
             <ImageView fitHeight="75.0" fitWidth="66.0" layoutX="244.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/water.png" />
+                  <Image url="@../images/water.png" />
                </image>
             </ImageView>
             <Button layoutX="231.0" layoutY="161.0" mnemonicParsing="false" onAction="#getWater" opacity="0.0" prefHeight="79.0" prefWidth="56.0" text="water" />

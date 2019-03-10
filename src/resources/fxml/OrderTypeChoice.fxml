@@ -17,7 +17,7 @@
                <children>
                   <ImageView fitHeight="150.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/food-200x200.png" />
+                        <Image url="@../images/food-200x200.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="54.0" prefWidth="204.0" text="Food" textAlignment="CENTER" />
@@ -27,7 +27,7 @@
                <children>
                   <ImageView fitHeight="150.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/sides-200x200.png" />
+                        <Image url="@../images/sides-200x200.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="54.0" prefWidth="204.0" text="Sides">
@@ -40,7 +40,7 @@
                <children>
                   <ImageView fitHeight="150.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/drinks-200x200.png" />
+                        <Image url="@../images/drinks-200x200.png" />
                      </image>
                   </ImageView>
                   <Label prefHeight="54.0" prefWidth="204.0" text="Drinks" />

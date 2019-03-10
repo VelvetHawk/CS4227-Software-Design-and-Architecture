@@ -58,3 +58,7 @@ hs_err_pid*
 release.properties
 pom.xml.releaseBackup
 pom.xml.tag
+
+# Gradle
+.gradletasknamecache
+.gradle/
