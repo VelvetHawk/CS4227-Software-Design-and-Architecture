@@ -15,7 +15,7 @@ public class Restaurant extends Application
     {
         ScreensController mainContainer = new ScreensController();
     
-        final String fxmlRootPath = "../../resources/fxml/";
+        final String fxmlRootPath = "../resources/fxml/";
         
         // Screens
         mainContainer.loadScreen(Screens.MAIN, fxmlRootPath + "mainScreen.fxml");
