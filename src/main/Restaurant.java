@@ -32,6 +32,7 @@ public class Restaurant extends Application
         mainContainer.loadPopUpScreen(PopUpScreens.SELECT_TOPPING, fxmlRootPath + "toppings.fxml");
         mainContainer.loadPopUpScreen(PopUpScreens.SELECT_SIDE, fxmlRootPath + "sides.fxml");
 
+
         mainContainer.setScreen(Screens.MAIN); // set the main screen at the start
         // grouping the scene to root.
         Group root = new Group();

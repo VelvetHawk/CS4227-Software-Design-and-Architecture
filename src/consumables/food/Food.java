@@ -4,5 +4,6 @@ public enum Food
 {
     BURGER,
     KEBAB,
-    PIZZA
+    PIZZA,
+    CHICKENBURGER
 }

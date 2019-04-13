@@ -5,10 +5,7 @@ import consumables.basics.BasicTopping;
 import consumables.decorators.Consumable;
 import consumables.decorators.ConsumableFactory;
 import consumables.drinks.Drinks;
-import consumables.food.Burger;
-import consumables.food.Food;
-import consumables.food.Kebab;
-import consumables.food.Pizza;
+import consumables.food.*;
 import consumables.side.*;
 import consumables.toppings.*;
 
@@ -30,6 +27,8 @@ public class FoodFactory extends ConsumableFactory
                 return new Kebab(addTo);
             case PIZZA:
                 return new Pizza(addTo);
+            case CHICKENBURGER:
+                return new ChickenBurger(addTo);
             default:
                 return null;
         }

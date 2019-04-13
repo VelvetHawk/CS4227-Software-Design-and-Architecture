@@ -35,11 +35,39 @@ public class MealBuilder {
         chickenMeal.addItem(drink);
         foodFactory = FactoryProducer.getFactory(Consumables.FOOD);
         Consumable food = foodFactory.getFood();
-        food = foodFactory.addFood(Food.KEBAB, food);
+        food = foodFactory.addFood(Food.CHICKENBURGER, food);
         chickenMeal.addItem(food);
         return chickenMeal;
 
     }
+
+    public Meal prepareBeefBurgerMeal(){
+        Meal beefBurgerMeal = new Meal();
+        drinkFactory = FactoryProducer.getFactory(Consumables.DRINK);
+        Consumable drink = drinkFactory.getDrink();
+        drink = drinkFactory.addDrink(Drinks.COCACOLA, drink);
+        beefBurgerMeal.addItem(drink);
+        foodFactory = FactoryProducer.getFactory(Consumables.FOOD);
+        Consumable food = foodFactory.getFood();
+        food = foodFactory.addFood(Food.BURGER, food);
+        beefBurgerMeal.addItem(food);
+        return beefBurgerMeal;
+    }
+
+    public Meal prepareKebabMeal(){
+        Meal kebabMeal = new Meal();
+        drinkFactory = FactoryProducer.getFactory(Consumables.DRINK);
+        Consumable drink = drinkFactory.getDrink();
+        drink = drinkFactory.addDrink(Drinks.COCACOLA, drink);
+        kebabMeal.addItem(drink);
+        foodFactory = FactoryProducer.getFactory(Consumables.FOOD);
+        Consumable food = foodFactory.getFood();
+        food = foodFactory.addFood(Food.KEBAB, food);
+        kebabMeal.addItem(food);
+        return kebabMeal;
+    }
+
+
 }
 
 
