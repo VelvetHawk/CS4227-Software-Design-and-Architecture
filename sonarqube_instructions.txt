@@ -1,0 +1,35 @@
+1. Download https://www.sonarqube.org/downloads/
+2. Unzip it to a folder
+3. Go to bin/windows folder
+4. Add the contents of bin folder to PATH
+5. While in bin/windows type StartSonar to start server
+6. Wait for server to start and go to localhost:9000 in browser to see if it working
+7. next download https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-windows.zip
+8. unzip it to a folder
+9. Go to bin/windows folder
+10. add the contents of bin folder to PATH
+11. go to project folder
+12. add a file called sonar-project.properties
+13. in this file add the following:
+
+
+#Configure here general information about the environment, such as SonarQube server connection details for example
+#No information about specific project should appear here
+
+#----- Default SonarQube server
+#sonar.host.url=http://localhost:9000
+
+#----- Default source code encoding
+#sonar.sourceEncoding=UTF-8
+
+sonar.projectKey=CS4227
+sonar.projectName=CS4227
+sonar.projectVersion=1.0
+sonar.sources=src
+sonar.java.binaries=out
+
+
+14. open terminal in project directory
+15. enter sonar-scanner -h to test its working
+16. with the sonarqube server running as above enter sonar-scanner
+17. check the localhost:9000 website projects page to see statistics
