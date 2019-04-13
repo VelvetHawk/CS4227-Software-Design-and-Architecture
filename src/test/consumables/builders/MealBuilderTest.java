@@ -2,6 +2,7 @@ package consumables.builders;
 
 import consumables.decorators.Consumable;
 import org.junit.Test;
+import prototype.Prototype;
 
 import java.util.ArrayList;
 
@@ -42,6 +43,21 @@ public class MealBuilderTest {
             System.out.println(contents.get(i));
         }
 
+
+    }
+
+    @Test
+    public void testMealClone(){
+        MealBuilder mealBuilder = new MealBuilder();
+        Meal kebabMeal = mealBuilder.prepareKebabMeal();
+        Meal cloneKebabMeal;
+        try {
+            cloneKebabMeal = (Meal)kebabMeal.clone();
+            assertEquals(kebabMeal.getContents(), cloneKebabMeal.getContents());
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
 
     }
 

@@ -1,9 +1,10 @@
 package consumables.builders;
 
 import consumables.decorators.Consumable;
+import prototype.Prototype;
 import java.util.ArrayList;
 
-public class Meal {
+public class Meal extends Prototype{
     ArrayList<Consumable> items = new ArrayList<Consumable>();
 
     public void addItem(Consumable item){
@@ -22,6 +23,10 @@ public class Meal {
 
     public ArrayList<Consumable> getContents(){
         return items;
+    }
+
+    public Prototype clone() throws CloneNotSupportedException{
+          return super.clone();
     }
 }
 
