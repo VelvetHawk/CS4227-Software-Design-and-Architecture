@@ -63,7 +63,19 @@ public class MakeOrderController implements Initializable, ControlledScreen, Obs
 	{
 
 	}
-	
+
+	@FXML
+	public void undoButton(ActionEvent event)
+	{
+		System.out.println("undo");
+	}
+
+	@FXML
+	public void redoButton(ActionEvent event)
+	{
+		System.out.println("redo");
+	}
+
 	@Override
 	public void update()
 	{
