@@ -158,6 +158,7 @@ public class ScreensController extends StackPane
     
     public void setPopUpScreen(PopUpScreens screen)
     {
-	    popUpScreens.get(screen).show();
+	    System.out.println();
+    	popUpScreens.get(screen).show();
     }
 }

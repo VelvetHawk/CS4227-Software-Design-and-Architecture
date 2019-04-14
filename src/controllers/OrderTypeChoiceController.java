@@ -66,6 +66,9 @@ public class OrderTypeChoiceController implements Initializable , ControlledScre
 		myController.setPopUpScreen(PopUpScreens.SELECT_DRINK);
 	}
 
+	@FXML
+	private void mealChoiceClicked(MouseEvent event){ myController.setPopUpScreen(PopUpScreens.SELECT_MEAL); }
+
     @FXML
     private void backButtonClicked(ActionEvent event)
     {

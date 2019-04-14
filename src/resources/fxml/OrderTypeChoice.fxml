@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="rootPane" prefHeight="303.0" prefWidth="541.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OrderTypeChoiceController">
+<AnchorPane fx:id="rootPane" prefHeight="303.0" prefWidth="541.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OrderTypeChoiceController">
    <children>
       <Label fx:id="paneTitle" layoutX="28.0" layoutY="14.0" prefHeight="31.0" prefWidth="103.0" text="Label" />
-      <AnchorPane layoutX="14.0" layoutY="45.0" prefHeight="214.0" prefWidth="527.0">
+      <AnchorPane layoutX="14.0" layoutY="45.0" prefHeight="214.0" prefWidth="716.0">
          <children>
-            <VBox fx:id="foodChoice" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="152.0" onMouseClicked="#foodChoiceClicked">
+            <VBox fx:id="foodChoice" layoutX="14.0" layoutY="14.0" onMouseClicked="#foodChoiceClicked" prefHeight="200.0" prefWidth="152.0">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -23,7 +23,7 @@
                   <Label prefHeight="54.0" prefWidth="204.0" text="Food" textAlignment="CENTER" />
                </children>
             </VBox>
-            <VBox fx:id="sideChoice" layoutX="194.0" layoutY="14.0" prefHeight="200.0" prefWidth="152.0" onMouseClicked="#sideChoiceClicked">
+            <VBox fx:id="sideChoice" layoutX="194.0" layoutY="14.0" onMouseClicked="#sideChoiceClicked" prefHeight="200.0" prefWidth="152.0">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -36,7 +36,7 @@
                      </VBox.margin></Label>
                </children>
             </VBox>
-            <VBox fx:id="drinkChoice" layoutX="362.0" layoutY="14.0" prefHeight="200.0" prefWidth="152.0" onMouseClicked="#drinkChoiceClicked">
+            <VBox fx:id="drinkChoice" layoutX="362.0" layoutY="14.0" onMouseClicked="#drinkChoiceClicked" prefHeight="200.0" prefWidth="152.0">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -44,6 +44,16 @@
                      </image>
                   </ImageView>
                   <Label prefHeight="54.0" prefWidth="204.0" text="Drinks" />
+               </children>
+            </VBox>
+            <VBox fx:id="mealChoice" layoutX="541.0" layoutY="15.0" onMouseClicked="#mealChoiceClicked" prefHeight="156.0" prefWidth="141.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/burger.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Meals" />
                </children>
             </VBox>
          </children>
