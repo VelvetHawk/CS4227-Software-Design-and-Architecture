@@ -14,7 +14,22 @@ public class SideFoodController implements Initializable, ControlledScreen
 {
     ScreensController myController;
     private ConsumableFactory sideFactory;
-    
+    private static SideFoodController instance; // create a static controller instance,
+
+    public SideFoodController() { instance = this; } // no arg constructor
+
+
+    public static SideFoodController getInstance() // get instance of the controller
+    {
+        if (instance == null)
+        {
+            instance = new SideFoodController();
+            return instance;
+        }
+        else
+            return instance;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {

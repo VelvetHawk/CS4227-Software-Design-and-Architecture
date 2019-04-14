@@ -21,6 +21,21 @@ public class OrderTypeChoiceController implements Initializable , ControlledScre
 	@FXML private VBox drinkChoice;
 	@FXML private Button backButton;
 	private ScreensController myController;
+	private static OrderTypeChoiceController instance; // create a static controller instance,
+
+	public OrderTypeChoiceController() { instance = this; } // no arg constructor
+
+
+	public static OrderTypeChoiceController getInstance() // get instance of the controller
+	{
+		if (instance == null)
+		{
+			instance = new OrderTypeChoiceController();
+			return instance;
+		}
+		else
+			return instance;
+	}
 
     @Override
     public void initialize(URL url, ResourceBundle rb)

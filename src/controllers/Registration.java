@@ -23,6 +23,22 @@ public class Registration implements Initializable , ControlledScreen
     @FXML private PasswordField password_Field;
     @FXML private PasswordField password_Field1;
     private ScreensController myController;
+
+    private static Registration instance; // create a static controller instance,
+
+    public Registration() { instance = this; } // no arg constructor
+
+
+    public static Registration getInstance() // get instance of the controller
+    {
+        if (instance == null)
+        {
+            instance = new Registration();
+            return instance;
+        }
+        else
+            return instance;
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb)

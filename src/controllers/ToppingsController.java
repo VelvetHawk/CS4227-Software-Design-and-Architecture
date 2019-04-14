@@ -16,7 +16,22 @@ public class ToppingsController implements Initializable, ControlledScreen
 {
     ScreensController myController;
 	private ConsumableFactory toppingFactory;
-	
+    private static ToppingsController instance; // create a static controller instance,
+
+    public ToppingsController() { instance = this; } // no arg constructor
+
+
+    public static ToppingsController getInstance() // get instance of the controller
+    {
+        if (instance == null)
+        {
+            instance = new ToppingsController();
+            return instance;
+        }
+        else
+            return instance;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {

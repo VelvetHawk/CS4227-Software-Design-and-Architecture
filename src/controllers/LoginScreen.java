@@ -16,6 +16,22 @@ public class LoginScreen implements Initializable, ControlledScreen
     @FXML private PasswordField password;
     private ScreensController myController;
 
+    private static LoginScreen instance; // create a static controller instance,
+
+    public LoginScreen() { instance = this; } // no arg constructor
+
+
+    public static LoginScreen getInstance() // get instance of the controller
+    {
+        if (instance == null)
+        {
+            instance = new LoginScreen();
+            return instance;
+        }
+        else
+            return instance;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {

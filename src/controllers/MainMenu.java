@@ -10,6 +10,21 @@ import javafx.fxml.Initializable;
 public class MainMenu implements Initializable, ControlledScreen
 {
     private ScreensController myController;
+    private static MainMenu instance; // create a static controller instance,
+
+    public MainMenu() { instance = this; } // no arg constructor
+
+
+    public static MainMenu getInstance() // get instance of the controller
+    {
+        if (instance == null)
+        {
+            instance = new MainMenu();
+            return instance;
+        }
+        else
+            return instance;
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb)

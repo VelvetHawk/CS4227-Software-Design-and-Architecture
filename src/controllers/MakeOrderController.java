@@ -31,6 +31,22 @@ public class MakeOrderController implements Initializable, ControlledScreen, Obs
 	@FXML private Label totalAmountLabel;
 	@FXML private ScrollPane scrollPane;
 	private ScreensController myController;
+
+	private static MakeOrderController instance; // create a static controller instance,
+
+	public MakeOrderController() { instance = this; } // no arg constructor
+
+
+	public static MakeOrderController getInstance() // get instance of the controller
+	{
+		if (instance == null)
+		{
+			instance = new MakeOrderController();
+			return instance;
+		}
+		else
+			return instance;
+	}
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb)
