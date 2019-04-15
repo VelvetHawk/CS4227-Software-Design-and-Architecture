@@ -1,7 +1,16 @@
 package controllers;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import consumables.Size;
+import consumables.builders.Meal;
+import consumables.builders.MealBuilder;
+import consumables.food.Food;
+import consumables.decorators.*;
+import consumables.factories.FactoryProducer;
+import consumables.food.Food;
 import display.views.PopUpScreens;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -22,10 +31,12 @@ public class MealController implements Initializable , ControlledScreen
     @FXML private Button backButton;
     private ScreensController myController;
 
+    private ConsumableFactory foodFactory;
+
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-
+        foodFactory = FactoryProducer.getFactory(Consumables.FOOD);
     }
 
     public void setScreenParent(ScreensController screenParent)
@@ -40,30 +51,39 @@ public class MealController implements Initializable , ControlledScreen
     }
 
     @FXML
-    private void foodChoiceClicked(MouseEvent event)
+    private void getBeefBurgerMeal(ActionEvent event)
     {
-        myController.setPopUpScreen(PopUpScreens.SELECT_FOOD);
+        MealBuilder mealBuilder = new MealBuilder();
+        Meal beefBurgerMeal = mealBuilder.prepareBeefBurgerMeal();
+        addFood(beefBurgerMeal);
+        //addFood(Food.BURGER, Size.LARGE);
     }
 
-    @FXML
-    private void sideChoiceClicked(MouseEvent event)
+    private void addFood(Food foodType, Size size)
     {
-        myController.setPopUpScreen(PopUpScreens.SELECT_SIDE);
+        Consumable food = foodFactory.getFood();
+        food = foodFactory.addFood(foodType, food);
+        myController.getCustomerOrder().addFood((FoodDecorator) food, size);
     }
 
-    @FXML
-    private void drinkChoiceClicked(MouseEvent event)
+    private void addFood(Meal mealType)
     {
-        myController.setPopUpScreen(PopUpScreens.SELECT_DRINK);
+       ArrayList<Consumable> contents = mealType.getContents();
+       for(int i=0;i<contents.size();i++){
+           Consumable item = contents.get(i);
+           if(item instanceof FoodDecorator){
+               myController.getCustomerOrder().addFood((FoodDecorator)item);
+           }
+           else if(item instanceof DrinkDecorator){
+               myController.getCustomerOrder().addDrink((DrinkDecorator)item);
+           }
+           else if(item instanceof SideDecorator){
+               myController.getCustomerOrder().addSide((SideDecorator)item);
+           }
+       }
+
     }
 
-    @FXML
-    private void mealChoiceClicked(MouseEvent event){ myController.setPopUpScreen(PopUpScreens.SELECT_MEAL); }
 
-    @FXML
-    private void backButtonClicked(ActionEvent event)
-    {
-        ((Button)event.getTarget()).getScene().getWindow().hide();
-    }
 }
 

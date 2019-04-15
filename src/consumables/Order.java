@@ -22,6 +22,7 @@ public class Order implements Subject
 		food = new ArrayList<>();
 		sides = new ArrayList<>();
 		drinks = new ArrayList<>();
+
 		observers = new ArrayList<>();
 	}
 
@@ -136,6 +137,8 @@ public class Order implements Subject
 		sides.remove(side);
 		notifyAllObservers();
 	}
+
+
 	
 	@Override
 	public void notifyAllObservers()
