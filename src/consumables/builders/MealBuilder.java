@@ -7,12 +7,14 @@ import consumables.drinks.CocaCola;
 import consumables.drinks.Drinks;
 import consumables.factories.FactoryProducer;
 import consumables.food.Food;
+import consumables.side.Sides;
 import controllers.ScreensController;
 
 public class MealBuilder {
     private ScreensController myController;
     private ConsumableFactory drinkFactory;
     private ConsumableFactory foodFactory;
+    private ConsumableFactory sideFactory;
 
     public void sayHello(){
         System.out.println("This is the MealBuilder");
@@ -51,6 +53,10 @@ public class MealBuilder {
         Consumable food = foodFactory.getFood();
         food = foodFactory.addFood(Food.BURGER, food);
         beefBurgerMeal.addItem(food);
+        sideFactory = FactoryProducer.getFactory(Consumables.SIDE);
+        Consumable side = sideFactory.getSide();
+        side = sideFactory.addSide(Sides.CHIPS, side);
+        beefBurgerMeal.addItem(side);
         return beefBurgerMeal;
     }
 

@@ -31,6 +31,8 @@ public class Restaurant extends Application
         mainContainer.loadPopUpScreen(PopUpScreens.SELECT_FOOD, fxmlRootPath + "food.fxml");
         mainContainer.loadPopUpScreen(PopUpScreens.SELECT_TOPPING, fxmlRootPath + "toppings.fxml");
         mainContainer.loadPopUpScreen(PopUpScreens.SELECT_SIDE, fxmlRootPath + "sides.fxml");
+        mainContainer.loadPopUpScreen(PopUpScreens.SELECT_MEAL, fxmlRootPath + "meals.fxml");
+
 
 
         mainContainer.setScreen(Screens.MAIN); // set the main screen at the start
