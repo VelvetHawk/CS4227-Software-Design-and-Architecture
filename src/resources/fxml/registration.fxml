@@ -31,10 +31,14 @@
             <TextField fx:id="usernameTextField" layoutX="148.0" layoutY="128.0" />
             <TextField fx:id="addressTextField" layoutX="148.0" layoutY="240.0" />
             <TextField fx:id="phoneTextField" layoutX="148.0" layoutY="276.0" />
-            <Button layoutX="19.0" layoutY="330.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="27.0" prefWidth="87.0" text="Register" />
-            <Button layoutX="257.0" layoutY="329.0" mnemonicParsing="false" onAction="#goToMainScreen" prefHeight="27.0" prefWidth="87.0" text="Back" />
+            <Button layoutY="333.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="27.0" prefWidth="87.0" text="Register" />
+            <Button layoutX="284.0" layoutY="333.0" mnemonicParsing="false" onAction="#goToMainScreen" prefHeight="27.0" prefWidth="87.0" text="Back" />
             <PasswordField fx:id="password_Field" layoutX="148.0" layoutY="163.0" />
             <PasswordField fx:id="password_Field1" layoutX="148.0" layoutY="202.0" />
+            <Button layoutX="96.0" layoutY="334.0" mnemonicParsing="false" onAction="#saveButton" text="Save Progress" />
+            <Button layoutX="186.0" layoutY="334.0" mnemonicParsing="false" onAction="#undoButton" prefHeight="25.0" prefWidth="46.0" text="Undo" />
+            <Button layoutX="232.0" layoutY="334.0" mnemonicParsing="false" onAction="#redoButton" prefHeight="25.0" prefWidth="46.0" text="Redo" />
+            <Button layoutX="311.0" layoutY="215.0" mnemonicParsing="false" onAction="#printMementos" text="print mementos" />
          </children>
       </AnchorPane>
    </children>

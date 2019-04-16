@@ -2,6 +2,9 @@ package controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import controllers.memento.RegistrationCaretaker;
+import controllers.memento.RegistrationMemento;
 import display.views.Screens;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
@@ -23,23 +26,31 @@ public class Registration implements Initializable , ControlledScreen
     @FXML private PasswordField password_Field;
     @FXML private PasswordField password_Field1;
     private ScreensController myController;
+    private String nameString;
+    private String surnameString;
+    private String usernameString;
+    private String emailString;
+    private String addressString;
+    private String phoneString;
+    int counter = 0 ;
 
     private static Registration instance; // create a static controller instance,
+
+    RegistrationCaretaker caretaker = new RegistrationCaretaker();
+
 
     public Registration() { instance = this; } // no arg constructor
 
 
     public static Registration getInstance() // get instance of the controller
     {
-        if (instance == null)
-        {
+        if (instance == null) {
             instance = new Registration();
             return instance;
-        }
-        else
+        } else
             return instance;
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
@@ -143,9 +154,85 @@ public class Registration implements Initializable , ControlledScreen
         }
     }
 
+    // Save to memento
+    public RegistrationMemento saveToMemento() {
+        return new RegistrationMemento(nameString,surnameString,usernameString);
+    }
+
+    // Undo from memento
+    public void undoFromMemento(RegistrationMemento memento)
+    {
+        String s1 = memento.getNameString();
+        String s2 = memento.getSurnameString();
+        String s3 = memento.getUsernameString();
+        printToTextField(s1,s2,s3);
+    }
+
+    public void printToTextField(String a, String b, String c) {
+        nameTextField.setText(a);
+        surnameTextField.setText(b);
+        usernameTextField.setText(c);
+    }
+
+    @FXML
+    public void undoButton()
+    {
+        counter--;
+        undoFromMemento(caretaker.getMemento(counter));
+    }
+
+    @FXML
+    public void saveButton()
+    {
+        String s1 = nameTextField.getText();
+        String s2 = surnameTextField.getText();
+        String s3 = usernameTextField.getText();
+
+        nameString = s1;
+        surnameString = s2;
+        usernameString = s3;
+
+        caretaker.addMemento(instance.saveToMemento());
+        counter++;
+    }
+
+    @FXML
+    public void redoButton(ActionEvent event)
+    {
+        System.out.println("redo");
+    }
+
     @FXML
     private void goToMainScreen(ActionEvent event) throws Exception
     {
         myController.setScreen(Screens.MAIN);
+    }
+
+    public void printMementos() {
+        caretaker.printTheDifferentMementosCurrentlyStored();
+    }
+
+    public void setNameString(String nameString) {
+        this.nameString = nameString;
+    }
+
+    public void setSurnameString(String surnameString) {
+        this.surnameString = surnameString;
+    }
+
+    public void setUsernameString(String usernameString) {
+        this.usernameString = usernameString;
+    }
+
+    public void setEmailString(String emailString) {
+        this.emailString = emailString;
+    }
+
+    public void setAddressString(String addressString) {
+        this.addressString = addressString;
+    }
+
+    public void setPhoneString(String phoneString) {
+        this.phoneString = phoneString;
     }
 }
