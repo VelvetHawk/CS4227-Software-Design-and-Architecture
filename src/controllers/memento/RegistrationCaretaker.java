@@ -2,13 +2,9 @@ package controllers.memento;
 
 import java.util.ArrayList;
 
-public class RegistrationCaretaker {
-
-    ArrayList<RegistrationMemento> mementos = new ArrayList<RegistrationMemento>();
-
-    public RegistrationCaretaker() {
-        System.out.println("RegistrationCaretaker has been initiated");
-    }
+public class RegistrationCaretaker
+{
+    private ArrayList<RegistrationMemento> mementos = new ArrayList<>();
 
     public RegistrationMemento getMemento(int index)
     {
@@ -21,12 +17,15 @@ public class RegistrationCaretaker {
     }
 
     public void printTheDifferentMementosCurrentlyStored() {
-        System.out.println(mementos.size());
+        System.out.println("size of mementos: "+ mementos.size());
         for (int i = 0; i < mementos.size(); i++) {
             System.out.println("Iteration: " + i);
-            System.out.println("1:"+mementos.get(i).getNameString());
-            System.out.println("2:"+mementos.get(i).getSurnameString());
-            System.out.println("3:"+mementos.get(i).getUsernameString());
+            System.out.println("Name:"+mementos.get(i).getNameTextField().getText());
+            System.out.println("Surname:"+mementos.get(i).getSurnameTextField().getText());
+            System.out.println("Email:"+mementos.get(i).getEmailTextField().getText());
+            System.out.println("username:"+mementos.get(i).getUsernameTextField().getText());
+            System.out.println("Address:"+mementos.get(i).getAddressTextField().getText());
+            System.out.println("Phone:"+mementos.get(i).getPhoneTextField().getText());
         }
     }
 }

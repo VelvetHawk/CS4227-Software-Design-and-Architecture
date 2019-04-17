@@ -1,31 +1,60 @@
 package controllers.memento;
 
-import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-public class RegistrationMemento {
+public class RegistrationMemento
+{
+    private TextField nameTextField;
+    private TextField surnameTextField;
+    private TextField usernameTextField;
+    private TextField emailTextField;
+    private TextField addressTextField;
+    private TextField phoneTextField;
 
-    private String nameString;
-    private String surnameString;
-    private String usernameString;
-
-    public RegistrationMemento(String nameString, String surnameString, String usernameString) {
-        this.nameString = nameString;
-        this.surnameString = surnameString;
-        this.usernameString = usernameString;
+    public RegistrationMemento(TextField nameTextField,
+                               TextField surnameTextField,
+                               TextField emailTextField,
+                               TextField usernameTextField,
+                               TextField addressTextField,
+                               TextField phoneTextField)
+    {
+        this.nameTextField = nameTextField;
+        this.surnameTextField = surnameTextField;
+        this.usernameTextField = usernameTextField;
+        this.emailTextField = emailTextField;
+        this.addressTextField = addressTextField;
+        this.phoneTextField = phoneTextField;
     }
 
-    public String getNameString() {
-        return nameString;
+    public TextField getNameTextField()
+    {
+        return nameTextField;
     }
 
-    public String getSurnameString() {
-        return surnameString;
+    public TextField getSurnameTextField()
+    {
+        return surnameTextField;
     }
 
-    public String getUsernameString() {
-        return usernameString;
+    public TextField getUsernameTextField()
+    {
+        return usernameTextField;
+    }
+
+    public TextField getEmailTextField()
+    {
+        return emailTextField;
+    }
+
+    public TextField getAddressTextField()
+    {
+        return addressTextField;
+    }
+
+    public TextField getPhoneTextField()
+    {
+        return phoneTextField;
     }
 }
 

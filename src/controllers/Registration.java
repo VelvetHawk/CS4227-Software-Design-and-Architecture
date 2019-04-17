@@ -7,6 +7,7 @@ import controllers.memento.RegistrationCaretaker;
 import controllers.memento.RegistrationMemento;
 import display.views.Screens;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
@@ -19,27 +20,24 @@ public class Registration implements Initializable , ControlledScreen
     private RegisterModel model;
     @FXML private TextField nameTextField;
     @FXML private TextField surnameTextField;
-    @FXML private TextField usernameTextField;
     @FXML private TextField emailTextField;
+    @FXML private TextField usernameTextField;
     @FXML private TextField addressTextField;
     @FXML private TextField phoneTextField;
     @FXML private PasswordField password_Field;
     @FXML private PasswordField password_Field1;
+    @FXML private Button undoButton;
+    @FXML private Button redoButton;
     private ScreensController myController;
-    private String nameString;
-    private String surnameString;
-    private String usernameString;
-    private String emailString;
-    private String addressString;
-    private String phoneString;
-    int counter = 0 ;
+    private int counter = 0 ;
 
     private static Registration instance; // create a static controller instance,
 
     RegistrationCaretaker caretaker = new RegistrationCaretaker();
 
-
-    public Registration() { instance = this; } // no arg constructor
+    public Registration() {
+        instance = this;
+    } // no arg constructor
 
 
     public static Registration getInstance() // get instance of the controller
@@ -155,44 +153,70 @@ public class Registration implements Initializable , ControlledScreen
     }
 
     // Save to memento
-    public RegistrationMemento saveToMemento() {
-        return new RegistrationMemento(nameString,surnameString,usernameString);
+    public RegistrationMemento saveToMemento()
+    {
+        return new RegistrationMemento(
+                new TextField(nameTextField.getText()),
+                new TextField(surnameTextField.getText()),
+                new TextField(emailTextField.getText()),
+                new TextField(usernameTextField.getText()),
+                new TextField(addressTextField.getText()),
+                new TextField(phoneTextField.getText())
+        );
     }
 
     // Undo from memento
     public void undoFromMemento(RegistrationMemento memento)
     {
-        String s1 = memento.getNameString();
-        String s2 = memento.getSurnameString();
-        String s3 = memento.getUsernameString();
-        printToTextField(s1,s2,s3);
+        String setTextName = memento.getNameTextField().getText();
+        String setTextSurname = memento.getSurnameTextField().getText();
+        String setTextEmail = memento.getEmailTextField().getText();
+        String setTextUser = memento.getUsernameTextField().getText();
+        String setTextAdd = memento.getAddressTextField().getText();
+        String setTextPhone = memento.getPhoneTextField().getText();
+        printToTextField(
+                setTextName,
+                setTextSurname,
+                setTextEmail,
+                setTextUser,
+                setTextAdd,
+                setTextPhone
+        );
     }
 
-    public void printToTextField(String a, String b, String c) {
-        nameTextField.setText(a);
-        surnameTextField.setText(b);
-        usernameTextField.setText(c);
+    public void printToTextField(String name,
+                                 String surname,
+                                 String email,
+                                 String user,
+                                 String add,
+                                 String phone)
+    {
+        nameTextField.setText(name);
+        surnameTextField.setText(surname);
+        emailTextField.setText(email);
+        usernameTextField.setText(user);
+        addressTextField.setText(add);
+        phoneTextField.setText(phone);
     }
 
     @FXML
     public void undoButton()
     {
         counter--;
+        if (counter < 0)
+        {
+            counter = 0;
+            undoButton.setDisable(true);
+        }
+        else
+            undoButton.setDisable(false);
         undoFromMemento(caretaker.getMemento(counter));
     }
 
     @FXML
     public void saveButton()
     {
-        String s1 = nameTextField.getText();
-        String s2 = surnameTextField.getText();
-        String s3 = usernameTextField.getText();
-
-        nameString = s1;
-        surnameString = s2;
-        usernameString = s3;
-
-        caretaker.addMemento(instance.saveToMemento());
+        caretaker.addMemento(saveToMemento());
         counter++;
     }
 
@@ -212,27 +236,27 @@ public class Registration implements Initializable , ControlledScreen
         caretaker.printTheDifferentMementosCurrentlyStored();
     }
 
-    public void setNameString(String nameString) {
-        this.nameString = nameString;
+    public void setNameTextField(TextField nameTextField) {
+        this.nameTextField = nameTextField;
     }
 
-    public void setSurnameString(String surnameString) {
-        this.surnameString = surnameString;
+    public void setSurnameTextField(TextField surnameTextField) {
+        this.surnameTextField = surnameTextField;
     }
 
-    public void setUsernameString(String usernameString) {
-        this.usernameString = usernameString;
+    public void setUsernameTextField(TextField usernameTextField) {
+        this.usernameTextField = usernameTextField;
     }
 
-    public void setEmailString(String emailString) {
-        this.emailString = emailString;
+    public void setEmailTextField(TextField emailTextField) {
+        this.emailTextField = emailTextField;
     }
 
-    public void setAddressString(String addressString) {
-        this.addressString = addressString;
+    public void setAddressTextField(TextField addressTextField) {
+        this.addressTextField = addressTextField;
     }
 
-    public void setPhoneString(String phoneString) {
-        this.phoneString = phoneString;
+    public void setPhoneTextField(TextField phoneTextField) {
+        this.phoneTextField = phoneTextField;
     }
 }

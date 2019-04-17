@@ -36,8 +36,8 @@
             <PasswordField fx:id="password_Field" layoutX="148.0" layoutY="163.0" />
             <PasswordField fx:id="password_Field1" layoutX="148.0" layoutY="202.0" />
             <Button layoutX="96.0" layoutY="334.0" mnemonicParsing="false" onAction="#saveButton" text="Save Progress" />
-            <Button layoutX="186.0" layoutY="334.0" mnemonicParsing="false" onAction="#undoButton" prefHeight="25.0" prefWidth="46.0" text="Undo" />
-            <Button layoutX="232.0" layoutY="334.0" mnemonicParsing="false" onAction="#redoButton" prefHeight="25.0" prefWidth="46.0" text="Redo" />
+            <Button fx:id="undoButton" layoutX="186.0" layoutY="334.0" mnemonicParsing="false" onAction="#undoButton" prefHeight="25.0" prefWidth="46.0" text="Undo" />
+            <Button fx:id="redoButton" layoutX="232.0" layoutY="334.0" mnemonicParsing="false" onAction="#redoButton" prefHeight="25.0" prefWidth="46.0" text="Redo" />
             <Button layoutX="311.0" layoutY="215.0" mnemonicParsing="false" onAction="#printMementos" text="print mementos" />
          </children>
       </AnchorPane>

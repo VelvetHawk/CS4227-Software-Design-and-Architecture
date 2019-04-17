@@ -71,6 +71,7 @@ public class MakeOrderController implements Initializable, ControlledScreen, Obs
 	@FXML
 	public void addItemButtonClicked(ActionEvent event)
 	{
+		System.out.println("add button clicked");
 		myController.setPopUpScreen(PopUpScreens.ORDER_TYPE_CHOICE);
 	}
 	
