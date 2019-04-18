@@ -1,14 +1,9 @@
-package controllers.Stock;
+package controllers.stock;
 
-import command.Broker;
-import command.BuyStock;
-import consumables.decorators.Consumable;
 import consumables.decorators.ConsumableFactory;
 import consumables.decorators.Consumables;
 import consumables.decorators.DrinkDecorator;
-import consumables.drinks.ClubOrange;
 import consumables.drinks.Drinks;
-import consumables.factories.DrinksFactory;
 import consumables.factories.FactoryProducer;
 import controllers.ControlledScreen;
 import controllers.ScreensController;

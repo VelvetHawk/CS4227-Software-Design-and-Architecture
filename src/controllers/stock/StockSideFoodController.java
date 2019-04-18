@@ -1,9 +1,8 @@
-package controllers.Stock;
+package controllers.stock;
 
 import consumables.decorators.*;
 import consumables.factories.FactoryProducer;
 import consumables.side.Sides;
-import consumables.toppings.Toppings;
 import controllers.ControlledScreen;
 import controllers.ScreensController;
 import javafx.event.ActionEvent;

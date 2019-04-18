@@ -57,13 +57,13 @@ public class Stock implements Subject {
 
    public void buy(){
 //
-//      System.out.print("Stock Order: {");
+//      System.out.print("stock Order: {");
 //      drinks.forEach((drink, quantity) -> System.out.printf("[%s, %d]", drink.getName(), quantity));
 //      System.out.println("}");
       notifyAllObservers();
    }
    public void sell(){
-      //System.out.println("Stock [ Name: "+name+", Quantity: " + quantity +" ] sold");
+      //System.out.println("stock [ Name: "+name+", Quantity: " + quantity +" ] sold");
    }
 
    public void addDrink(DrinkDecorator drinkType, int quantity ) // the function is where you buying stock stores each item with quantity

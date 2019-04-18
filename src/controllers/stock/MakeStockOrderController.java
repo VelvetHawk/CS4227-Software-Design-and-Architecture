@@ -1,6 +1,5 @@
-package controllers.Stock;
+package controllers.stock;
 
-import consumables.Order;
 import command.Stock;
 import consumables.decorators.Consumable;
 import consumables.decorators.DrinkDecorator;
@@ -22,7 +21,6 @@ import javafx.event.ActionEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 

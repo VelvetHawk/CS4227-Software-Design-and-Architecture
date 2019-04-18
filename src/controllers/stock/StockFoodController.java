@@ -1,7 +1,5 @@
-package controllers.Stock;
+package controllers.stock;
 
-import consumables.Size;
-import consumables.decorators.Consumable;
 import consumables.decorators.ConsumableFactory;
 import consumables.decorators.Consumables;
 import consumables.decorators.FoodDecorator;

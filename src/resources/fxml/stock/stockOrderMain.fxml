@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="rootPane" prefHeight="415.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Stock.MakeStockOrderController">
+<AnchorPane fx:id="rootPane" prefHeight="415.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.stock.MakeStockOrderController">
     <children>
         <Label layoutX="7.0" layoutY="4.0" prefHeight="27.0" prefWidth="98.0" text="Static " />
         <ToolBar layoutY="30.0" prefHeight="40.0" prefWidth="928.0" style="-fx-background-color: grey;">

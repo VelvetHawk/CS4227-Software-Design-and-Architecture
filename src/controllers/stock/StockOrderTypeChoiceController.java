@@ -1,4 +1,4 @@
-package controllers.Stock;
+package controllers.stock;
 
 import controllers.ControlledScreen;
 import controllers.ScreensController;

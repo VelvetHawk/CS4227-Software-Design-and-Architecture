@@ -12,7 +12,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.geometry.Insets?>
 
-<AnchorPane fx:id="rootPane" prefHeight="303.0" prefWidth="541.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Stock.StockOrderTypeChoiceController">
+<AnchorPane fx:id="rootPane" prefHeight="303.0" prefWidth="541.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.stock.StockOrderTypeChoiceController">
 <children>
     <Label fx:id="paneTitle" layoutX="1.0" layoutY="14.0" prefHeight="31.0" prefWidth="680.0" style="-fx-background-color: orange;" text="Stock Order Choice">
          <font>

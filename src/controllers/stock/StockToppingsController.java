@@ -1,8 +1,7 @@
-package controllers.Stock;
+package controllers.stock;
 
 import consumables.decorators.*;
 import consumables.factories.FactoryProducer;
-import consumables.food.Food;
 import consumables.toppings.Toppings;
 import controllers.ControlledScreen;
 import controllers.ScreensController;
@@ -14,7 +13,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class StockToppingsController implements Initializable, ControlledScreen

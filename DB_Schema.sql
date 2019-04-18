@@ -21,7 +21,7 @@ USE `Restaurant_DB`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Stock`
+-- Table structure for table `stock`
 --
 
 DROP TABLE IF EXISTS `Stock`;
