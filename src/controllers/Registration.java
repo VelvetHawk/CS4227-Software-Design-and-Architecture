@@ -3,8 +3,8 @@ package controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import controllers.memento.RegistrationCaretaker;
-import controllers.memento.RegistrationMemento;
+import memento.RegistrationCaretaker;
+import memento.RegistrationMemento;
 import display.views.Screens;
 import framework.Framework;
 import framework.context.ErrorContext;
