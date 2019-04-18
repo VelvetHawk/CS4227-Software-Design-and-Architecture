@@ -15,6 +15,7 @@
       <ToolBar layoutX="3.0" prefHeight="42.0" prefWidth="1046.0">
         <items>
             <Button mnemonicParsing="false" onAction="#goToOrderScreen" text="Make an Order" />
+            <Button mnemonicParsing="false" onAction="#goToStockOrderScreen" text="Make Stock Order" />
             <SplitMenuButton mnemonicParsing="false" text="Options">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#goToMainScreen" text="Logout" />

@@ -1,4 +1,6 @@
-public class SellStock implements Order {
+package command;
+
+public class SellStock implements StockOrder {
    private Stock stock;
 
    public SellStock(Stock stock){

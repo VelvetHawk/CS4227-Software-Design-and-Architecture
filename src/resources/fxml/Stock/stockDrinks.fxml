@@ -1,14 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Stock.StockDrinksController">
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="736.0" prefWidth="600.0" style="-fx-background-color: white;">
+            <children>
+                <ImageView fitHeight="83.0" fitWidth="78.0" layoutX="23.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/clubOrange.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="199.0" layoutY="65.0" mnemonicParsing="false" onAction="#getClubOrange" opacity="0.7" prefHeight="79.0" prefWidth="56.0" text="Add" />
+                <ImageView fitHeight="83.0" fitWidth="64.0" layoutX="27.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/cocacola.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="199.0" layoutY="160.0" mnemonicParsing="false" onAction="#getCocacola" prefHeight="79.0" prefWidth="56.0" text="Add" />
+                <ImageView fitHeight="85.0" fitWidth="60.0" layoutX="32.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/dietCo.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="199.0" layoutY="254.0" mnemonicParsing="false" onAction="#getDietcocacola" prefHeight="82.0" prefWidth="56.0" text="Add" />
+                <ImageView fitHeight="78.0" fitWidth="67.0" layoutX="297.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/pepsi.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="448.0" layoutY="253.0" mnemonicParsing="false" onAction="#getPepsi" prefHeight="84.0" prefWidth="56.0" text="Add" />
+                <ImageView fitHeight="81.0" fitWidth="64.0" layoutX="296.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/pepsiMax.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="448.0" layoutY="365.0" mnemonicParsing="false" onAction="#getPepsiMax" prefHeight="79.0" prefWidth="56.0" text="Add" />
+                <ImageView fitHeight="80.0" fitWidth="55.0" layoutX="300.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/7Up.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="447.0" layoutY="67.0" mnemonicParsing="false" onAction="#getSevenUp" prefHeight="79.0" prefWidth="56.0" text="Add" />
+                <ImageView fitHeight="85.0" fitWidth="58.0" layoutX="297.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/sprite.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="447.0" layoutY="163.0" mnemonicParsing="false" onAction="#getSprite" prefHeight="79.0" prefWidth="56.0" text="Add" />
+                <ImageView fitHeight="75.0" fitWidth="66.0" layoutX="41.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/water.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="199.0" layoutY="360.0" mnemonicParsing="false" onAction="#getWater" prefHeight="79.0" prefWidth="56.0" text="Add" />
+                <ToolBar layoutX="-1.0" layoutY="7.0" prefHeight="40.0" prefWidth="920.0">
+                    <items>
+                        <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#goToMainMenu" text="Back">
+                            <opaqueInsets>
+                                <Insets left="50.0" />
+                            </opaqueInsets>
+                        </Button>
+                    </items>
+                </ToolBar>
+            <TextField fx:id="clubOrangeInput" layoutX="97.0" layoutY="68.0" prefHeight="74.0" prefWidth="81.0">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="cocaColaInput" layoutX="97.0" layoutY="158.0" prefHeight="74.0" prefWidth="81.0">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="dietCocaColaInput" layoutX="95.0" layoutY="254.0" prefHeight="74.0" prefWidth="81.0">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="waterInput" layoutX="95.0" layoutY="359.0" prefHeight="74.0" prefWidth="81.0">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="sevenUpInput" layoutX="352.0" layoutY="68.0" prefHeight="74.0" prefWidth="81.0">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="spriteInput" layoutX="352.0" layoutY="163.0" prefHeight="74.0" prefWidth="81.0">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="pepsiInput" layoutX="352.0" layoutY="254.0" prefHeight="74.0" prefWidth="81.0">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="pepsiMaxInput" layoutX="357.0" layoutY="365.0" prefHeight="74.0" prefWidth="81.0">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </TextField>
+            </children></AnchorPane>
+    </content>
+</ScrollPane>

@@ -27,4 +27,10 @@ public class Sprite extends DrinkDecorator
     {
         return parent.getCost() + 1;
     }
+
+    @Override
+    public double getStockCost()
+    {
+        return parent.getCost() + 1;
+    }
 }

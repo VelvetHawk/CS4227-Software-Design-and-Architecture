@@ -1,6 +1,10 @@
 package controllers;
 
 import java.util.HashMap;
+
+import command.Broker;
+import command.BuyStock;
+import command.Stock;
 import consumables.Order;
 import display.views.PopUpScreens;
 import javafx.animation.KeyFrame;
@@ -25,18 +29,37 @@ public class ScreensController extends StackPane
 	private HashMap<PopUpScreens, Stage> popUpScreens = new HashMap<>();
 	// Customer data
 	private Order customerOrder;
+	private Stock stockOrder;
+    private BuyStock buyStock;
+    private Broker broker;
 	
     public ScreensController()
 	{
         super();
 		customerOrder = new Order();
+		stockOrder = new Stock();
+        buyStock = new BuyStock(getStockOrder());
+        broker = new Broker(); // create new instance of the class
+
+
     }
     
     public Order getCustomerOrder()
     {
     	return customerOrder;
     }
-    
+
+    public Stock getStockOrder()
+    {
+        return stockOrder;
+    }
+
+    public Broker getBroker(){
+        broker.takeOrder(buyStock);
+        broker.placeOrders();
+        return broker;
+    }
+
     public void completeCustomerOrder()
     {
         /*

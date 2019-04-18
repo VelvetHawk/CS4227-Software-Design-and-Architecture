@@ -15,4 +15,10 @@ public class BasicSide implements Consumable
 	{
 		return 1.50;
 	}
+
+	@Override
+	public double getStockCost()
+	{
+		return 1.0;
+	}
 }

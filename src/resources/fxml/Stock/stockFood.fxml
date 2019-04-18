@@ -1,14 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Stock.StockFoodController">
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="593.0" prefWidth="751.0" style="-fx-background-color: white;">
+            <children>
+                <ToolBar prefHeight="45.0" prefWidth="746.0">
+                    <items>
+                        <Button mnemonicParsing="false" onAction="#goToMainMenu" text="Back" />
+                    </items>
+                </ToolBar>
+                <ImageView fitHeight="71.0" fitWidth="105.0" layoutX="6.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/burger.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="123.0" layoutY="76.0" mnemonicParsing="false" onAction="#getLargeBurger" prefHeight="27.0" prefWidth="93.0" text="Add Large" />
+                <Button layoutX="261.0" layoutY="76.0" mnemonicParsing="false" onAction="#getMediumBurger" prefHeight="29.0" prefWidth="104.0" text="Add Medium" />
+                <Button layoutX="406.0" layoutY="76.0" mnemonicParsing="false" onAction="#getSmallBurger" prefHeight="28.0" prefWidth="105.0" text="Add Small" />
+                <ImageView fitHeight="82.0" fitWidth="108.0" layoutX="6.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/kebab.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="80.0" fitWidth="123.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/pizza.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="408.0" layoutY="177.0" mnemonicParsing="false" onAction="#getSmallKebab" prefHeight="27.0" prefWidth="103.0" text="Add Small" />
+                <Button layoutX="123.0" layoutY="179.0" mnemonicParsing="false" onAction="#getLargeKebab" prefHeight="29.0" prefWidth="94.0" text="Add Large" />
+                <Button layoutX="261.0" layoutY="178.0" mnemonicParsing="false" onAction="#getMediumKebab" prefHeight="28.0" prefWidth="103.0" text="Add Medium" />
+                <Button layoutX="409.0" layoutY="286.0" mnemonicParsing="false" onAction="#getSmallPizza" prefHeight="28.0" prefWidth="105.0" text="Add Small" />
+                <Button layoutX="263.0" layoutY="288.0" mnemonicParsing="false" onAction="#getMediummPizza" prefHeight="25.0" prefWidth="102.0" text="Add Medium" />
+                <Button layoutX="123.0" layoutY="287.0" mnemonicParsing="false" onAction="#getLargePizza" prefHeight="22.0" prefWidth="91.0" text="Add Large" />
+            <TextField fx:id="largeBurgerInput" layoutX="123.0" layoutY="108.0" prefHeight="44.0" prefWidth="94.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="mediumBurgerInput" layoutX="267.0" layoutY="109.0" prefHeight="44.0" prefWidth="94.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="smallBurgerInput" layoutX="413.0" layoutY="108.0" prefHeight="45.0" prefWidth="94.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="largeKebabInput" layoutX="123.0" layoutY="214.0" prefHeight="45.0" prefWidth="94.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="mediumKebabInput" layoutX="265.0" layoutY="211.0" prefHeight="47.0" prefWidth="94.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="smallKebabInput" layoutX="413.0" layoutY="209.0" prefHeight="47.0" prefWidth="94.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="largePizzaInput" layoutX="122.0" layoutY="324.0" prefHeight="53.0" prefWidth="94.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="mediumPizzaInput" layoutX="267.0" layoutY="323.0" prefHeight="53.0" prefWidth="94.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="smallPizzaInput" layoutX="415.0" layoutY="321.0" prefHeight="53.0" prefWidth="94.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <Label layoutX="6.0" layoutY="45.0" prefHeight="17.0" prefWidth="1132.0" style="-fx-background-color: black;" text="Burger Bread" textFill="WHITE">
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <Label layoutX="6.0" layoutY="158.0" prefHeight="17.0" prefWidth="1130.0" style="-fx-background-color: black;" text="Kebab " textFill="WHITE">
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <Label layoutX="6.0" layoutY="267.0" prefHeight="17.0" prefWidth="1130.0" style="-fx-background-color: black;" text="Pizza Bread" textFill="WHITE">
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            </children></AnchorPane>
+    </content>
+</ScrollPane>

@@ -1,4 +1,8 @@
-public class BuyStock implements Order {
+package command;
+
+import java.util.ArrayList;
+
+public class BuyStock implements StockOrder {
    private Stock stock;
 
    public BuyStock(Stock stock){

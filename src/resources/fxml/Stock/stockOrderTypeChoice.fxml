@@ -1,14 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="rootPane" prefHeight="303.0" prefWidth="541.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Stock.StockOrderTypeChoiceController">
+<children>
+    <Label fx:id="paneTitle" layoutX="1.0" layoutY="14.0" prefHeight="31.0" prefWidth="680.0" style="-fx-background-color: orange;" text="Stock Order Choice">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+    <AnchorPane layoutX="14.0" layoutY="45.0" prefHeight="214.0" prefWidth="716.0">
+        <children>
+           <VBox fx:id="foodChoice" layoutX="14.0" layoutY="14.0" onMouseClicked="#foodChoiceClicked" prefHeight="104.0" prefWidth="102.0">
+                <children>
+                    <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../images/food-200x200.png" />
+                        </image>
+                    </ImageView>
+                    <Label prefHeight="54.0" prefWidth="204.0" text="Buy Food" textAlignment="CENTER" />
+                </children>
+            </VBox>
+            <VBox fx:id="sideChoice" layoutX="144.0" layoutY="11.0" onMouseClicked="#toppingsChoiceClicked" prefHeight="117.0" prefWidth="102.0">
+                <children>
+                    <ImageView fitHeight="107.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../images/stockToppings.png" />
+                        </image>
+                    </ImageView>
+                  <Label prefHeight="54.0" prefWidth="204.0" text="Buy Toppings" textAlignment="CENTER" />
+                </children>
+            </VBox>
+            <VBox fx:id="drinkChoice" layoutX="292.0" layoutY="9.0" onMouseClicked="#drinkChoiceClicked" prefHeight="124.0" prefWidth="107.0">
+                <children>
+                    <ImageView fitHeight="110.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../images/drinks-200x200.png" />
+                        </image>
+                    </ImageView>
+                    <Label prefHeight="54.0" prefWidth="204.0" text="Buy Drinks" />
+                </children>
+            </VBox>
+            <VBox fx:id="drinkChoice1" layoutX="423.0" layoutY="9.0" onMouseClicked="#sideChoiceClicked" prefHeight="124.0" prefWidth="107.0">
+               <children>
+                  <ImageView fitHeight="110.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/stockSide.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="54.0" prefWidth="204.0" text="Buy Sides" />
+               </children>
+            </VBox>
+<!--            <VBox fx:id="mealChoice" layoutX="541.0" layoutY="15.0" onMouseClicked="#mealChoiceClicked" prefHeight="156.0" prefWidth="141.0">
+                <children>
+                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../images/burger.png" />
+                        </image>
+                    </ImageView>
+                    <Label text="Meals" />
+                </children>
+            </VBox>-->
+        </children>
+    </AnchorPane>
+    <Button fx:id="backButton" layoutX="238.0" layoutY="259.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="31.0" prefWidth="71.0" text="Back" />
+</children>
 </AnchorPane>

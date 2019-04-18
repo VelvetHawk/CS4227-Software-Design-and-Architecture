@@ -24,6 +24,7 @@ public class Restaurant extends Application
         mainContainer.loadScreen(Screens.REGISTRATION, fxmlRootPath + "registration.fxml");
         mainContainer.loadScreen(Screens.MAIN_MENU, fxmlRootPath + "mainMenu.fxml");
         mainContainer.loadScreen(Screens.MAKE_ORDER, fxmlRootPath + "makeOrder.fxml");
+        mainContainer.loadScreen(Screens.STOCK_ORDER, fxmlRootPath + "Stock/stockOrderMain.fxml");
 
         // Pop Up Screens
         mainContainer.loadPopUpScreen(PopUpScreens.ORDER_TYPE_CHOICE, fxmlRootPath + "OrderTypeChoice.fxml");
@@ -32,6 +33,11 @@ public class Restaurant extends Application
         mainContainer.loadPopUpScreen(PopUpScreens.SELECT_TOPPING, fxmlRootPath + "toppings.fxml");
         mainContainer.loadPopUpScreen(PopUpScreens.SELECT_SIDE, fxmlRootPath + "sides.fxml");
         mainContainer.loadPopUpScreen(PopUpScreens.SELECT_MEAL, fxmlRootPath + "meals.fxml");
+        mainContainer.loadPopUpScreen(PopUpScreens.STOCK_ORDER_CHOICE, fxmlRootPath + "Stock/stockOrderTypeChoice.fxml");
+        mainContainer.loadPopUpScreen(PopUpScreens.STOCK_SIDE, fxmlRootPath + "Stock/stockSide.fxml");
+        mainContainer.loadPopUpScreen(PopUpScreens.STOCK_FOOD, fxmlRootPath + "Stock/stockFood.fxml");
+        mainContainer.loadPopUpScreen(PopUpScreens.STOCK_DRINK, fxmlRootPath + "Stock/stockDrinks.fxml");
+        mainContainer.loadPopUpScreen(PopUpScreens.STOCK_TOPPING, fxmlRootPath + "Stock/stockToppings.fxml");
 
 
 

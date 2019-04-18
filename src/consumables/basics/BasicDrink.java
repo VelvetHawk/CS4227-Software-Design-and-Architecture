@@ -15,4 +15,10 @@ public class BasicDrink implements Consumable
 	{
 		return 2.00;
 	}
+
+	@Override
+	public double getStockCost()
+	{
+		return .5;
+	}
 }

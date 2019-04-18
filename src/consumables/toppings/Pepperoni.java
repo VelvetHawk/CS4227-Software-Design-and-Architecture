@@ -21,4 +21,10 @@ public class Pepperoni extends ToppingDecorator
     {
         return parent.getCost() + 1;
     }
+
+    @Override
+    public double getStockCost()
+    {
+        return parent.getCost() + 15;
+    }
 }

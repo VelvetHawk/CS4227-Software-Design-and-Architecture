@@ -6,5 +6,6 @@ public enum Screens
 	LOGIN,
 	REGISTRATION,
 	MAIN_MENU,
-	MAKE_ORDER
+	MAKE_ORDER,
+	STOCK_ORDER
 }

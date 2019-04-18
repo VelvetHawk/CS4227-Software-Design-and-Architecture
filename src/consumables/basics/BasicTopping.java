@@ -15,4 +15,9 @@ public class BasicTopping implements Consumable
 	{
 		return 0.25;
 	}
+	@Override
+	public double getStockCost()
+	{
+		return 0.25;
+	}
 }

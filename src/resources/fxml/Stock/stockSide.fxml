@@ -1,14 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Stock.StockSideFoodController">
+    <children>
+        <ScrollPane layoutX="-2.0" prefHeight="573.0" prefWidth="623.0">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="403.0" prefWidth="613.0">
+                    <children>
+                        <ToolBar prefHeight="40.0" prefWidth="867.0">
+                            <items>
+                                <Button mnemonicParsing="false" onAction="#goToStatic" text="Back" />
+                            </items>
+                        </ToolBar>
+                        <Button layoutX="160.0" layoutY="102.0" mnemonicParsing="false" onAction="#getBeans" prefHeight="40.0" prefWidth="242.0" text="Add Beans Pack(s)">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Button>
+                        <Label layoutY="49.0" prefHeight="35.0" prefWidth="872.0" style="-fx-background-color: orange;" text="Side Orders Buy Pack(s)">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
+                        <Button layoutX="159.0" layoutY="267.0" mnemonicParsing="false" onAction="#getChips" prefHeight="38.0" prefWidth="245.0" text="Add Chips Pack(s)">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Button>
+                        <Button layoutX="160.0" layoutY="157.0" mnemonicParsing="false" onAction="#getColeslaw" prefHeight="45.0" prefWidth="243.0" text="Add Coleslaw Pack(s)">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Button>
+                        <Button layoutX="159.0" layoutY="212.0" mnemonicParsing="false" onAction="#getOnionRings" prefHeight="44.0" prefWidth="244.0" text="Add Onion-rings Pack(s)">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Button>
+                        <Button layoutX="159.0" layoutY="313.0" mnemonicParsing="false" onAction="#getGarlicbread" prefHeight="43.0" prefWidth="247.0" text="Add Garlic-Bread Pack(s)">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Button>
+                  <TextField fx:id="beansInput" layoutX="19.0" layoutY="102.0" prefHeight="40.0" prefWidth="133.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="coleslawInput" layoutX="20.0" layoutY="157.0" prefHeight="40.0" prefWidth="131.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="onionInput" layoutX="21.0" layoutY="213.0" prefHeight="42.0" prefWidth="131.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="chipsInput" layoutX="22.0" layoutY="266.0" prefHeight="41.0" prefWidth="131.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="garlicInput" layoutX="22.0" layoutY="315.0" prefHeight="37.0" prefWidth="131.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </TextField>
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+    </children>
 </AnchorPane>

@@ -15,4 +15,9 @@ public class BasicFood implements Consumable
 	{
 		return 3.50;
 	}
+	@Override
+	public double getStockCost()
+	{
+		return 2.50;
+	}
 }

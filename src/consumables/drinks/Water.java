@@ -27,4 +27,10 @@ public class Water extends DrinkDecorator
     {
         return parent.getCost() + .5;
     }
+
+    @Override
+    public double getStockCost()
+    {
+        return parent.getCost();
+    }
 }
