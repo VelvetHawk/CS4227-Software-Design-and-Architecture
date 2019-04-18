@@ -15,7 +15,7 @@
             <Image url="@../images/register.jpg" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="215.0" layoutY="14.0" opacity="0.92" prefHeight="360.0" prefWidth="371.0" style="-fx-background-color: grey;">
+      <AnchorPane layoutX="215.0" layoutY="14.0" opacity="0.92" prefHeight="383.0" prefWidth="522.0" style="-fx-background-color: grey;">
          <children>
             <Text fill="#ffffff" layoutX="24.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="77.2060546875" />
             <Text fill="#ffffff" layoutX="24.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="surname:" wrappingWidth="77.2060546875" />
@@ -32,13 +32,13 @@
             <TextField fx:id="addressTextField" layoutX="148.0" layoutY="240.0" />
             <TextField fx:id="phoneTextField" layoutX="148.0" layoutY="276.0" />
             <Button layoutY="333.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="27.0" prefWidth="87.0" text="Register" />
-            <Button layoutX="284.0" layoutY="333.0" mnemonicParsing="false" onAction="#goToMainScreen" prefHeight="27.0" prefWidth="87.0" text="Back" />
+            <Button layoutX="349.0" layoutY="334.0" mnemonicParsing="false" onAction="#goToMainScreen" prefHeight="27.0" prefWidth="87.0" text="Back" />
             <PasswordField fx:id="password_Field" layoutX="148.0" layoutY="163.0" />
             <PasswordField fx:id="password_Field1" layoutX="148.0" layoutY="202.0" />
             <Button layoutX="96.0" layoutY="334.0" mnemonicParsing="false" onAction="#saveButton" text="Save Progress" />
-            <Button fx:id="undoButton" layoutX="186.0" layoutY="334.0" mnemonicParsing="false" onAction="#undoButton" prefHeight="25.0" prefWidth="46.0" text="Undo" />
-            <Button fx:id="redoButton" layoutX="232.0" layoutY="334.0" mnemonicParsing="false" onAction="#redoButton" prefHeight="25.0" prefWidth="46.0" text="Redo" />
-            <Button layoutX="311.0" layoutY="215.0" mnemonicParsing="false" onAction="#printMementos" text="print mementos" />
+            <Button fx:id="undoButton" layoutX="208.0" layoutY="334.0" mnemonicParsing="false" onAction="#undoButton" prefHeight="27.0" prefWidth="65.0" text="Undo" />
+            <Button fx:id="redoButton" layoutX="278.0" layoutY="334.0" mnemonicParsing="false" onAction="#redoButton" prefHeight="27.0" prefWidth="65.0" text="Redo" />
+            <Button layoutX="339.0" layoutY="215.0" mnemonicParsing="false" onAction="#printMementos" text="print mementos" />
          </children>
       </AnchorPane>
    </children>
