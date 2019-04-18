@@ -3,6 +3,7 @@ package consumables.drinks;
 import consumables.Size;
 import consumables.decorators.Consumable;
 import consumables.decorators.DrinkDecorator;
+import visitor.ConsumableVisitor;
 
 public class PepsiMax extends DrinkDecorator
 {
@@ -32,5 +33,11 @@ public class PepsiMax extends DrinkDecorator
     public double getStockCost()
     {
         return parent.getCost();
+    }
+
+    @Override
+    public String accept(ConsumableVisitor conVisitor){
+        String description = conVisitor.visit(this);
+        return description;
     }
 }

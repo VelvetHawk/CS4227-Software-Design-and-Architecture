@@ -2,6 +2,7 @@ package consumables.toppings;
 
 import consumables.decorators.Consumable;
 import consumables.decorators.ToppingDecorator;
+import visitor.ConsumableVisitor;
 
 public class Chicken extends ToppingDecorator
 {
@@ -25,5 +26,11 @@ public class Chicken extends ToppingDecorator
     public double getStockCost()
     {
         return parent.getCost() + 12;
+    }
+
+    @Override
+    public String accept(ConsumableVisitor conVisitor){
+        String description = conVisitor.visit(this);
+        return description;
     }
 }

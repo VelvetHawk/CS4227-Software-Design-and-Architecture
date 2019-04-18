@@ -1,6 +1,11 @@
 package controllers;
 
 import display.views.Screens;
+import framework.context.Context;
+import framework.context.ScreenSwitchContext;
+import framework.states.statemachines.Login;
+import framework.states.statemachines.Register;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import java.net.URL;
@@ -17,12 +22,8 @@ public class MainScreen implements Initializable, ControlledScreen
     public static MainScreen getInstance() // get instance of the controller
     {
         if (instance == null)
-        {
             instance = new MainScreen();
-            return instance;
-        }
-        else
-            return instance;
+        return instance;
     }
     
     @Override
@@ -37,14 +38,26 @@ public class MainScreen implements Initializable, ControlledScreen
     }
     
     @FXML
-    private void goToLogin(javafx.event.ActionEvent event)
+    private void goToLogin(ActionEvent event)
     {
-        myController.setScreen(Screens.LOGIN);
+        //myController.setScreen(Screens.LOGIN);
+        myController.setState(Login.getInstance());
+	    myController.getState().executeState(new Context("Idle"));
+        myController.executeState(new ScreenSwitchContext(
+            "Switching to Login Screen",
+	        Screens.LOGIN
+        ));
     }
     
     @FXML
-    private void goToRegistration(javafx.event.ActionEvent event)
+    private void goToRegistration(ActionEvent event)
     {
-        myController.setScreen(Screens.REGISTRATION);
+        //myController.setScreen(Screens.REGISTRATION);
+        myController.setState(Register.getInstance());
+	    myController.getState().executeState(new Context("Idle"));
+	    myController.executeState(new ScreenSwitchContext(
+            "Switching to Registration Screen",
+		    Screens.REGISTRATION
+	    ));
     }
 }

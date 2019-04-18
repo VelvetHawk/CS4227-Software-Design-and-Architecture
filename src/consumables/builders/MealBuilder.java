@@ -70,6 +70,10 @@ public class MealBuilder {
         Consumable food = foodFactory.getFood();
         food = foodFactory.addFood(Food.KEBAB, food);
         kebabMeal.addItem(food);
+        sideFactory = FactoryProducer.getFactory(Consumables.SIDE);
+        Consumable side = sideFactory.getSide();
+        side = sideFactory.addSide(Sides.CHIPS, side);
+        kebabMeal.addItem(side);
         return kebabMeal;
     }
 

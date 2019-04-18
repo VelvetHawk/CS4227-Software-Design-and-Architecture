@@ -59,6 +59,15 @@ public class MealController implements Initializable , ControlledScreen
         //addFood(Food.BURGER, Size.LARGE);
     }
 
+    @FXML
+    private void getKebabMeal(ActionEvent event)
+    {
+        MealBuilder mealBuilder = new MealBuilder();
+        Meal kebabMeal = mealBuilder.prepareKebabMeal();
+        addFood(kebabMeal);
+        //addFood(Food.BURGER, Size.LARGE);
+    }
+
     private void addFood(Food foodType, Size size)
     {
         Consumable food = foodFactory.getFood();

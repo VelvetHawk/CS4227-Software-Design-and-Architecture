@@ -1,17 +1,20 @@
 package controllers;
 
 import display.views.Screens;
+import framework.context.Context;
+import framework.context.LoginContext;
+import framework.context.ScreenSwitchContext;
+import framework.states.entry.Idle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import data.models.LoginModel;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoginScreen implements Initializable, ControlledScreen
 {
-    private LoginModel model;
-    private boolean loginValid = false;
     @FXML private TextField username;
     @FXML private PasswordField password;
     private ScreensController myController;
@@ -24,18 +27,14 @@ public class LoginScreen implements Initializable, ControlledScreen
     public static LoginScreen getInstance() // get instance of the controller
     {
         if (instance == null)
-        {
             instance = new LoginScreen();
-            return instance;
-        }
-        else
-            return instance;
+        return instance;
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        model = new LoginModel();
+
     }
 
     public void setUsername(String uName)
@@ -48,34 +47,11 @@ public class LoginScreen implements Initializable, ControlledScreen
         password.setText(pass);
     }
 
-    public void setScreenParent( ScreensController screenParent)
+    public void setScreenParent(ScreensController screenParent)
     {
         myController = screenParent;
     }
-
-    private void checkCredentials(String username, char[] password)
-    {
-        try
-        {   // check username and password in model wiht login validations method that's a void method.
-            model.loginValidation(username, password);
-            loginValid = model.getLogin();
-            if(!loginValid)
-            {
-                setMessage("invalid name or password");
-                clear_loging_textFields();  // clear users input
-            }
-        }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-        }
-    }
-
-    public boolean getLoginValid()
-    {
-        return this.loginValid;
-    }
-
+    
     public void setMessage(String message)      // get the dialog box for any errors in the validations
     {
         System.out.println(message);
@@ -85,39 +61,37 @@ public class LoginScreen implements Initializable, ControlledScreen
         alert.setContentText(message);
         alert.showAndWait();
     }
-
-    // clear text fields
-    public void clear_loging_textFields()
-    {
-        username.setText("");
-        password.setText("");
-    }
     
     //Called when back button pressed
     @FXML
-    private void goToMainScreen(javafx.event.ActionEvent event)
+    private void goToMainScreen(ActionEvent event)
     {
-    	// only if the user press back this will return the user to the main screen
-        myController.setScreen(Screens.MAIN);
+    	// only if the user press back this will return the user to the Main screen
+        //myController.setScreen(Screens.MAIN);
+	    myController.setState(Idle.getInstance());
+	    myController.getState().executeState(new Context("Idle"));
+	    myController.executeState(new ScreenSwitchContext(
+            "Going back to main menu",
+		    Screens.MAIN
+        ));
+	    
     }
     
     //Called when user attempts to log-in
     @FXML
-    private void goToMainMenu(javafx.event.ActionEvent event)
+    private void goToMainMenu(ActionEvent event)
     {
-    	// only if the user is successfully logged in then, it'll take the user to the main menu
+    	// only if the user is successfully logged in then, it'll take the user to the Main menu
         String user = username.getText();
-        String userpassword = password.getText();
-        char [] password1 = userpassword.toCharArray();
-        //char [] password =password_field.getText();
-        if(user.isEmpty() || password1.length == 0)
+        String userPassword = password.getText();
+        
+        if(user.isEmpty() || userPassword.length() == 0)
             setMessage("Please enter your username and password");
         else
         {
-        	// check in the login controller if the user and password are correct.
-            checkCredentials(user, password1);
-            if(getLoginValid())
-                myController.setScreen(Screens.MAIN_MENU);
+        	// Pass Login Context to state machine
+	        LoginContext loginContext = new LoginContext(user, userPassword);
+        	myController.getState().executeState(loginContext);
         }
     }
 }

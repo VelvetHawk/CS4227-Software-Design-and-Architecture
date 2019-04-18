@@ -6,29 +6,23 @@ import data.DatabaseEnum;
 
 public class LoginModel
 {
-    private boolean loginValid = false;
-
-    public boolean getLogin()
+    public boolean validateLogin(String user, String password) throws Exception
     {
-        return loginValid;
-    }
-
-    public void loginValidation(String user, char [] passChars ) throws Exception
-    {
-        if (passChars != null)
+        boolean loginValid = false;
+        if (password != null)
         {
-            String pass = new String(passChars);
             //add '' to values to allow them to be added to sql queries
             user = "'" + user  + "'";
-            pass = "'" + pass + "'";
+            password = "'" + password + "'";
             SQLConnector SQLconn = new SQLConnector();
             SQLconn.getConnection(DatabaseEnum.MYSQL);
             String [] columns = {"username", "password"};
-            ResultSet rs = SQLconn.select("users", columns, " WHERE username =" + user + " AND PASSWORD =" + pass, null );
+            ResultSet rs = SQLconn.select("users", columns, " WHERE username =" + user + " AND PASSWORD =" + password, null );
 	        loginValid = rs.next();
             rs.close();
             SQLconn.closeConnection();
         }
+        return loginValid;
     }
 }
 

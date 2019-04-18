@@ -2,6 +2,7 @@ package consumables.side;
 
 import consumables.decorators.Consumable;
 import consumables.decorators.SideDecorator;
+import visitor.ConsumableVisitor;
 
 public class GarlicBread extends SideDecorator
 {
@@ -25,5 +26,11 @@ public class GarlicBread extends SideDecorator
     public double getStockCost()
     {
         return parent.getCost() + 10;
+    }
+
+    @Override
+    public String accept(ConsumableVisitor conVisitor){
+        String description = conVisitor.visit(this);
+        return description;
     }
 }

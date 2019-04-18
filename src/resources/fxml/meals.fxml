@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MealController">
     <children>
@@ -14,12 +13,20 @@
                 <Button mnemonicParsing="false" onAction="#goToMainMenu" text="Back" />
             </items>
         </ToolBar>
-        <ImageView fitHeight="71.0" fitWidth="105.0" layoutX="6.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="71.0" fitWidth="105.0" layoutX="20.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../images/burger.png" />
             </image>
         </ImageView>
-        <Button layoutX="122.0" layoutY="53.0" mnemonicParsing="false" onAction="#getBeefBurgerMeal" prefHeight="67.0" prefWidth="106.0" text="Beef Burger Meal" />
+        <Button layoutX="122.0" layoutY="53.0" mnemonicParsing="false" onAction="#getBeefBurgerMeal" prefHeight="67.0" prefWidth="129.0" text="Beef Burger Meal" />
+      <Button layoutX="266.0" layoutY="54.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="155.0" text="Double Beef Burger Meal" />
+      <ImageView fitHeight="58.0" fitWidth="92.0" layoutX="20.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/kebab.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="127.0" layoutY="140.0" mnemonicParsing="false" onAction="#getKebabMeal" prefHeight="58.0" prefWidth="123.0" text="Kebab Meal" />
+      <Button layoutX="274.0" layoutY="144.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="146.0" text="Double Kebab Meal" />
 
 
     </children>

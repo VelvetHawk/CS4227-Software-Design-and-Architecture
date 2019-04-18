@@ -3,6 +3,10 @@ package main;
 import controllers.ScreensController;
 import display.views.PopUpScreens;
 import display.views.Screens;
+import framework.Framework;
+import framework.context.ScreenSwitchContext;
+import framework.interceptors.LoggingInterceptor;
+import framework.states.entry.Idle;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -13,7 +17,16 @@ public class Restaurant extends Application
     @Override
     public void start(Stage primaryStage)
     {
-        ScreensController mainContainer = new ScreensController();
+        ScreensController mainContainer = ScreensController.getInstance();
+
+        // Framework
+	    Framework framework = Framework.getInstance();
+
+        // Interceptors
+	    LoggingInterceptor loggingInterceptor = LoggingInterceptor.getInstance();
+
+	    // Register interceptors
+	    framework.registerLoggingInterceptor(loggingInterceptor);
 
 //        final String fxmlRootPath = "../../resources/fxml/";
         final String fxmlRootPath = "/resources/fxml/";
@@ -39,9 +52,14 @@ public class Restaurant extends Application
         mainContainer.loadPopUpScreen(PopUpScreens.STOCK_DRINK, fxmlRootPath + "Stock/stockDrinks.fxml");
         mainContainer.loadPopUpScreen(PopUpScreens.STOCK_TOPPING, fxmlRootPath + "Stock/stockToppings.fxml");
 
+        //mainContainer.setScreen(Screens.MAIN); // set the Main screen at the start
+	    mainContainer.setState(Idle.getInstance());
+	    mainContainer.getState().executeState(null);
+	    // Switch to main view
+	    ScreenSwitchContext screenSwitchContext = new ScreenSwitchContext();
+	    screenSwitchContext.setScreenType(Screens.MAIN);
+	    mainContainer.executeState(screenSwitchContext);
 
-
-        mainContainer.setScreen(Screens.MAIN); // set the main screen at the start
         // grouping the scene to root.
         Group root = new Group();
         root.getChildren().addAll(mainContainer);

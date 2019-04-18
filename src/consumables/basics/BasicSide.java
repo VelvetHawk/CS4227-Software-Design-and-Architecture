@@ -1,6 +1,7 @@
 package consumables.basics;
 
 import consumables.decorators.Consumable;
+import visitor.ConsumableVisitor;
 
 public class BasicSide implements Consumable
 {
@@ -20,5 +21,11 @@ public class BasicSide implements Consumable
 	public double getStockCost()
 	{
 		return 1.0;
+	}
+
+	@Override
+	public String accept(ConsumableVisitor conVisitor){
+		String description = conVisitor.visit(this);
+		return description;
 	}
 }
