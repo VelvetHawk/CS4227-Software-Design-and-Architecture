@@ -1,18 +1,14 @@
 package command;
 
 import consumables.decorators.*;
-import consumables.drinks.Drinks;
-import consumables.factories.DrinksFactory;
-import consumables.food.Food;
 import data.Observer;
 import data.Subject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.function.BiConsumer;
+import java.util.Map;
 
-public class Stock implements Subject {
-
+public class Stock implements Subject
+{
     private ArrayList<Observer> observers;
     private ArrayList<DrinkDecorator> drinkList;
     private ArrayList<FoodDecorator> foodList;
@@ -25,7 +21,8 @@ public class Stock implements Subject {
     private HashMap<SideDecorator, Integer> sides;
 
 
-    public Stock(){
+    public Stock()
+    {
         observers = new ArrayList<>();
         drinkList = new ArrayList<>();
         foodList = new ArrayList<>();
@@ -36,82 +33,86 @@ public class Stock implements Subject {
         toppings = new HashMap<>();
         sides = new HashMap<>();
     }
-   //HashMap<String, Integer> stockOrder = new HashMap<String, Integer>();
 
+    public Map<DrinkDecorator, Integer> getDrinks()
+    {
+        return drinks;
+    }
 
-   //HashMap<Ingredient, Integer> ingredients = new HashMap<String, Integer>();
+    public Map<FoodDecorator, Integer> getFoods()
+    {
+        return foods;
+    }
+    public Map<ToppingDecorator, Integer> getToppings()
+    {
+        return toppings;
+    }
+    public Map<SideDecorator, Integer> getSides()
+    {
+        return sides;
+    }
 
-   public HashMap<DrinkDecorator, Integer> getDrinks(){
-      return drinks;
-   }
+    public void buy()
+    {
+        notifyAllObservers();
+    }
+    public void sell()
+    {
+        // empty
+    }
 
-   public HashMap<FoodDecorator, Integer> getFoods(){
-      return foods;
-   }
-   public HashMap<ToppingDecorator, Integer> getToppings(){
-      return toppings;
-   }
-   public HashMap<SideDecorator, Integer> getSides(){
-      return sides;
-   }
+    // the function is where you buying stock stores each item with quantity
+    public void addDrink(DrinkDecorator drinkType, int quantity )
+    {
+        drinks.put(drinkType, quantity);
+    }
 
-   public void buy(){
-//
-//      System.out.print("stock Order: {");
-//      drinks.forEach((drink, quantity) -> System.out.printf("[%s, %d]", drink.getName(), quantity));
-//      System.out.println("}");
-      notifyAllObservers();
-   }
-   public void sell(){
-      //System.out.println("stock [ Name: "+name+", Quantity: " + quantity +" ] sold");
-   }
+    // the function is where you buying stock stores each item with quantity
+    public void addFood(FoodDecorator foodType, int quantity )
+    {
+        foods.put(foodType, quantity);
+    }
 
-   public void addDrink(DrinkDecorator drinkType, int quantity ) // the function is where you buying stock stores each item with quantity
-   {
-      drinks.put(drinkType, quantity);
-   }
-   public void addFood(FoodDecorator foodType, int quantity ) // the function is where you buying stock stores each item with quantity
-   {
-      foods.put(foodType, quantity);
-   }
-   public void addTopping(ToppingDecorator toppingType, int quantity ) // the function is where you buying stock stores each item with quantity
-   {
-      toppings.put(toppingType, quantity);
-       //System.out.println("TOPPING MAP SIZE" + toppings.size());
-   }
-   public void addSideFood(SideDecorator sideType, int quantity ) // the function is where you buying stock stores each item with quantity
-   {
-      sides.put(sideType, quantity);
-       //System.out.println("TOPPING MAP SIZE" + toppings.size());
-   }
+    // the function is where you buying stock stores each item with quantity
+    public void addTopping(ToppingDecorator toppingType, int quantity )
+    {
+        toppings.put(toppingType, quantity);
+    }
+
+    // the function is where you buying stock stores each item with quantity
+    public void addSideFood(SideDecorator sideType, int quantity )
+    {
+        sides.put(sideType, quantity);
+    }
 
     @Override
     public void notifyAllObservers()
-  {
-      observers.forEach(Observer::update);
-  }
+    {
+        observers.forEach(Observer::update);
+    }
 
     @Override
-    public void attach( Observer observer ) {
+    public void attach(Observer observer )
+    {
         observers.add(observer);
     }
 
-    public void removeDrink( Consumable drink)
+    public void removeDrink(Consumable drink)
     {
         drinks.remove(drink);
         notifyAllObservers();
     }
-    public void removeFood( Consumable food)
+    public void removeFood(Consumable food)
     {
         foods.remove(food);
         notifyAllObservers();
     }
-    public void removeTopping( Consumable topping)
+    public void removeTopping(Consumable topping)
     {
         toppings.remove(topping);
         notifyAllObservers();
     }
-    public void removeSides( Consumable side)
+    public void removeSides(Consumable side)
     {
         sides.remove(side);
         notifyAllObservers();
