@@ -1,4 +1,4 @@
-package controllers.memento;
+package memento;
 
 import java.util.ArrayList;
 
