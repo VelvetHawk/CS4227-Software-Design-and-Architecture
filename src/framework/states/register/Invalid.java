@@ -1,6 +1,5 @@
 package framework.states.register;
 
-import controllers.LoginScreen;
 import framework.context.Context;
 import framework.states.State;
 
@@ -23,6 +22,6 @@ public class Invalid implements State
 	@Override
 	public void executeState(Context context)
 	{
-		System.out.println("In state invalid");
+		System.out.println("In state register.invalid");
 	}
 }

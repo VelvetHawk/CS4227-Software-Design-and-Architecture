@@ -1,5 +1,8 @@
 package data;
 
+import framework.Framework;
+import framework.context.ErrorContext;
+
 import java.sql.Connection;
 import java.sql.*;
 
@@ -22,7 +25,12 @@ public class SQLConnector implements DatabaseConnector
         }
         catch(ClassNotFoundException exc)
         {
-            exc.printStackTrace();
+            Framework.getInstance().onLogEvent(
+                new ErrorContext(
+                    "Class could not be found by JDBC",
+                    exc
+                )
+            );
             throw exc;
         }
     }
@@ -40,7 +48,12 @@ public class SQLConnector implements DatabaseConnector
         }
         catch (SQLException e)
         {
-            e.printStackTrace();
+            Framework.getInstance().onLogEvent(
+                new ErrorContext(
+                    "Error during connection to AWS",
+                    e
+                )
+            );
         }
     }
 
@@ -52,7 +65,12 @@ public class SQLConnector implements DatabaseConnector
         }
         catch(SQLException exc)
         {
-            exc.printStackTrace();
+            Framework.getInstance().onLogEvent(
+                new ErrorContext(
+                    "Error while connecting to database",
+                    exc
+                )
+            );
             throw exc;
         }
     }
@@ -78,7 +96,12 @@ public class SQLConnector implements DatabaseConnector
         }
         catch(Exception e)
         {
-            e.printStackTrace();
+            Framework.getInstance().onLogEvent(
+                new ErrorContext(
+                    "Error during selection",
+                    e
+                )
+            );
         }
         return rs;
     }
@@ -107,7 +130,12 @@ public class SQLConnector implements DatabaseConnector
         }
         catch(Exception e)
         {
-            e.printStackTrace();
+            Framework.getInstance().onLogEvent(
+                new ErrorContext(
+                    "Error during update",
+                    e
+                )
+            );
             return false;
         }
     }
@@ -138,7 +166,12 @@ public class SQLConnector implements DatabaseConnector
         }
         catch(Exception e)
         {
-            e.printStackTrace();
+            Framework.getInstance().onLogEvent(
+                new ErrorContext(
+                    "Error during insert",
+                    e
+                )
+            );
             return false;
         }
     }
@@ -158,7 +191,12 @@ public class SQLConnector implements DatabaseConnector
         }
         catch(Exception e)
         {
-            e.printStackTrace();
+            Framework.getInstance().onLogEvent(
+                new ErrorContext(
+                    "Error during deletion",
+                    e
+                )
+            );
             return false;
         }
     }

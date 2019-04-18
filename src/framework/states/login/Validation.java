@@ -1,7 +1,9 @@
 package framework.states.login;
 
 import data.models.LoginModel;
+import framework.Framework;
 import framework.context.Context;
+import framework.context.ErrorContext;
 import framework.context.LoginContext;
 import framework.states.State;
 
@@ -37,8 +39,12 @@ public class Validation implements State
 		}
 		catch (Exception e)
 		{
-			System.out.println("Exception occurred during login:");
-			e.printStackTrace();
+			Framework.getInstance().onLogEvent(
+				new ErrorContext(
+					"Exception occurred during login",
+					e
+				)
+			);
 		}
 		
 	}

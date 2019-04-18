@@ -5,6 +5,8 @@ import framework.context.Context;
 import framework.context.RegisterContext;
 import framework.states.State;
 import framework.states.register.Idle;
+import framework.states.register.Invalid;
+import framework.states.register.Valid;
 import framework.states.register.Validation;
 
 public class Register implements State
@@ -49,24 +51,24 @@ public class Register implements State
 	{
 		if (context instanceof RegisterContext)
 		{
-//			// From Idle to validation
-//			setState(Validation.getInstance());
-//			// Run Validation
-//			currentState.executeState(context);
-//			// Valid
-//			if (((RegisterContext)context).isValidLogin())
-//			{
-//				setState(Valid.getInstance());
-//				currentState.executeState(context);
-//			}
-//			else // Invalid
-//			{
-//				setState(Invalid.getInstance());
-//				currentState.executeState(context);
-//			}
-//			// Back to Idle
-//			setState(Idle.getInstance());
-//			currentState.executeState(context);
+			// From Idle to validation
+			setState(Validation.getInstance());
+			// Run Validation
+			currentState.executeState(context);
+			// Valid
+			if (((RegisterContext)context).isRegistered())
+			{
+				setState(Valid.getInstance());
+				currentState.executeState(context);
+			}
+			else // Invalid
+			{
+				setState(Invalid.getInstance());
+				currentState.executeState(context);
+			}
+			// Back to Idle
+			setState(Idle.getInstance());
+			currentState.executeState(context);
 		}
 		else
 			currentState.executeState(context);

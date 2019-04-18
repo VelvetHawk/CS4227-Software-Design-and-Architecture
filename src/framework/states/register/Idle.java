@@ -22,6 +22,6 @@ public class Idle implements State
 	@Override
 	public void executeState(Context context)
 	{
-		System.out.println("In state idle");
+		System.out.println("In state register.idle");
 	}
 }

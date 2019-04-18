@@ -9,6 +9,7 @@ import consumables.Order;
 import display.views.PopUpScreens;
 import framework.Framework;
 import framework.context.Context;
+import framework.context.ErrorContext;
 import framework.context.ScreenSwitchContext;
 import framework.states.State;
 import framework.states.entry.Idle;
@@ -129,7 +130,12 @@ public class ScreensController extends StackPane implements State
         }
         catch (Exception e)
         {
-            System.out.println(e.getMessage());
+	        Framework.getInstance().onLogEvent(
+		        new ErrorContext(
+			        "Error loading screen",
+			        e
+		        )
+	        );
             return false;
         }
     }
@@ -156,7 +162,12 @@ public class ScreensController extends StackPane implements State
 	    }
 	    catch (Exception e)
 	    {
-		    System.out.println(e.getMessage());
+		    Framework.getInstance().onLogEvent(
+			    new ErrorContext(
+				    "Error loading pop-up screen",
+				    e
+			    )
+		    );
 		    return false;
 	    }
     }

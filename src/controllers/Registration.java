@@ -6,6 +6,9 @@ import java.util.ResourceBundle;
 import controllers.memento.RegistrationCaretaker;
 import controllers.memento.RegistrationMemento;
 import display.views.Screens;
+import framework.Framework;
+import framework.context.ErrorContext;
+import framework.context.RegisterContext;
 import framework.states.entry.Idle;
 import framework.states.statemachines.Login;
 import javafx.scene.control.Alert;
@@ -19,7 +22,6 @@ import data.models.RegisterModel;
 
 public class Registration implements Initializable , ControlledScreen
 {
-    private RegisterModel model;
     @FXML private TextField nameTextField;
     @FXML private TextField surnameTextField;
     @FXML private TextField emailTextField;
@@ -55,16 +57,8 @@ public class Registration implements Initializable , ControlledScreen
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        try
-        {
-            model = new RegisterModel();
-            undoButton.setDisable(true);
-            redoButton.setDisable(true);
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
+        undoButton.setDisable(true);
+        redoButton.setDisable(true);
     }
     
     public void setScreenParent(ScreensController screenParent)
@@ -80,30 +74,11 @@ public class Registration implements Initializable , ControlledScreen
                                   String address,
                                   String phone) throws Exception
     {
-        try
-        {
-            boolean alreadyRegistered = model.checkRegistered(user, pass);
-            if (!alreadyRegistered)
-            {
-                //User is not already registered, so register them
-                model.registerUser(name, surname, user, pass, email, address, phone);
-                boolean registered = model.getRegistered();
-                if (registered)
-                {
-                    setMessage("Successfuly registered");
-                    // when the user is successfully registered, the login page will be loaded
-                    myController.setScreen(Screens.LOGIN);
-                }
-                else
-                    setMessage("Error registering");
-            }
-            else
-                setMessage("User already exists");
-        }
-        catch(Exception exc)
-        {
-            exc.printStackTrace();
-        }
+        RegisterContext registerContext = new RegisterContext(
+	        name, surname, user, pass, email, address, phone
+        );
+        // Pass to state machine
+        myController.getState().executeState(registerContext);
     }
     
     public void clearForm() // Clear form input

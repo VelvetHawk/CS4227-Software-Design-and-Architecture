@@ -1,6 +1,8 @@
 package consumables.builders;
 
 import consumables.decorators.Consumable;
+import framework.Framework;
+import framework.context.ErrorContext;
 import org.junit.Test;
 import prototype.Prototype;
 
@@ -56,7 +58,12 @@ public class MealBuilderTest {
             assertEquals(kebabMeal.getContents(), cloneKebabMeal.getContents());
         }
         catch(Exception e){
-            e.printStackTrace();
+            Framework.getInstance().onLogEvent(
+                new ErrorContext(
+                    "Error during test meal clone",
+                    e
+                )
+            );
         }
 
     }

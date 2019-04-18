@@ -1,5 +1,6 @@
 package framework.states.login;
 
+import controllers.Registration;
 import controllers.ScreensController;
 import display.views.Screens;
 import framework.context.Context;
@@ -27,7 +28,7 @@ public class Valid implements State
 	@Override
 	public void executeState(Context context)
 	{
-		System.out.println("In state valid");
+		System.out.println("In state login.valid");
 		ScreensController.getInstance().setState(Main.getInstance());
 		ScreensController.getInstance().executeState(
 			new ScreenSwitchContext(
