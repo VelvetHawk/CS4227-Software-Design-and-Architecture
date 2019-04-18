@@ -31,7 +31,8 @@ public class Registration implements Initializable , ControlledScreen
     @FXML private Button undoButton;
     @FXML private Button redoButton;
     private ScreensController myController;
-    private int counter = 0 ;
+    private int mementoIndexCounter = 0 ;
+    private int mementoTotalCounter = 0;
 
     private static Registration instance; // create a static controller instance,
 
@@ -57,6 +58,8 @@ public class Registration implements Initializable , ControlledScreen
         try
         {
             model = new RegisterModel();
+            undoButton.setDisable(true);
+            redoButton.setDisable(true);
         }
         catch (Exception e)
         {
@@ -203,28 +206,38 @@ public class Registration implements Initializable , ControlledScreen
     @FXML
     public void undoButton()
     {
-        counter--;
-        if (counter < 0)
+        if (mementoIndexCounter >= 1)
         {
-            counter = 0;
-            undoButton.setDisable(true);
+            mementoIndexCounter--;
+            undoFromMemento(caretaker.getMemento(mementoIndexCounter));
+            redoButton.setDisable(false);
         }
         else
-            undoButton.setDisable(false);
-        undoFromMemento(caretaker.getMemento(counter));
+            undoButton.setDisable(true);
     }
 
     @FXML
     public void saveButton()
     {
         caretaker.addMemento(saveToMemento());
-        counter++;
+        undoButton.setDisable(false);
+        redoButton.setDisable(false);
+        mementoIndexCounter++;
+        mementoTotalCounter++;
     }
 
     @FXML
     public void redoButton(ActionEvent event)
     {
-        System.out.println("redo");
+        if ((mementoTotalCounter - 1) > mementoIndexCounter)
+        {
+            mementoIndexCounter++;
+            redoButton.setDisable(false);
+            undoFromMemento(caretaker.getMemento(mementoIndexCounter));
+            undoButton.setDisable(false);
+        }
+        else
+            redoButton.setDisable(true);
     }
 
     @FXML
