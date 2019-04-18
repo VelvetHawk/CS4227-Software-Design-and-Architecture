@@ -29,10 +29,7 @@ public abstract class DrinkDecorator implements Consumable
 	{
 		this.size = size;
 	}
-	
+
 	@Override
-	public abstract String getName();
-	
-	@Override
-	public abstract double getCost();
+	public abstract Object clone();
 }

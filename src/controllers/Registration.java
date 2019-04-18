@@ -33,7 +33,7 @@ public class Registration implements Initializable , ControlledScreen
     @FXML private Button undoButton;
     @FXML private Button redoButton;
     private ScreensController myController;
-    private int mementoIndexCounter = 0 ;
+    private int mementoIndexCounter = 0;
     private int mementoTotalCounter = 0;
 
     private static Registration instance; // create a static controller instance,

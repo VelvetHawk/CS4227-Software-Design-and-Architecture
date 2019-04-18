@@ -34,4 +34,9 @@ public class Beef extends ToppingDecorator
         String description = conVisitor.visit(this);
         return description;
     }
+    @Override
+    public Object clone()
+    {
+        return new Beef(this.parent);
+    }
 }

@@ -39,4 +39,9 @@ public class Kebab extends FoodDecorator
 		String description = conVisitor.visit(this);
 		return description;
 	}
+	@Override
+	public Object clone()
+	{
+		return new Kebab(this.parent);
+	}
 }

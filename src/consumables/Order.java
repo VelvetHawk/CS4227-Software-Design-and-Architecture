@@ -6,11 +6,10 @@ import data.Observer;
 import data.Subject;
 import java.util.ArrayList;
 
-public class Order implements Subject
+public class Order implements Subject, Cloneable
 {
 	private int orderNumber;
 	private ArrayList<Consumable> food;
-	private ArrayList<ToppingDecorator> toppings;
 	private ArrayList<SideDecorator> sides;
 	private ArrayList<DrinkDecorator> drinks;
 	private State orderState;
@@ -53,16 +52,6 @@ public class Order implements Subject
 	public void setFood(ArrayList<Consumable> food)
 	{
 		this.food = food;
-	}
-
-	public ArrayList<ToppingDecorator> getToppings()
-	{
-		return toppings;
-	}
-
-	public void setToppings(ArrayList<ToppingDecorator> toppings)
-	{
-		this.toppings = toppings;
 	}
 
 	public ArrayList<SideDecorator> getSides()
@@ -138,8 +127,24 @@ public class Order implements Subject
 		notifyAllObservers();
 	}
 
+	@Override
+    public Object clone()
+    {
+        Order copy = new Order();
 
-	
+        copy.orderNumber = this.orderNumber;
+        copy.food = (ArrayList<Consumable>) this.food.clone();
+        copy.sides = (ArrayList<SideDecorator>) this.sides.clone();
+        copy.drinks = (ArrayList<DrinkDecorator>) this.drinks.clone();
+        if (this.orderState != null)
+            copy.orderState = (State) this.orderState.clone();
+        else
+            copy.orderState = null;
+        copy.observers = (ArrayList<Observer>) this.observers.clone();
+
+        return copy;
+    }
+
 	@Override
 	public void notifyAllObservers()
 	{

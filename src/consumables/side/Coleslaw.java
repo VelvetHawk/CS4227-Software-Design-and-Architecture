@@ -34,5 +34,9 @@ public class Coleslaw extends SideDecorator
         String description = conVisitor.visit(this);
         return description;
     }
-
+    @Override
+    public Object clone()
+    {
+        return new Coleslaw(this.parent);
+    }
 }

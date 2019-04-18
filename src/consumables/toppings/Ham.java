@@ -33,4 +33,9 @@ public class Ham extends ToppingDecorator
         String description = conVisitor.visit(this);
         return description;
     }
+    @Override
+    public Object clone()
+    {
+        return new Ham(this.parent);
+    }
 }

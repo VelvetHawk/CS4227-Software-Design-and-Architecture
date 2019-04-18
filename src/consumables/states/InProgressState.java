@@ -11,6 +11,11 @@ public class InProgressState implements State
         order.setOrderState(this);
     }
 
+    @Override
+    public Object clone() {
+        return new InProgressState();
+    }
+
     public String toString()
     {
         return "Progress State";

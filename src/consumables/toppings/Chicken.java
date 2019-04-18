@@ -33,4 +33,9 @@ public class Chicken extends ToppingDecorator
         String description = conVisitor.visit(this);
         return description;
     }
+    @Override
+    public Object clone()
+    {
+        return new Chicken(this.parent);
+    }
 }

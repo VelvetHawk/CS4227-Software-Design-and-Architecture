@@ -39,4 +39,9 @@ public class Burger extends FoodDecorator
         String description = conVisitor.visit(this);
         return description;
     }
+    @Override
+    public Object clone()
+    {
+        return new Burger(this.parent);
+    }
 }

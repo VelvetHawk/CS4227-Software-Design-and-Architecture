@@ -2,6 +2,8 @@ package consumables.decorators;
 
 import consumables.Size;
 
+import javax.jws.Oneway;
+
 public abstract class FoodDecorator implements Consumable
 {
 	// Decorator chain
@@ -29,10 +31,7 @@ public abstract class FoodDecorator implements Consumable
 	{
 		this.size = size;
 	}
-	
+
 	@Override
-	public abstract String getName();
-	
-	@Override
-	public abstract double getCost();
+    public abstract Object clone();
 }

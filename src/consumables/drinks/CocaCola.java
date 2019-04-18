@@ -40,4 +40,9 @@ public class CocaCola extends DrinkDecorator
         String description = conVisitor.visit(this);
         return description;
     }
+    @Override
+    public Object clone()
+    {
+        return new CocaCola(this.parent);
+    }
 }

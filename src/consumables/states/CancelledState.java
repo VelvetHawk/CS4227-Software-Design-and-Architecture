@@ -11,6 +11,11 @@ public class CancelledState implements State
         order.setOrderState(this);
     }
 
+    @Override
+    public Object clone() {
+        return new CancelledState();
+    }
+
     public String toString()
     {
         return "Order cancelled State";

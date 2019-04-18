@@ -32,9 +32,9 @@
             <Font size="17.0" />
          </font>
       </Button>
-      <Button layoutX="657.0" layoutY="330.0" mnemonicParsing="false" onAction="#undoButton" text="Undo" textFill="RED" />
-      <Button layoutX="703.0" layoutY="330.0" mnemonicParsing="false" onAction="#redoButton" text="Redo" textFill="RED" />
-      <Button layoutX="605.0" layoutY="330.0" mnemonicParsing="false" onAction="#saveButton" prefHeight="25.0" prefWidth="51.0" text="Save" textFill="BLUE" />
+      <Button fx:id="undoButton" layoutX="657.0" layoutY="330.0" mnemonicParsing="false" onAction="#undoButton" text="Undo" textFill="RED" />
+      <Button fx:id="redoButton" layoutX="703.0" layoutY="330.0" mnemonicParsing="false" onAction="#redoButton" text="Redo" textFill="RED" />
+      <Button fx:id="saveButton" layoutX="605.0" layoutY="330.0" mnemonicParsing="false" onAction="#saveButton" prefHeight="25.0" prefWidth="51.0" text="Save" textFill="BLUE" />
 
 
    </children>

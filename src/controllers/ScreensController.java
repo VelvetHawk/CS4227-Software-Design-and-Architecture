@@ -28,6 +28,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import display.views.Screens;
+import memento.MakeOrderMemento;
 
 public class ScreensController extends StackPane implements State
 {
@@ -244,5 +245,10 @@ public class ScreensController extends StackPane implements State
 	{
 		Framework.getInstance().onScreenSwitch((ScreenSwitchContext) context);
 		setScreen(((ScreenSwitchContext) context).getScreenType());
+	}
+
+	public void setCustomerOrder(Order customerOrder)
+	{
+		this.customerOrder = customerOrder;
 	}
 }

@@ -35,5 +35,9 @@ public class Chips extends SideDecorator
         return description;
     }
 
-
+    @Override
+    public Object clone()
+    {
+        return new Chips(this.parent);
+    }
 }

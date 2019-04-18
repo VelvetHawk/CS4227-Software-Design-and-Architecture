@@ -2,8 +2,8 @@ package consumables.states;
 
 import consumables.Order;
 
-@FunctionalInterface
-public interface State
+public interface State extends Cloneable
 {
     public void processOrder(Order order);
+    public Object clone();
 }

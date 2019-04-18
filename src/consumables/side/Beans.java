@@ -33,5 +33,9 @@ public class Beans extends SideDecorator
         String description = conVisitor.visit(this);
         return description;
     }
-
+    @Override
+    public Object clone()
+    {
+        return new Beans(this.parent);
+    }
 }

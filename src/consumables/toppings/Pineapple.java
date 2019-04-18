@@ -33,4 +33,9 @@ public class Pineapple extends ToppingDecorator
         String description = conVisitor.visit(this);
         return description;
     }
+    @Override
+    public Object clone()
+    {
+        return new Pineapple(this.parent);
+    }
 }

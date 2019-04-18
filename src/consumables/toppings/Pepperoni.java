@@ -34,4 +34,9 @@ public class Pepperoni extends ToppingDecorator
         String description = conVisitor.visit(this);
         return description;
     }
+    @Override
+    public Object clone()
+    {
+        return new Pepperoni(this.parent);
+    }
 }

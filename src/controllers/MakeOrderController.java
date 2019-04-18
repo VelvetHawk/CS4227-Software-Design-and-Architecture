@@ -22,6 +22,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import memento.MakeOrderCaretaker;
+import memento.MakeOrderMemento;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -34,9 +37,15 @@ public class MakeOrderController implements Initializable, ControlledScreen, Obs
 	@FXML private Button addItemButton;
 	@FXML private Label totalAmountLabel;
 	@FXML private ScrollPane scrollPane;
+    @FXML private Button undoButton;
+    @FXML private Button redoButton;
 	private ScreensController myController;
+    private int mementoIndexCounter = 0;
+    private int mementoTotalCounter = 0;
 
 	private static MakeOrderController instance; // create a static controller instance,
+
+	MakeOrderCaretaker caretaker = new MakeOrderCaretaker();
 
 	public MakeOrderController() { instance = this; } // no arg constructor
 
@@ -91,16 +100,58 @@ public class MakeOrderController implements Initializable, ControlledScreen, Obs
 
 	}
 
+	public MakeOrderMemento saveToMemento()
+	{
+        return new MakeOrderMemento(
+            (Order) myController.getCustomerOrder().clone()
+        );
+	}
+
+	public void undoFromMemento(MakeOrderMemento memento)
+    {
+        myController.setCustomerOrder(memento.getOrder());
+        update();
+	}
+
 	@FXML
 	public void undoButton(ActionEvent event)
 	{
 		System.out.println("undo");
+        if (mementoIndexCounter >= 1)
+        {
+            mementoIndexCounter--;
+            undoFromMemento(caretaker.getMemento(mementoIndexCounter));
+            redoButton.setDisable(false);
+        }
+        else
+            undoButton.setDisable(true);
 	}
 
 	@FXML
 	public void redoButton(ActionEvent event)
 	{
 		System.out.println("redo");
+
+        if ((mementoTotalCounter - 1) > mementoIndexCounter)
+        {
+            mementoIndexCounter++;
+            redoButton.setDisable(false);
+            myController.setCustomerOrder(caretaker.getMemento(mementoIndexCounter).getOrder());
+            update();
+            undoButton.setDisable(false);
+        }
+        else
+            redoButton.setDisable(true);
+	}
+
+	@FXML
+	public void saveButton(ActionEvent event)
+	{
+		caretaker.addMemento(saveToMemento());
+        undoButton.setDisable(false);
+        redoButton.setDisable(false);
+        mementoIndexCounter++;
+        mementoTotalCounter++;
 	}
 
 	@Override

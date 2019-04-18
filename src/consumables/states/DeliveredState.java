@@ -11,6 +11,11 @@ public class DeliveredState implements State
         order.setOrderState(this);
     }
 
+    @Override
+    public Object clone() {
+        return new DeliveredState();
+    }
+
     public String toString()
     {
         return "Delivered State";

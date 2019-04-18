@@ -9,10 +9,7 @@ public abstract class ToppingDecorator implements Consumable
 	{
 		this.parent = parent;
 	}
-	
+
 	@Override
-	public abstract String getName();
-	
-	@Override
-	public abstract double getCost();
+	public abstract Object clone();
 }

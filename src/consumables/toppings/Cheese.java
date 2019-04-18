@@ -33,4 +33,9 @@ public class Cheese extends ToppingDecorator
         String description = conVisitor.visit(this);
         return description;
     }
+    @Override
+    public Object clone()
+    {
+        return new Cheese(this.parent);
+    }
 }
