@@ -6,6 +6,8 @@ import java.util.ResourceBundle;
 import controllers.memento.RegistrationCaretaker;
 import controllers.memento.RegistrationMemento;
 import display.views.Screens;
+import framework.states.entry.Idle;
+import framework.states.statemachines.Login;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -70,7 +72,7 @@ public class Registration implements Initializable , ControlledScreen
     public void checkRegistration(String name,
                                   String surname,
                                   String user,
-                                  char[] pass,
+                                  String pass,
                                   String email,
                                   String address,
                                   String phone) throws Exception
@@ -133,10 +135,9 @@ public class Registration implements Initializable , ControlledScreen
         String phone = phoneTextField.getText();
         String password = password_Field.getText();
         String username = usernameTextField.getText();
-        char[] passwordChar = password.toCharArray();
 
         if(name.isEmpty() || surname.isEmpty() || email.isEmpty() || address.isEmpty() ||
-	        phone.isEmpty() || password.isEmpty() || username.isEmpty() || passwordChar.length == 0)
+	        phone.isEmpty() || password.isEmpty() || username.isEmpty())
         {
             setMessage("Please complete the form before press the button"); // popup message
         }
@@ -147,7 +148,7 @@ public class Registration implements Initializable , ControlledScreen
         else
         {
             // account type is setup as default to Customers.
-            checkRegistration(name, surname, username, passwordChar, email, address, phone);
+            checkRegistration(name, surname, username, password, email, address, phone);
             clearForm();// clear the form once user is registered
         }
     }

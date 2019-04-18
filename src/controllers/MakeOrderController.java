@@ -1,5 +1,5 @@
 package controllers;
-		
+
 import consumables.Order;
 import consumables.decorators.Consumable;
 import consumables.decorators.DrinkDecorator;
@@ -8,6 +8,10 @@ import consumables.decorators.SideDecorator;
 import data.Observer;
 import display.views.PopUpScreens;
 import display.views.Screens;
+import framework.context.Context;
+import framework.context.ScreenSwitchContext;
+import framework.states.main.Main;
+import framework.states.order.MakeOrder;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -64,15 +68,21 @@ public class MakeOrderController implements Initializable, ControlledScreen, Obs
 	@FXML
 	private void goBackToToMainMenu(ActionEvent event)
 	{
-		// only if the user is successfully logged in then, it'll take the user to the main menu
-		myController.setScreen(Screens.MAIN_MENU);
+		// only if the user is successfully logged in then, it'll take the user to the Main menu
+		myController.setState(Main.getInstance());
+		myController.getState().executeState(new Context("Idle"));
+		myController.executeState(new ScreenSwitchContext(
+				"Switching to Main Menu Screen",
+				Screens.MAIN_MENU
+		));
 	}
 	
 	@FXML
 	public void addItemButtonClicked(ActionEvent event)
 	{
-		System.out.println("add button clicked");
 		myController.setPopUpScreen(PopUpScreens.ORDER_TYPE_CHOICE);
+		myController.setState(MakeOrder.getInstance());
+		myController.getState().executeState(new Context("Idle"));
 	}
 	
 	@FXML

@@ -3,6 +3,11 @@ package controllers;
 import java.util.HashMap;
 import consumables.Order;
 import display.views.PopUpScreens;
+import framework.Framework;
+import framework.context.Context;
+import framework.context.ScreenSwitchContext;
+import framework.states.State;
+import framework.states.entry.Idle;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -13,23 +18,41 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import display.views.Screens;
 
-public class ScreensController extends StackPane
+public class ScreensController extends StackPane implements State
 {
+	/*
+		Also acts as the program state machine
+	 */
+	
     // The screens to be displayed
     private HashMap<Screens, Node> screens = new HashMap<>();
 	private HashMap<PopUpScreens, Stage> popUpScreens = new HashMap<>();
+	
+	private State currentState;
+	
 	// Customer data
 	private Order customerOrder;
 	
-    public ScreensController()
+	private static ScreensController instance;
+	
+    private ScreensController()
 	{
         super();
 		customerOrder = new Order();
+		currentState = Idle.getInstance();
+    }
+    
+    public static ScreensController getInstance()
+    {
+    	if (instance == null)
+    		instance = new ScreensController();
+    	return instance;
     }
     
     public Order getCustomerOrder()
@@ -76,6 +99,7 @@ public class ScreensController extends StackPane
         {
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource(resource));
             Parent loadScreen = (Parent) myLoader.load();
+            // TODO: This can later be removed due to getInstance()
             ControlledScreen myScreenControler = ((ControlledScreen) myLoader.getController());
             myScreenControler.setScreenParent(this);
             addScreen(name, loadScreen);
@@ -161,4 +185,31 @@ public class ScreensController extends StackPane
 	    System.out.println();
     	popUpScreens.get(screen).show();
     }
+    
+    public State getState()
+    {
+        return currentState;
+    }
+    
+    public void setState(State state)
+    {
+	    // Log state change
+	    Framework.getInstance().onLogEvent(
+		    new Context(String.format(
+			    "'%s' switching from state '%s' to state '%s'",
+			    this.getClass().getName(),
+			    currentState.getClass().getName(),
+			    state.getClass().getName()
+		    ))
+	    );
+	    // Change state
+    	currentState = state;
+    }
+	
+	@Override
+	public void executeState(Context context)
+	{
+		Framework.getInstance().onScreenSwitch((ScreenSwitchContext) context);
+		setScreen(((ScreenSwitchContext) context).getScreenType());
+	}
 }

@@ -13,7 +13,7 @@ public class RegisterModel
         SQLConn.getConnection(DatabaseEnum.MYSQL);
     }
 
-    public boolean checkRegistered(String user, char[] pass)
+    public boolean checkRegistered(String user, String pass)
     {
         //TODO: check if registered
         return registered;
@@ -27,12 +27,11 @@ public class RegisterModel
     public void registerUser(String name,
                              String surname,
                              String user,
-                             char[] pass,
+                             String password,
                              String email,
                              String address,
                              String phone) throws Exception
     {
-        String password = new String(pass);
         String [] columns = new String[12];
         String [] values = new String[12];
         values[0] = "default";
