@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="389.0" prefWidth="719.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginScreen">
    <children>
-      <ImageView fitHeight="323.0" fitWidth="275.0" layoutX="197.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true" scaleX="3.0" scaleY="2.0">
+      <ImageView fitHeight="323.0" fitWidth="319.0" layoutX="238.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true" scaleX="3.0" scaleY="2.0">
          <image>
             <Image url="@../images/login.jpg" />
          </image>
