@@ -34,20 +34,20 @@ public class Stock implements Subject
         sides = new HashMap<>();
     }
 
-    public Map<DrinkDecorator, Integer> getDrinks()
+    public HashMap<DrinkDecorator, Integer> getDrinks()
     {
         return drinks;
     }
 
-    public Map<FoodDecorator, Integer> getFoods()
+    public HashMap<FoodDecorator, Integer> getFoods()
     {
         return foods;
     }
-    public Map<ToppingDecorator, Integer> getToppings()
+    public HashMap<ToppingDecorator, Integer> getToppings()
     {
         return toppings;
     }
-    public Map<SideDecorator, Integer> getSides()
+    public HashMap<SideDecorator, Integer> getSides()
     {
         return sides;
     }
