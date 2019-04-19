@@ -8,6 +8,7 @@ import java.sql.*;
 
 public class SQLConnector implements DatabaseConnector
 {
+    private String tablename = "$tablename";
     private Connection conn = null;
     private PreparedStatement preparedStatement = null;
     private ResultSet rs = null;
@@ -87,7 +88,7 @@ public class SQLConnector implements DatabaseConnector
         strQuery.append(" FROM $tablename");
         if (whereClause != null)    strQuery.append(whereClause);
         if (orderByClause != null)  strQuery.append(orderByClause);
-        String sql = strQuery.toString().replace("$tablename",table);
+        String sql = strQuery.toString().replace(tablename,table);
         try
         {
             preparedStatement = conn.prepareStatement(sql);
@@ -118,7 +119,7 @@ public class SQLConnector implements DatabaseConnector
             }
         }
 	    strQuery.append(" ").append(whereClause);
-        String sql = strQuery.toString().replace("$tablename",table);
+        String sql = strQuery.toString().replace(tablename,table);
         System.out.println(sql);
         int registerSuccess = 0;
         try
@@ -154,7 +155,7 @@ public class SQLConnector implements DatabaseConnector
                 strQuery.append(", ");
         }
         strQuery.append(")");
-        String sql = strQuery.toString().replace("$tablename",table);
+        String sql = strQuery.toString().replace(tablename,table);
         System.out.println(sql);
         int registerSuccess;
         try
@@ -179,7 +180,7 @@ public class SQLConnector implements DatabaseConnector
     public boolean delete(String table, String whereClause)
     {
         String strQuery = "DELETE FROM $tablename";
-        String sql =strQuery.replace("$tablename",table);
+        String sql =strQuery.replace(tablename,table);
         sql += " " + whereClause;
         int deleteSuccess;
         try

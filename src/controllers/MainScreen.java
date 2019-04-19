@@ -29,7 +29,7 @@ public class MainScreen implements Initializable, ControlledScreen
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-    
+        // empty
     }
     
     public void setScreenParent(ScreensController screenParent)

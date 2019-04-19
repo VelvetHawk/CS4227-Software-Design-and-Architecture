@@ -67,7 +67,7 @@ public class Registration implements Initializable , ControlledScreen
                                   String pass,
                                   String email,
                                   String address,
-                                  String phone) throws Exception
+                                  String phone)
     {
         RegisterContext registerContext = new RegisterContext(
 	        name, surname, user, pass, email, address, phone
@@ -98,7 +98,7 @@ public class Registration implements Initializable , ControlledScreen
     }
 
     @FXML
-    private void goToLogin(ActionEvent event) throws Exception
+    private void goToLogin(ActionEvent event)
     {
         String name = nameTextField.getText();
         String surname = surnameTextField.getText();

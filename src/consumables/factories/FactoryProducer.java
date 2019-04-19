@@ -5,6 +5,11 @@ import consumables.decorators.Consumables;
 
 public class FactoryProducer
 {
+    private FactoryProducer()
+    {
+
+    }
+
     public static ConsumableFactory getFactory(Consumables type)
     {
         switch (type)

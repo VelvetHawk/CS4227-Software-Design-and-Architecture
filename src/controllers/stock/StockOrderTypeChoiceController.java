@@ -45,7 +45,7 @@ public class StockOrderTypeChoiceController implements Initializable, Controlled
     @Override
     public void initialize( URL url, ResourceBundle rb)
     {
-
+        // empty
     }
 
     public void setScreenParent(ScreensController screenParent)

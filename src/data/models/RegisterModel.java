@@ -5,22 +5,11 @@ import data.DatabaseEnum;
 
 public class RegisterModel
 {
-    private boolean registered = false;
     private SQLConnector sqlConn = new SQLConnector();
 
     public RegisterModel() throws Exception
     {
         sqlConn.getConnection(DatabaseEnum.MYSQL);
-    }
-
-    public boolean checkRegistered(String user, String pass)
-    {
-        return registered;
-    }
-
-    public boolean getRegistered()
-    {
-        return registered;
     }
 
     public void registerUser(String name,
@@ -46,7 +35,7 @@ public class RegisterModel
         values[9] = def;
         values[10] = def;
         values[11] = def;
-        registered = sqlConn.insert("users", columns, values);
+        sqlConn.insert("users", columns, values);
         sqlConn.closeConnection();
     }
 }

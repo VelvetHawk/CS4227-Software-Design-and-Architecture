@@ -96,7 +96,7 @@ public class MakeOrderController implements Initializable, ControlledScreen, Obs
 	@FXML
 	public void getOrderCompleted(ActionEvent event)
 	{
-
+		// empty
 	}
 
 	public MakeOrderMemento saveToMemento()

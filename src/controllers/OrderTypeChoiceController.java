@@ -40,7 +40,7 @@ public class OrderTypeChoiceController implements Initializable , ControlledScre
     @Override
     public void initialize(URL url, ResourceBundle rb)
 	{
-	   
+		// empty
     }
     
     public void setScreenParent(ScreensController screenParent)

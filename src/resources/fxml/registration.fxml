@@ -33,8 +33,8 @@
             <TextField fx:id="phoneTextField" layoutX="148.0" layoutY="276.0" />
             <Button layoutY="333.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="27.0" prefWidth="87.0" text="Register" />
             <Button layoutX="349.0" layoutY="334.0" mnemonicParsing="false" onAction="#goToMainScreen" prefHeight="27.0" prefWidth="87.0" text="Back" />
-            <PasswordField fx:id="password_Field" layoutX="148.0" layoutY="163.0" />
-            <PasswordField fx:id="password_Field1" layoutX="148.0" layoutY="202.0" />
+            <PasswordField fx:id="passwordField" layoutX="148.0" layoutY="163.0" />
+            <PasswordField fx:id="passwordField1" layoutX="148.0" layoutY="202.0" />
             <Button layoutX="96.0" layoutY="334.0" mnemonicParsing="false" onAction="#saveButton" text="Save Progress" />
             <Button fx:id="undoButton" layoutX="208.0" layoutY="334.0" mnemonicParsing="false" onAction="#undoButton" prefHeight="27.0" prefWidth="65.0" text="Undo" />
             <Button fx:id="redoButton" layoutX="278.0" layoutY="334.0" mnemonicParsing="false" onAction="#redoButton" prefHeight="27.0" prefWidth="65.0" text="Redo" />

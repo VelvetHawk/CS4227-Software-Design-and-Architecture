@@ -9,13 +9,15 @@ import java.util.HashMap;
 
 import static org.junit.Assert.*;
 
-public class StockTest {
+public class StockTest
+{
     private Stock stockOrder = new Stock();
     private DrinksFactory drinksFactory = new DrinksFactory();
     private Drinks drinkType = Drinks.CLUBORANGE;
 
     @Test
-    public void addDrink() {
+    public void addDrink()
+    {
         DrinkDecorator firstKey = (DrinkDecorator)drinksFactory.addDrink(drinkType, drinksFactory.getDrink());
 
         stockOrder.addDrink(firstKey, Integer.parseInt("4"));
@@ -26,10 +28,6 @@ public class StockTest {
         DrinkDecorator secondKey = (DrinkDecorator) drinksFactory.addDrink(drinkType, drinksFactory.getDrink());
         drinksExpected.put(secondKey, 4);
 
-
-        //System.out.println(drinks.get(firstKey) + "  " + drinksExpected.get(secondKey));
         assertEquals(drinks.get(firstKey), drinksExpected.get(secondKey));
-
     }
-
 }

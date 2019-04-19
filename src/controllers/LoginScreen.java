@@ -34,7 +34,7 @@ public class LoginScreen implements Initializable, ControlledScreen
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-
+        // empty
     }
 
     public void setUsername(String uName)
