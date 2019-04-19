@@ -33,8 +33,6 @@
                 <Font size="17.0" />
             </font>
         </Button>
-        <Button layoutX="584.0" layoutY="330.0" mnemonicParsing="false" onAction="#undoButton" text="Undo" textFill="RED" />
-        <Button layoutX="630.0" layoutY="330.0" mnemonicParsing="false" onAction="#redoButton" text="Redo" textFill="RED" />
 
 
     </children>

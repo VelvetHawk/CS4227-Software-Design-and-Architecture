@@ -5,7 +5,6 @@ import data.Observer;
 import data.Subject;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class Stock implements Subject
 {
