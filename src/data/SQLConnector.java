@@ -39,12 +39,12 @@ public class SQLConnector implements DatabaseConnector
     {
         try
         {
-            String PUBLIC_DNS = "cs4125-db-instance.c1qi1r4muekc.us-east-2.rds.amazonaws.com";
-            String PORT = "3306";
-            String DATABASE = "Restaurant_db";
-            String REMOTE_DATABASE_USERNAME = "remoteuser";
-            String DATABASE_USER_PASSWORD = "remotepassword";
-            conn = DriverManager.getConnection("jdbc:mysql://" + PUBLIC_DNS + ":" + PORT + "/" + DATABASE, REMOTE_DATABASE_USERNAME, DATABASE_USER_PASSWORD);
+            String publicDNS = "cs4125-db-instance.c1qi1r4muekc.us-east-2.rds.amazonaws.com";
+            String port = "3306";
+            String database = "Restaurant_db";
+            String remoteDatabaseUsername = "remoteuser";
+            String databaseUserPassword = "remotepassword";
+            conn = DriverManager.getConnection("jdbc:mysql://" + publicDNS + ":" + port + "/" + database, remoteDatabaseUsername, databaseUserPassword);
         }
         catch (SQLException e)
         {

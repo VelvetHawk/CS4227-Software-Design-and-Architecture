@@ -3,9 +3,7 @@ package visitor;
 import consumables.decorators.Consumable;
 import consumables.decorators.ConsumableFactory;
 import consumables.decorators.Consumables;
-import consumables.decorators.FoodDecorator;
 import consumables.factories.FactoryProducer;
-import consumables.food.Burger;
 import consumables.food.Food;
 import org.junit.Test;
 
@@ -16,7 +14,8 @@ public class ConsumableDescriptionVisitorTest {
     private ConsumableFactory foodFactory;
 
     @Test
-    public void testBurgerVisitor() {
+    public void testBurgerVisitor()
+    {
         ConsumableDescriptionVisitor visitor = new ConsumableDescriptionVisitor();
         foodFactory = FactoryProducer.getFactory(Consumables.FOOD);
         Consumable food = foodFactory.getFood();
@@ -26,7 +25,8 @@ public class ConsumableDescriptionVisitorTest {
     }
 
     @Test
-    public void testKebabVisitor(){
+    public void testKebabVisitor()
+    {
         ConsumableDescriptionVisitor visitor = new ConsumableDescriptionVisitor();
         foodFactory = FactoryProducer.getFactory(Consumables.FOOD);
         Consumable food = foodFactory.getFood();

@@ -80,26 +80,12 @@ public class MakeStockOrderController implements Initializable, ControlledScreen
     @FXML
     public void getOrderCompleted(ActionEvent event)
     {
-
-    }
-
-    @FXML
-    public void undoButton(ActionEvent event)
-    {
-        System.out.println("undo");
-    }
-
-    @FXML
-    public void redoButton(ActionEvent event)
-    {
-        System.out.println("redo");
+        // empty
     }
 
     @Override
     public void update()
     {
-        //System.out.println("Is this called?");
-
         // Update item rows
         Stock stockOrder = myController.getStockOrder();
         VBox itemView = (VBox) scrollPane.getContent();
@@ -110,16 +96,12 @@ public class MakeStockOrderController implements Initializable, ControlledScreen
         addItemsToList(stockOrder, itemView, stockOrder.getToppings());// Add toppings
         addItemsToList(stockOrder, itemView, stockOrder.getSides());// Add toppings
 
-
         // Update total label
-        //totalAmountLabel.setText(String.format("%.2f", myController.getStockOrder().getTotalCost()));
         totalAmountLabel.setText(String.format("%.2f", myController.getStockOrder().getTotalCost()));
     }
 
     private void addItemsToList(Stock stockOrder, VBox itemView, HashMap<? extends Consumable, Integer> stockList)
     {
-        //myController.getStockOrder().getDrinks().forEach((drink, quantity) -> System.out.printf("[%s, %d]", drink.getName(), quantity));
-        //System.out.println("I am on the screen "+myController.getStockOrder().getDrinks());
         stockList.forEach((consumable, quantity) ->
         {
             HBox row = new HBox();
@@ -130,7 +112,6 @@ public class MakeStockOrderController implements Initializable, ControlledScreen
             removeItem.setOnAction(event ->
             {
                 // Remove consumable from the list it is in
-                //if (consumable instanceof SideDecorator)        stockOrder.removeSide(consumable);
                 if (consumable instanceof DrinkDecorator)  stockOrder.removeDrink(consumable);
                 else if (consumable instanceof ToppingDecorator)  stockOrder.removeTopping(consumable);
                 else if (consumable instanceof SideDecorator)  stockOrder.removeSides(consumable);
@@ -142,7 +123,7 @@ public class MakeStockOrderController implements Initializable, ControlledScreen
                     new Label(consumable.getName()),
                     new Label(String.format("€ %.2f", consumable.getStockCost())),
                     new Label(String.format(" X ")),
-                    new Label(String.format("Qty. %,d", quantity)), // TODO: ,
+                    new Label(String.format("Qty. %,d", quantity)),
                     removeItem
             );
             itemView.getChildren().add(row);

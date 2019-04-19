@@ -6,11 +6,7 @@ import java.util.ResourceBundle;
 import memento.RegistrationCaretaker;
 import memento.RegistrationMemento;
 import display.views.Screens;
-import framework.Framework;
-import framework.context.ErrorContext;
 import framework.context.RegisterContext;
-import framework.states.entry.Idle;
-import framework.states.statemachines.Login;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -18,7 +14,6 @@ import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import data.models.RegisterModel;
 
 public class Registration implements Initializable , ControlledScreen
 {
@@ -28,8 +23,8 @@ public class Registration implements Initializable , ControlledScreen
     @FXML private TextField usernameTextField;
     @FXML private TextField addressTextField;
     @FXML private TextField phoneTextField;
-    @FXML private PasswordField password_Field;
-    @FXML private PasswordField password_Field1;
+    @FXML private PasswordField passwordField;
+    @FXML private PasswordField passwordField1;
     @FXML private Button undoButton;
     @FXML private Button redoButton;
     private ScreensController myController;
@@ -38,7 +33,7 @@ public class Registration implements Initializable , ControlledScreen
 
     private static Registration instance; // create a static controller instance,
 
-    RegistrationCaretaker caretaker = new RegistrationCaretaker();
+    private RegistrationCaretaker caretaker = new RegistrationCaretaker();
 
     public Registration() {
         instance = this;
@@ -66,7 +61,7 @@ public class Registration implements Initializable , ControlledScreen
         myController = screenParent;
     }
 
-    public void checkRegistration(String name,
+    private void checkRegistration(String name,
                                   String surname,
                                   String user,
                                   String pass,
@@ -81,7 +76,7 @@ public class Registration implements Initializable , ControlledScreen
         myController.getState().executeState(registerContext);
     }
     
-    public void clearForm() // Clear form input
+    private void clearForm() // Clear form input
     {
         nameTextField.setText("");
         surnameTextField.setText("");
@@ -89,13 +84,12 @@ public class Registration implements Initializable , ControlledScreen
         addressTextField.setText("");
         phoneTextField.setText("");
         usernameTextField.setText("");
-        password_Field.setText("");
-        password_Field1.setText("");
+        passwordField.setText("");
+        passwordField1.setText("");
     }
 
     public void setMessage(String message)
     {
-        System.out.println(message);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
         alert.setHeaderText("Look, an Information Dialog");
@@ -111,7 +105,7 @@ public class Registration implements Initializable , ControlledScreen
         String email = emailTextField.getText();
         String address = addressTextField.getText();
         String phone = phoneTextField.getText();
-        String password = password_Field.getText();
+        String password = passwordField.getText();
         String username = usernameTextField.getText();
 
         if(name.isEmpty() || surname.isEmpty() || email.isEmpty() || address.isEmpty() ||
@@ -119,7 +113,7 @@ public class Registration implements Initializable , ControlledScreen
         {
             setMessage("Please complete the form before press the button"); // popup message
         }
-        else if (!password_Field.getText().equals(password_Field1.getText()))
+        else if (!passwordField.getText().equals(passwordField1.getText()))
         {
             setMessage("Password field not matched");
         }
@@ -132,7 +126,7 @@ public class Registration implements Initializable , ControlledScreen
     }
 
     // Save to memento
-    public RegistrationMemento saveToMemento()
+    private RegistrationMemento saveToMemento()
     {
         return new RegistrationMemento(
                 new TextField(nameTextField.getText()),
@@ -145,7 +139,7 @@ public class Registration implements Initializable , ControlledScreen
     }
 
     // Undo from memento
-    public void undoFromMemento(RegistrationMemento memento)
+    private void undoFromMemento(RegistrationMemento memento)
     {
         String setTextName = memento.getNameTextField().getText();
         String setTextSurname = memento.getSurnameTextField().getText();
@@ -163,7 +157,7 @@ public class Registration implements Initializable , ControlledScreen
         );
     }
 
-    public void printToTextField(String name,
+    private void printToTextField(String name,
                                  String surname,
                                  String email,
                                  String user,
@@ -216,7 +210,7 @@ public class Registration implements Initializable , ControlledScreen
     }
 
     @FXML
-    private void goToMainScreen(ActionEvent event) throws Exception
+    private void goToMainScreen(ActionEvent event)
     {
         myController.setScreen(Screens.MAIN);
     }

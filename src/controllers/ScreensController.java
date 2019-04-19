@@ -23,12 +23,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import display.views.Screens;
-import memento.MakeOrderMemento;
 
 public class ScreensController extends StackPane implements State
 {

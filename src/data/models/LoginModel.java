@@ -14,13 +14,13 @@ public class LoginModel
             //add '' to values to allow them to be added to sql queries
             user = "'" + user  + "'";
             password = "'" + password + "'";
-            SQLConnector SQLconn = new SQLConnector();
-            SQLconn.getConnection(DatabaseEnum.MYSQL);
+            SQLConnector sqlConn = new SQLConnector();
+            sqlConn.getConnection(DatabaseEnum.MYSQL);
             String [] columns = {"username", "password"};
-            ResultSet rs = SQLconn.select("users", columns, " WHERE username =" + user + " AND PASSWORD =" + password, null );
+            ResultSet rs = sqlConn.select("users", columns, " WHERE username =" + user + " AND PASSWORD =" + password, null );
 	        loginValid = rs.next();
             rs.close();
-            SQLconn.closeConnection();
+            sqlConn.closeConnection();
         }
         return loginValid;
     }

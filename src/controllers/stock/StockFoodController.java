@@ -25,8 +25,15 @@ public class StockFoodController implements Initializable, ControlledScreen
     private ConsumableFactory foodFactory;
     private boolean isTextFieldEmpty = true;
     private String numberRegex = "^[0-9]*$"; // only digits
-    @FXML private TextField largeBurgerInput, mediumBurgerInput, smallBurgerInput, largeKebabInput,
-            mediumKebabInput, smallKebabInput, largePizzaInput, mediumPizzaInput, smallPizzaInput;
+    @FXML private TextField largeBurgerInput;
+    @FXML private TextField mediumBurgerInput;
+    @FXML private TextField smallBurgerInput;
+    @FXML private TextField largeKebabInput;
+    @FXML private TextField mediumKebabInput;
+    @FXML private TextField smallKebabInput;
+    @FXML private TextField largePizzaInput;
+    @FXML private TextField mediumPizzaInput;
+    @FXML private TextField smallPizzaInput;
 
     private static StockFoodController instance; // create a static controller instance,
 
@@ -64,82 +71,81 @@ public class StockFoodController implements Initializable, ControlledScreen
     @FXML
     private void getLargeBurger(ActionEvent event)
     {
-        checkInput(largeBurgerInput.getText()); // check the input, only accepts numbers not empty field and no char accepts
-        //addFood(Food.BURGER, Size.LARGE);
-        if(isTextFieldEmpty == false)
+        // check the input, only accepts numbers not empty field and no char accepts
+        checkInput(largeBurgerInput.getText());
+        if(!isTextFieldEmpty)
             addStockFood(Food.BURGER, largeBurgerInput.getText());
     }
 
     @FXML
     private void getMediumBurger(ActionEvent event)
     {
-
-        checkInput(mediumBurgerInput.getText()); // check the input, only accepts numbers not empty field and no char accepts
-        //addFood(Food.BURGER, Size.MEDIUM);
-        if(isTextFieldEmpty == false)
+        // check the input, only accepts numbers not empty field and no char accepts
+        checkInput(mediumBurgerInput.getText());
+        if(!isTextFieldEmpty)
             addStockFood(Food.BURGER, mediumBurgerInput.getText());
     }
 
     @FXML
     private void getSmallBurger(ActionEvent event)
     {
-        checkInput(smallBurgerInput.getText()); // check the input, only accepts numbers not empty field and no char accepts
-        //addFood(Food.BURGER, Size.SMALL);
-        if(isTextFieldEmpty == false)
+        // check the input, only accepts numbers not empty field and no char accepts
+        checkInput(smallBurgerInput.getText());
+        if(!isTextFieldEmpty)
             addStockFood(Food.BURGER, smallBurgerInput.getText());
     }
 
     @FXML
     private void getLargeKebab(ActionEvent event)
     {
-        checkInput(largeKebabInput.getText()); // check the input, only accepts numbers not empty field and no char accepts
-        //addFood(Food.KEBAB, Size.LARGE);
-        if(isTextFieldEmpty == false)
+        // check the input, only accepts numbers not empty field and no char accepts
+        checkInput(largeKebabInput.getText());
+        if(!isTextFieldEmpty)
             addStockFood(Food.KEBAB, largeKebabInput.getText());
     }
 
     @FXML
     private void getMediumKebab(ActionEvent event)
     {
-        checkInput(mediumKebabInput.getText()); // check the input, only accepts numbers not empty field and no char accepts
-        //addFood(Food.KEBAB, Size.MEDIUM);
-        if(isTextFieldEmpty == false)
+        // check the input, only accepts numbers not empty field and no char accepts
+        checkInput(mediumKebabInput.getText());
+        if(!isTextFieldEmpty)
             addStockFood(Food.KEBAB, mediumKebabInput.getText());
     }
 
     @FXML
     private void getSmallKebab(ActionEvent event)
     {
-        checkInput(smallKebabInput.getText()); // check the input, only accepts numbers not empty field and no char accepts
-        //addFood(Food.KEBAB, Size.SMALL);
-        if(isTextFieldEmpty == false)
+        // check the input, only accepts numbers not empty field and no char accepts
+        checkInput(smallKebabInput.getText());
+        if(!isTextFieldEmpty)
             addStockFood(Food.KEBAB, smallKebabInput.getText());
     }
 
     @FXML
     private void getLargePizza(ActionEvent event)
     {
-        checkInput(largePizzaInput.getText()); // check the input, only accepts numbers not empty field and no char accepts
-        //addFood(Food.PIZZA, Size.LARGE);
-        if(isTextFieldEmpty == false)
+        // check the input, only accepts numbers not empty field and no char accepts
+        checkInput(largePizzaInput.getText());
+        if(!isTextFieldEmpty)
             addStockFood(Food.PIZZA, largePizzaInput.getText());
     }
 
     @FXML
     private void getMediummPizza(ActionEvent event)
     {
-        checkInput(mediumPizzaInput.getText()); // check the input, only accepts numbers not empty field and no char accepts
-        //addFood(Food.PIZZA, Size.MEDIUM);
-        if(isTextFieldEmpty == false)
+        // check the input, only accepts numbers not empty field and no char accepts
+        checkInput(mediumPizzaInput.getText());
+        if(!isTextFieldEmpty)
             addStockFood(Food.PIZZA, mediumPizzaInput.getText());
     }
 
     @FXML
     private void getSmallPizza(ActionEvent event)
     {
-        checkInput(smallPizzaInput.getText()); // check the input, only accepts numbers not empty field and no char accepts
-        //addFood(Food.PIZZA, Size.SMALL);
-        if(isTextFieldEmpty == false)
+        // check the input, only accepts numbers not empty field and no char accepts
+        checkInput(smallPizzaInput.getText());
+        if(!isTextFieldEmpty)
             addStockFood(Food.PIZZA, smallPizzaInput.getText());
     }
 
@@ -151,17 +157,17 @@ public class StockFoodController implements Initializable, ControlledScreen
 
     private void addStockFood(Food foodType, String quantity)
     {
-
         myController.getStockOrder().addFood(
                 (FoodDecorator)foodFactory.addFood(foodType, foodFactory.getFood()),
                 Integer.parseInt(quantity)
         );
         myController.getBroker();
         isTextFieldEmpty = true; // reset every single field for checking
-
     }
+
     // the method checks, he user input must be only number, and displays a dialog box.
-    private void checkInput(String input){
+    private void checkInput(String input)
+    {
         if(input.isEmpty() || !(input.matches(numberRegex))) {
             isTextFieldEmpty = true;
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

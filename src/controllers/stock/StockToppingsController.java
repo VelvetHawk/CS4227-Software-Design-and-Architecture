@@ -17,10 +17,17 @@ import java.util.ResourceBundle;
 
 public class StockToppingsController implements Initializable, ControlledScreen
 {
-    ScreensController myController;
+    private ScreensController myController;
     private ConsumableFactory toppingFactory;
     private static StockToppingsController instance; // create a static controller instance,
-    @FXML private TextField beefInput, cheeseInput, chickenInput, hamInput, pepperoniInput, pineappleInput, sausageInput, mushroomInput;
+    @FXML private TextField beefInput;
+    @FXML private TextField cheeseInput;
+    @FXML private TextField chickenInput;
+    @FXML private TextField hamInput;
+    @FXML private TextField pepperoniInput;
+    @FXML private TextField pineappleInput;
+    @FXML private TextField sausageInput;
+    @FXML private TextField mushroomInput;
 
     private boolean isTextFieldEmpty = true;
     private String numberRegex = "^[0-9]*$"; // only digits
@@ -60,8 +67,7 @@ public class StockToppingsController implements Initializable, ControlledScreen
     private void getBeef(ActionEvent event)
     {
         checkInput(beefInput.getText());
-        //addTopping(Toppings.BEEF);
-        if(isTextFieldEmpty == false)
+        if(!isTextFieldEmpty)
             addStockToppings(Toppings.BEEF, beefInput.getText());
     }
 
@@ -69,8 +75,7 @@ public class StockToppingsController implements Initializable, ControlledScreen
     private void getCheese(ActionEvent event)
     {
         checkInput(cheeseInput.getText());
-        //addTopping(Toppings.CHEESE);
-        if(isTextFieldEmpty == false)
+        if(!isTextFieldEmpty)
             addStockToppings(Toppings.CHEESE, cheeseInput.getText());
     }
 
@@ -78,8 +83,7 @@ public class StockToppingsController implements Initializable, ControlledScreen
     private void getChicken(ActionEvent event)
     {
         checkInput(chickenInput.getText());
-        //addTopping(Toppings.CHICKEN);
-        if(isTextFieldEmpty == false)
+        if(!isTextFieldEmpty)
             addStockToppings(Toppings.CHICKEN, chickenInput.getText());
     }
 
@@ -87,8 +91,7 @@ public class StockToppingsController implements Initializable, ControlledScreen
     private void getHam(ActionEvent event)
     {
         checkInput(hamInput.getText());
-        //addTopping(Toppings.HAM);
-        if(isTextFieldEmpty == false)
+        if(!isTextFieldEmpty)
             addStockToppings(Toppings.HAM, hamInput.getText());
     }
 
@@ -96,8 +99,7 @@ public class StockToppingsController implements Initializable, ControlledScreen
     private void getMushroom(ActionEvent event)
     {
         checkInput(mushroomInput.getText());
-        //addTopping(Toppings.MUSHROOM);
-        if(isTextFieldEmpty == false)
+        if(!isTextFieldEmpty)
             addStockToppings(Toppings.MUSHROOM, mushroomInput.getText());
     }
 
@@ -105,8 +107,7 @@ public class StockToppingsController implements Initializable, ControlledScreen
     private void getPepperoni(ActionEvent event)
     {
         checkInput(pepperoniInput.getText());
-        //addTopping(Toppings.PEPPERONI);
-        if(isTextFieldEmpty == false)
+        if(!isTextFieldEmpty)
             addStockToppings(Toppings.PEPPERONI, pepperoniInput.getText());
     }
 
@@ -114,8 +115,7 @@ public class StockToppingsController implements Initializable, ControlledScreen
     private void getPineapple(ActionEvent event)
     {
         checkInput(pineappleInput.getText());
-        //addTopping(Toppings.PINEAPPLE);
-        if(isTextFieldEmpty == false)
+        if(!isTextFieldEmpty)
             addStockToppings(Toppings.PINEAPPLE, pineappleInput.getText());
     }
 
@@ -123,22 +123,20 @@ public class StockToppingsController implements Initializable, ControlledScreen
     private void getSausage(ActionEvent event)
     {
         checkInput(sausageInput.getText());
-        //addTopping(Toppings.SAUSAGE);
-        if(isTextFieldEmpty == false)
+        if(!isTextFieldEmpty)
             addStockToppings(Toppings.SAUSAGE, sausageInput.getText());
     }
 
     private void addStockToppings( Toppings toppingType, String quantity)
     {
-
         myController.getStockOrder().addTopping(
                 (ToppingDecorator) toppingFactory.addTopping(toppingType, toppingFactory.getTopping()),
                 Integer.parseInt(quantity)
         );
         myController.getBroker();
         isTextFieldEmpty = true; // reset every single field for checking
-
     }
+
     // the method checks, he user input must be only number, and displays a dialog box.
     private void checkInput(String input){
         if(input.isEmpty() || !(input.matches(numberRegex))) {

@@ -77,9 +77,6 @@ public class StockOrderTypeChoiceController implements Initializable, Controlled
         myController.setPopUpScreen(PopUpScreens.STOCK_DRINK);
     }
 
-   /* @FXML
-    private void mealChoiceClicked(MouseEvent event){ myController.setPopUpScreen(PopUpScreens.SELECT_MEAL); }
-*/
     @FXML
     private void backButtonClicked( ActionEvent event)
     {

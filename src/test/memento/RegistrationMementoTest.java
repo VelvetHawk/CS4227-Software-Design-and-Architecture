@@ -10,9 +10,9 @@ import static org.junit.Assert.assertEquals;
 public class RegistrationMementoTest
 {
     @Test
-    public void testRegistrationMemento() throws Exception
+    public void testRegistrationMemento()
     {
-        JFXPanel fxPanel = new JFXPanel();
+        new JFXPanel();
         TextField nameTextField = new TextField();
         RegistrationMemento rm = new RegistrationMemento(nameTextField, null, null, null, null, null);
         nameTextField.setText("test");

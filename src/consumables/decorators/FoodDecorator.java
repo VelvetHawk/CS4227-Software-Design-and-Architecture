@@ -2,8 +2,6 @@ package consumables.decorators;
 
 import consumables.Size;
 
-import javax.jws.Oneway;
-
 public abstract class FoodDecorator implements Consumable
 {
 	// Decorator chain

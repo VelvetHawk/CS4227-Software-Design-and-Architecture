@@ -6,16 +6,15 @@ import data.DatabaseEnum;
 public class RegisterModel
 {
     private boolean registered = false;
-    private SQLConnector SQLConn = new SQLConnector();
+    private SQLConnector sqlConn = new SQLConnector();
 
     public RegisterModel() throws Exception
     {
-        SQLConn.getConnection(DatabaseEnum.MYSQL);
+        sqlConn.getConnection(DatabaseEnum.MYSQL);
     }
 
     public boolean checkRegistered(String user, String pass)
     {
-        //TODO: check if registered
         return registered;
     }
 
@@ -32,9 +31,10 @@ public class RegisterModel
                              String address,
                              String phone) throws Exception
     {
+        String def = "default";
         String [] columns = new String[12];
         String [] values = new String[12];
-        values[0] = "default";
+        values[0] = def;
         values[1] = name;
         values[2] = surname;
         values[3] = user;
@@ -42,12 +42,12 @@ public class RegisterModel
         values[5] = email;
         values[6] = address;
         values[7] = phone;
-        values[8] = "default";
-        values[9] = "default";
-        values[10] = "default";
-        values[11] = "default";
-        registered = SQLConn.insert("users", columns, values);
-        SQLConn.closeConnection();
+        values[8] = def;
+        values[9] = def;
+        values[10] = def;
+        values[11] = def;
+        registered = sqlConn.insert("users", columns, values);
+        sqlConn.closeConnection();
     }
 }
 

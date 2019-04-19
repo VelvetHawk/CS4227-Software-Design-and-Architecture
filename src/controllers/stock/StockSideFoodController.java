@@ -15,14 +15,16 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
-
 public class StockSideFoodController implements Initializable, ControlledScreen
 {
-    ScreensController myController;
+    private ScreensController myController;
     private ConsumableFactory sideFactory;
     private static StockSideFoodController instance; // create a static controller instance,
-    @FXML private TextField beansInput, coleslawInput, onionInput, chipsInput, garlicInput;
+    @FXML private TextField beansInput;
+    @FXML private TextField coleslawInput;
+    @FXML private TextField onionInput;
+    @FXML private TextField chipsInput;
+    @FXML private TextField garlicInput;
     private boolean isTextFieldEmpty = true;
     private String numberRegex = "^[0-9]*$"; // only digits
 
@@ -61,8 +63,7 @@ public class StockSideFoodController implements Initializable, ControlledScreen
     private void getBeans(ActionEvent event)
     {
         checkInput(beansInput.getText());
-        //addSide(Sides.BEANS);
-        if (isTextFieldEmpty == false)
+        if (!isTextFieldEmpty)
             addStockSideFood(Sides.BEANS, beansInput.getText());
     }
 
@@ -70,8 +71,7 @@ public class StockSideFoodController implements Initializable, ControlledScreen
     private void getChips(ActionEvent event)
     {
         checkInput(chipsInput.getText());
-        //addSide(Sides.CHIPS);
-        if(isTextFieldEmpty == false)
+        if(!isTextFieldEmpty)
             addStockSideFood(Sides.CHIPS, chipsInput.getText());
     }
 
@@ -79,8 +79,7 @@ public class StockSideFoodController implements Initializable, ControlledScreen
     private void getColeslaw(ActionEvent event)
     {
         checkInput(coleslawInput.getText());
-        //addSide(Sides.COLESLAW);
-        if(isTextFieldEmpty == false)
+        if(!isTextFieldEmpty)
             addStockSideFood(Sides.COLESLAW, coleslawInput.getText());
     }
 
@@ -88,8 +87,7 @@ public class StockSideFoodController implements Initializable, ControlledScreen
     private void getGarlicbread(ActionEvent event)
     {
         checkInput(garlicInput.getText());
-        //addSide(Sides.GARLICBREAD);
-        if(isTextFieldEmpty == false)
+        if(!isTextFieldEmpty)
             addStockSideFood(Sides.GARLICBREAD, garlicInput.getText());
     }
 
@@ -97,18 +95,9 @@ public class StockSideFoodController implements Initializable, ControlledScreen
     private void getOnionRings(ActionEvent event)
     {
         checkInput(onionInput.getText());
-        //addSide(Sides.ONIONRINGS);
-        if(isTextFieldEmpty == false)
+        if(!isTextFieldEmpty)
             addStockSideFood(Sides.ONIONRINGS, onionInput.getText());
     }
-
-//    private void addSide(Sides sideType)
-//    {
-//        Consumable side = sideFactory.getSide();
-//        side = sideFactory.addSide(sideType, side);
-//        myController.getCustomerOrder().addSide((SideDecorator) side);
-//    }
-
 
     private void addStockSideFood( Sides sideType, String quantity)
     {
@@ -121,8 +110,10 @@ public class StockSideFoodController implements Initializable, ControlledScreen
         isTextFieldEmpty = true; // reset every single field for checking
 
     }
+
     // the method checks, he user input must be only number, and displays a dialog box.
-    private void checkInput(String input){
+    private void checkInput(String input)
+    {
         if(input.isEmpty() || !(input.matches(numberRegex))) {
             isTextFieldEmpty = true;
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

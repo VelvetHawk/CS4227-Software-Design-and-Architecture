@@ -29,10 +29,11 @@ public class Beans extends SideDecorator
     }
 
     @Override
-    public String accept(ConsumableVisitor conVisitor){
-        String description = conVisitor.visit(this);
-        return description;
+    public String accept(ConsumableVisitor conVisitor)
+    {
+        return conVisitor.visit(this);
     }
+
     @Override
     public Object clone()
     {

@@ -2,7 +2,6 @@ package consumables.basics;
 
 import consumables.decorators.Consumable;
 import visitor.ConsumableVisitor;
-import visitor.ConsumableVisitor;
 
 public class BasicDrink implements Consumable
 {
@@ -26,8 +25,7 @@ public class BasicDrink implements Consumable
 
 	@Override
 	public String accept( ConsumableVisitor conVisitor){
-		String description = conVisitor.visit(this);
-		return description;
+		return conVisitor.visit(this);
 	}
 	@Override
 	public Object clone()

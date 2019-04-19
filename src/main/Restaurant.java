@@ -28,7 +28,6 @@ public class Restaurant extends Application
 	    // Register interceptors
 	    framework.registerLoggingInterceptor(loggingInterceptor);
 
-//        final String fxmlRootPath = "../../resources/fxml/";
         final String fxmlRootPath = "/resources/fxml/";
 
         // Screens

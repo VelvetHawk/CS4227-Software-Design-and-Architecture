@@ -1,7 +1,6 @@
 package framework.dispatchers;
 
 import framework.context.Context;
-import framework.context.LoginContext;
 import framework.interceptors.LoggingInterceptor;
 
 import java.util.ArrayList;

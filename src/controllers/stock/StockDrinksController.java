@@ -27,7 +27,14 @@ public class StockDrinksController implements Initializable, ControlledScreen
 
     private static StockDrinksController instance; // create a static controller instance,
 
-    @FXML private TextField clubOrangeInput, cocaColaInput, dietCocaColaInput, waterInput, sevenUpInput, spriteInput, pepsiInput, pepsiMaxInput;
+    @FXML private TextField clubOrangeInput;
+    @FXML private TextField cocaColaInput;
+    @FXML private TextField dietCocaColaInput;
+    @FXML private TextField waterInput;
+    @FXML private TextField sevenUpInput;
+    @FXML private TextField spriteInput;
+    @FXML private TextField pepsiInput;
+    @FXML private TextField pepsiMaxInput;
 
     public StockDrinksController()
     {
@@ -67,18 +74,15 @@ public class StockDrinksController implements Initializable, ControlledScreen
     private void getClubOrange(ActionEvent event)
     {
         checkInput(clubOrangeInput.getText()); // check the input, only accepts numbers not empty field and no char accepts
-        if(isTextFieldEmpty == false)
+        if(!isTextFieldEmpty)
             addStockDrink(Drinks.CLUBORANGE, clubOrangeInput.getText());
-
-
-
     }
 
     @FXML
     private void getCocacola(ActionEvent event)
     {
         checkInput(cocaColaInput.getText());// check the input, only accepts numbers not empty field and no char accepts
-        if(isTextFieldEmpty == false)
+        if(!isTextFieldEmpty)
             addStockDrink(Drinks.COCACOLA, cocaColaInput.getText());
     }
 
@@ -86,7 +90,7 @@ public class StockDrinksController implements Initializable, ControlledScreen
     private void getDietcocacola(ActionEvent event)
     {
         checkInput(dietCocaColaInput.getText());// check the input, only accepts numbers not empty field and no char accepts
-        if(isTextFieldEmpty == false)
+        if(!isTextFieldEmpty)
             addStockDrink(Drinks.DIETCOCACOLA, dietCocaColaInput.getText());
     }
 
@@ -94,7 +98,7 @@ public class StockDrinksController implements Initializable, ControlledScreen
     private void getPepsi(ActionEvent event)
     {
         checkInput(pepsiInput.getText());// check the input, only accepts numbers not empty field and no char accepts
-        if(isTextFieldEmpty == false)
+        if(!isTextFieldEmpty)
             addStockDrink(Drinks.PEPSI, pepsiInput.getText());
     }
 
@@ -102,7 +106,7 @@ public class StockDrinksController implements Initializable, ControlledScreen
     private void getPepsiMax(ActionEvent event)
     {
         checkInput(pepsiMaxInput.getText());// check the input, only accepts numbers not empty field and no char accepts
-        if(isTextFieldEmpty == false)
+        if(!isTextFieldEmpty)
             addStockDrink(Drinks.PEPSIMAX, pepsiMaxInput.getText());
     }
 
@@ -110,7 +114,7 @@ public class StockDrinksController implements Initializable, ControlledScreen
     private void getSevenUp(ActionEvent event)
     {
         checkInput(sevenUpInput.getText());// check the input, only accepts numbers not empty field and no char accepts
-        if(isTextFieldEmpty == false)
+        if(!isTextFieldEmpty)
             addStockDrink(Drinks.SEVENUP, sevenUpInput.getText());
     }
 
@@ -118,7 +122,7 @@ public class StockDrinksController implements Initializable, ControlledScreen
     private void getSprite(ActionEvent event)
     {
         checkInput(spriteInput.getText());// check the input, only accepts numbers not empty field and no char accepts
-        if(isTextFieldEmpty == false)
+        if(!isTextFieldEmpty)
             addStockDrink(Drinks.SPRITE, spriteInput.getText());
     }
 
@@ -126,26 +130,21 @@ public class StockDrinksController implements Initializable, ControlledScreen
     private void getWater(ActionEvent event)
     {
         checkInput(waterInput.getText());// check the input, only accepts numbers not empty field and no char accepts
-        if(isTextFieldEmpty == false)
+        if(!isTextFieldEmpty)
             addStockDrink(Drinks.WATER, waterInput.getText());
     }
 
     private void addStockDrink(Drinks drinkType, String quantity)
     {
-
-        //System.out.println("Ordered: " + drinkType + " " + quantity);
-
         myController.getStockOrder().addDrink(
                 (DrinkDecorator)drinksFactory.addDrink(drinkType, drinksFactory.getDrink()),
                 Integer.parseInt(quantity)
         );
 
-        //myController.getStockOrder().printTotalStock();
         myController.getBroker();
         isTextFieldEmpty = true; // reset every single field for checking
-
-
     }
+
     // the method checks, he user input must be only number, and displays a dialog box.
     private void checkInput(String input){
         if(input.isEmpty() || !(input.matches(numberRegex))) {
@@ -160,6 +159,4 @@ public class StockDrinksController implements Initializable, ControlledScreen
             isTextFieldEmpty = false;
         }
     }
-
-
 }

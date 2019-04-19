@@ -7,12 +7,12 @@ public class InProgressState implements State
     @Override
     public void processOrder(Order order)
     {
-        System.out.println("Order is in progress");
         order.setOrderState(this);
     }
 
     @Override
-    public Object clone() {
+    public Object clone()
+    {
         return new InProgressState();
     }
 

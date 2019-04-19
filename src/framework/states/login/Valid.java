@@ -1,6 +1,5 @@
 package framework.states.login;
 
-import controllers.Registration;
 import controllers.ScreensController;
 import display.views.Screens;
 import framework.context.Context;

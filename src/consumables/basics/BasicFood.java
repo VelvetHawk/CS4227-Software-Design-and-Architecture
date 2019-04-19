@@ -16,6 +16,7 @@ public class BasicFood implements Consumable
 	{
 		return 3.50;
 	}
+
 	@Override
 	public double getStockCost()
 	{
@@ -23,10 +24,11 @@ public class BasicFood implements Consumable
 	}
 
 	@Override
-	public String accept(ConsumableVisitor conVisitor){
-		String description = conVisitor.visit(this);
-		return description;
+	public String accept(ConsumableVisitor conVisitor)
+	{
+		return conVisitor.visit(this);
 	}
+
 	@Override
 	public Object clone()
 	{

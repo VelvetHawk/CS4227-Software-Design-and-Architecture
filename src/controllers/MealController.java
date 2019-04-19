@@ -10,11 +10,8 @@ import consumables.builders.MealBuilder;
 import consumables.food.Food;
 import consumables.decorators.*;
 import consumables.factories.FactoryProducer;
-import consumables.food.Food;
-import display.views.PopUpScreens;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.event.ActionEvent;
@@ -56,7 +53,6 @@ public class MealController implements Initializable , ControlledScreen
         MealBuilder mealBuilder = new MealBuilder();
         Meal beefBurgerMeal = mealBuilder.prepareBeefBurgerMeal();
         addFood(beefBurgerMeal);
-        //addFood(Food.BURGER, Size.LARGE);
     }
 
     @FXML
@@ -65,7 +61,6 @@ public class MealController implements Initializable , ControlledScreen
         MealBuilder mealBuilder = new MealBuilder();
         Meal kebabMeal = mealBuilder.prepareKebabMeal();
         addFood(kebabMeal);
-        //addFood(Food.BURGER, Size.LARGE);
     }
 
     private void addFood(Food foodType, Size size)
@@ -78,21 +73,16 @@ public class MealController implements Initializable , ControlledScreen
     private void addFood(Meal mealType)
     {
        ArrayList<Consumable> contents = mealType.getContents();
-       for(int i=0;i<contents.size();i++){
-           Consumable item = contents.get(i);
-           if(item instanceof FoodDecorator){
-               myController.getCustomerOrder().addFood((FoodDecorator)item);
-           }
-           else if(item instanceof DrinkDecorator){
-               myController.getCustomerOrder().addDrink((DrinkDecorator)item);
-           }
-           else if(item instanceof SideDecorator){
-               myController.getCustomerOrder().addSide((SideDecorator)item);
-           }
-       }
+        for (Consumable item : contents) {
+            if (item instanceof FoodDecorator) {
+                myController.getCustomerOrder().addFood((FoodDecorator) item);
+            } else if (item instanceof DrinkDecorator) {
+                myController.getCustomerOrder().addDrink((DrinkDecorator) item);
+            } else if (item instanceof SideDecorator) {
+                myController.getCustomerOrder().addSide((SideDecorator) item);
+            }
+        }
 
     }
-
-
 }
 
