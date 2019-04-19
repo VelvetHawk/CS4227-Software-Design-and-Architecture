@@ -118,8 +118,6 @@ public class MakeStockOrderController implements Initializable, ControlledScreen
 
     private void addItemsToList(Stock stockOrder, VBox itemView, HashMap<? extends Consumable, Integer> stockList)
     {
-        //myController.getStockOrder().getDrinks().forEach((drink, quantity) -> System.out.printf("[%s, %d]", drink.getName(), quantity));
-        //System.out.println("I am on the screen "+myController.getStockOrder().getDrinks());
         stockList.forEach((consumable, quantity) ->
         {
             HBox row = new HBox();
