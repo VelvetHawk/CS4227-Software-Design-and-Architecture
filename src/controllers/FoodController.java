@@ -7,10 +7,15 @@ import consumables.decorators.*;
 import consumables.factories.FactoryProducer;
 import consumables.food.Food;
 import display.views.PopUpScreens;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.stage.Stage;
+import visitor.ConsumableDescriptionVisitor;
 
 public class FoodController implements Initializable, ControlledScreen
 {
@@ -108,6 +113,34 @@ public class FoodController implements Initializable, ControlledScreen
     private void getPizzaTopping(ActionEvent event)
     {
         myController.setPopUpScreen(PopUpScreens.SELECT_TOPPING);
+    }
+
+    @FXML
+    private void getPizzaDescription(ActionEvent event){
+
+        System.out.println("i am pressed");
+        ConsumableDescriptionVisitor visitor = new ConsumableDescriptionVisitor();
+        Consumable food = foodFactory.getFood();
+        food = foodFactory.addFood(Food.KEBAB, food);
+        String description = food.accept(visitor);
+        myController.setPopUpScreen(PopUpScreens.ITEM_DESCRIPTION);
+
+        /*
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(
+                    "itemDescription.fxml"));
+            Parent root = (Parent) loader.load();
+
+            Scene newScene = new Scene(root);
+            Stage newStage = new Stage();
+            newStage.setScene(newScene);
+            newStage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        */
+
     }
 	
 	private void addFood(Food foodType, Size size)

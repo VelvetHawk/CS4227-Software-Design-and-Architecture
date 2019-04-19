@@ -15,5 +15,6 @@ public enum PopUpScreens
 	STOCK_DRINK,
 	STOCK_FOOD,
 	STOCK_TOPPING,
+	ITEM_DESCRIPTION
 
 }

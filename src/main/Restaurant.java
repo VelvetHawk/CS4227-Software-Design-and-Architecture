@@ -50,6 +50,7 @@ public class Restaurant extends Application
         mainContainer.loadPopUpScreen(PopUpScreens.STOCK_FOOD, fxmlRootPath + "stock/stockFood.fxml");
         mainContainer.loadPopUpScreen(PopUpScreens.STOCK_DRINK, fxmlRootPath + "stock/stockDrinks.fxml");
         mainContainer.loadPopUpScreen(PopUpScreens.STOCK_TOPPING, fxmlRootPath + "stock/stockToppings.fxml");
+        mainContainer.loadPopUpScreen(PopUpScreens.ITEM_DESCRIPTION, fxmlRootPath + "itemDescription.fxml");
 
         //mainContainer.setScreen(Screens.MAIN); // set the Main screen at the start
 	    mainContainer.setState(Idle.getInstance());
