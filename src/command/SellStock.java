@@ -8,7 +8,6 @@ public class SellStock implements StockOrder
     {
         this.stock = stock;
     }
-
     public void execute()
     {
         stock.sell();
