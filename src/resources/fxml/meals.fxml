@@ -19,14 +19,14 @@
             </image>
         </ImageView>
         <Button layoutX="122.0" layoutY="53.0" mnemonicParsing="false" onAction="#getBeefBurgerMeal" prefHeight="67.0" prefWidth="129.0" text="Beef Burger Meal" />
-      <Button layoutX="266.0" layoutY="54.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="155.0" text="Double Beef Burger Meal" />
+      <Button layoutX="266.0" layoutY="54.0" mnemonicParsing="false" onAction="#getDoubleBeefBurgerMeal" prefHeight="67.0" prefWidth="155.0" text="Double Beef Burger Meal" />
       <ImageView fitHeight="58.0" fitWidth="92.0" layoutX="20.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/kebab.jpg" />
          </image>
       </ImageView>
       <Button layoutX="127.0" layoutY="140.0" mnemonicParsing="false" onAction="#getKebabMeal" prefHeight="58.0" prefWidth="123.0" text="Kebab Meal" />
-      <Button layoutX="274.0" layoutY="144.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="146.0" text="Double Kebab Meal" />
+      <Button layoutX="274.0" layoutY="144.0" mnemonicParsing="false" onAction="#getDoubleKebabMeal" prefHeight="58.0" prefWidth="146.0" text="Double Kebab Meal" />
 
 
     </children>

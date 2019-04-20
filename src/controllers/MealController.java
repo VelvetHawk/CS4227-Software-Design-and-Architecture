@@ -17,6 +17,7 @@ import javafx.scene.layout.VBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import prototype.MealStore;
 
 public class MealController implements Initializable , ControlledScreen
 {
@@ -56,11 +57,38 @@ public class MealController implements Initializable , ControlledScreen
     }
 
     @FXML
+    private void getDoubleBeefBurgerMeal(ActionEvent e){
+        MealBuilder mealBuilder = new MealBuilder();
+        Meal beefBurgerMeal = mealBuilder.prepareBeefBurgerMeal();
+        addFood(beefBurgerMeal);
+
+        //Use Prototype pattern to clone earlier meal
+        MealStore mealStore = new MealStore();
+        mealStore.load();
+        Meal beefBurgerMealClone = mealStore.getMeal("Beef Burger Meal");
+        addFood(beefBurgerMealClone);
+    }
+
+    @FXML
     private void getKebabMeal(ActionEvent event)
     {
         MealBuilder mealBuilder = new MealBuilder();
         Meal kebabMeal = mealBuilder.prepareKebabMeal();
         addFood(kebabMeal);
+    }
+
+    @FXML
+    private void getDoubleKebabMeal(ActionEvent event)
+    {
+        MealBuilder mealBuilder = new MealBuilder();
+        Meal kebabMeal = mealBuilder.prepareKebabMeal();
+        addFood(kebabMeal);
+
+        //Use Prototype pattern to clone earlier meal
+        MealStore mealStore = new MealStore();
+        mealStore.load();
+        Meal kebabMealClone = mealStore.getMeal("Kebab Meal");
+        addFood(kebabMealClone);
     }
 
     private void addFood(Food foodType, Size size)
