@@ -9,7 +9,7 @@
 
 <AnchorPane fx:id="rootPane" prefHeight="415.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MakeOrderController">
    <children>
-      <Label layoutX="7.0" layoutY="4.0" prefHeight="27.0" prefWidth="98.0" text="Static " />
+      <Label layoutX="7.0" layoutY="4.0" prefHeight="27.0" prefWidth="98.0" text="Order Menu" />
       <ToolBar layoutY="30.0" prefHeight="40.0" prefWidth="928.0" style="-fx-background-color: grey;">
         <items>
           <Button fx:id="backButton" mnemonicParsing="false" onAction="#goBackToToMainMenu" prefHeight="27.0" prefWidth="145.0" text="Back" />

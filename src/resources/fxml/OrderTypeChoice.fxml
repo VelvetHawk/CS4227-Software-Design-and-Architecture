@@ -10,7 +10,7 @@
 
 <AnchorPane fx:id="rootPane" prefHeight="303.0" prefWidth="541.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OrderTypeChoiceController">
    <children>
-      <Label fx:id="paneTitle" layoutX="28.0" layoutY="14.0" prefHeight="31.0" prefWidth="103.0" text="Label" />
+      <Label fx:id="paneTitle" layoutX="28.0" layoutY="14.0" prefHeight="31.0" prefWidth="103.0" text="Order Choice" />
       <AnchorPane layoutX="14.0" layoutY="45.0" prefHeight="214.0" prefWidth="716.0">
          <children>
             <VBox fx:id="foodChoice" layoutX="14.0" layoutY="14.0" onMouseClicked="#foodChoiceClicked" prefHeight="200.0" prefWidth="152.0">
