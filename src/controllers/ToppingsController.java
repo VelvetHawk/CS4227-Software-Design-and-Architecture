@@ -7,6 +7,8 @@ import java.util.ResourceBundle;
 import consumables.decorators.*;
 import consumables.factories.FactoryProducer;
 import consumables.toppings.Toppings;
+import controllers.frontController.FrontController;
+import display.views.FrontControllScreens;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,6 +34,10 @@ public class ToppingsController implements Initializable, ControlledScreen
             return instance;
     }
 
+    public void show(){
+        System.out.println("Toppings Screen Page");
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
@@ -47,6 +53,8 @@ public class ToppingsController implements Initializable, ControlledScreen
     private void goToStatic(ActionEvent event)
     {
         ((Button)event.getTarget()).getScene().getWindow().hide();
+        FrontController frontController = new FrontController();
+        frontController.dispatchRequest(FrontControllScreens.SELECT_FOOD);
     }
     
     @FXML

@@ -4,7 +4,9 @@ import consumables.Order;
 import consumables.decorators.Consumable;
 import consumables.decorators.DrinkDecorator;
 import consumables.decorators.SideDecorator;
+import controllers.frontController.FrontController;
 import data.Observer;
+import display.views.FrontControllScreens;
 import display.views.PopUpScreens;
 import display.views.Screens;
 import framework.context.Context;
@@ -59,6 +61,9 @@ public class MakeOrderController implements Initializable, ControlledScreen, Obs
 		else
 			return instance;
 	}
+	public void show(){
+		System.out.println("Make Order Screen Page");
+	}
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb)
@@ -83,6 +88,9 @@ public class MakeOrderController implements Initializable, ControlledScreen, Obs
 				"Switching to Main Menu Screen",
 				Screens.MAIN_MENU
 		));
+		FrontController frontController = new FrontController();
+		//frontController.dispatchRequest("MAIN_MENU"); //front controller pattern, tracking the
+		frontController.dispatchRequest(FrontControllScreens.MAIN_MENU); //front controller pattern, tracking the
 	}
 	
 	@FXML
@@ -91,6 +99,9 @@ public class MakeOrderController implements Initializable, ControlledScreen, Obs
 		myController.setPopUpScreen(PopUpScreens.ORDER_TYPE_CHOICE);
 		myController.setState(MakeOrder.getInstance());
 		myController.getState().executeState(new Context("Idle"));
+		FrontController frontController = new FrontController();
+		//frontController.dispatchRequest("ORDER_TYPE"); //front controller pattern, tracking the
+		frontController.dispatchRequest(FrontControllScreens.ORDER_TYPE_CHOICE); //front controller pattern, tracking the
 	}
 	
 	@FXML

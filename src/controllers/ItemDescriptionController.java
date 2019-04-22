@@ -8,6 +8,8 @@ import consumables.decorators.*;
 import consumables.factories.FactoryProducer;
 import consumables.food.Food;
 import consumables.toppings.Toppings;
+import controllers.frontController.FrontController;
+import display.views.FrontControllScreens;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,6 +27,10 @@ public class ItemDescriptionController implements Initializable, ControlledScree
 
     //@FXML TextField descriptionText;
     @FXML private Label DescriptionText;
+
+    public void show(){
+        System.out.println("Item Description Screen Page");
+    }
 
     public ItemDescriptionController() { instance = this; } // no arg constructor
 
@@ -56,6 +62,9 @@ public class ItemDescriptionController implements Initializable, ControlledScree
     @FXML
     public void goToMainMenu(ActionEvent event){
         ((Button)event.getTarget()).getScene().getWindow().hide();
+        FrontController frontController = new FrontController();
+        //frontController.dispatchRequest("FOODS");
+        frontController.dispatchRequest(FrontControllScreens.SELECT_FOOD);
     }
 
     public void setScreenParent(ScreensController screenParent)

@@ -3,6 +3,8 @@ package controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import controllers.frontController.FrontController;
+import display.views.FrontControllScreens;
 import memento.RegistrationCaretaker;
 import memento.RegistrationMemento;
 import display.views.Screens;
@@ -47,6 +49,10 @@ public class Registration implements Initializable , ControlledScreen
             return instance;
         } else
             return instance;
+    }
+
+    public void show(){
+        System.out.println("Registration Screen Page");
     }
 
     @Override
@@ -122,6 +128,9 @@ public class Registration implements Initializable , ControlledScreen
             // account type is setup as default to Customers.
             checkRegistration(name, surname, username, password, email, address, phone);
             clearForm();// clear the form once user is registered
+            FrontController frontController = new FrontController();
+            //frontController.dispatchRequest("LOGIN"); //front controller pattern, tracking the
+            frontController.dispatchRequest(FrontControllScreens.LOGIN); //front controller pattern, tracking the
         }
     }
 
@@ -213,6 +222,9 @@ public class Registration implements Initializable , ControlledScreen
     private void goToMainScreen(ActionEvent event)
     {
         myController.setScreen(Screens.MAIN);
+        FrontController frontController = new FrontController();
+//        frontController.dispatchRequest("HOME"); //front controller pattern, tracking the
+        frontController.dispatchRequest(FrontControllScreens.MAIN); //front controller pattern, tracking the
     }
 
     public void printMementos() {

@@ -10,6 +10,8 @@ import consumables.builders.MealBuilder;
 import consumables.food.Food;
 import consumables.decorators.*;
 import consumables.factories.FactoryProducer;
+import controllers.frontController.FrontController;
+import display.views.FrontControllScreens;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -31,6 +33,11 @@ public class MealController implements Initializable , ControlledScreen
 
     private ConsumableFactory foodFactory;
 
+
+    public void show(){
+        System.out.println("Meals Screen Page");
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
@@ -46,6 +53,9 @@ public class MealController implements Initializable , ControlledScreen
     private void goToMainMenu(ActionEvent event)
     {
         ((Button)event.getTarget()).getScene().getWindow().hide();
+        FrontController frontController = new FrontController();
+        //frontController.dispatchRequest("ORDER_TYPE");
+        frontController.dispatchRequest(FrontControllScreens.ORDER_TYPE_CHOICE);
     }
 
     @FXML
@@ -90,7 +100,6 @@ public class MealController implements Initializable , ControlledScreen
         Meal kebabMealClone = mealStore.getMeal("Kebab Meal");
         addFood(kebabMealClone);
     }
-
     private void addFood(Food foodType, Size size)
     {
         Consumable food = foodFactory.getFood();

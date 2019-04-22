@@ -1,0 +1,24 @@
+package display.views;
+
+public enum  FrontControllScreens {
+    ORDER_TYPE_CHOICE,
+    ORDER_ITEM_SELECTION,
+    SELECT_DRINK,
+    SELECT_FOOD,
+    SELECT_TOPPING,
+    SELECT_SIDE,
+    SELECT_SIDE_OR_DRINK,
+    SELECT_MEAL,
+    STOCK_ORDER_CHOICE,
+    STOCK_SIDE,
+    STOCK_DRINK,
+    STOCK_FOOD,
+    STOCK_TOPPING,
+    ITEM_DESCRIPTION,
+    MAIN,
+    LOGIN,
+    REGISTRATION,
+    MAIN_MENU,
+    MAKE_ORDER,
+    STOCK_ORDER
+}

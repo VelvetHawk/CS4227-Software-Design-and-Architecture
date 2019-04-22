@@ -6,6 +6,7 @@ import command.Broker;
 import command.BuyStock;
 import command.Stock;
 import consumables.Order;
+import controllers.frontController.FrontController;
 import display.views.PopUpScreens;
 import framework.Framework;
 import framework.context.Context;
@@ -44,6 +45,7 @@ public class ScreensController extends StackPane implements State
 	private Stock stockOrder;
     private BuyStock buyStock;
     private Broker broker;
+
 
 	private static ScreensController instance;
 

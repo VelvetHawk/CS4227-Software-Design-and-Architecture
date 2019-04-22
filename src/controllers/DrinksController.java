@@ -8,6 +8,8 @@ import consumables.decorators.Consumables;
 import consumables.decorators.DrinkDecorator;
 import consumables.drinks.Drinks;
 import consumables.factories.FactoryProducer;
+import controllers.frontController.FrontController;
+import display.views.FrontControllScreens;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,7 +34,9 @@ public class DrinksController implements Initializable, ControlledScreen
         else
             return instance;
     }
-    
+    public void show(){
+        System.out.println("Drinks Screen Page");
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
@@ -48,6 +52,8 @@ public class DrinksController implements Initializable, ControlledScreen
     private void goToMainMenu(ActionEvent event)
     {
         ((Button)event.getTarget()).getScene().getWindow().hide();
+        FrontController frontController = new FrontController();
+        frontController.dispatchRequest(FrontControllScreens.ORDER_TYPE_CHOICE);
     }
 
     @FXML

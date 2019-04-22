@@ -5,6 +5,8 @@ import java.util.ResourceBundle;
 import consumables.decorators.*;
 import consumables.factories.FactoryProducer;
 import consumables.side.Sides;
+import controllers.frontController.FrontController;
+import display.views.FrontControllScreens;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,6 +31,9 @@ public class SideFoodController implements Initializable, ControlledScreen
         else
             return instance;
     }
+    public void show(){
+        System.out.println("Side Food Screen Page");
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb)
@@ -45,6 +50,9 @@ public class SideFoodController implements Initializable, ControlledScreen
     private void goToStatic(ActionEvent event)
     {
         ((Button)event.getTarget()).getScene().getWindow().hide();
+        FrontController frontController = new FrontController();
+        //frontController.dispatchRequest("ORDER_TYPE");
+        frontController.dispatchRequest(FrontControllScreens.ORDER_TYPE_CHOICE);
     }
 
     @FXML

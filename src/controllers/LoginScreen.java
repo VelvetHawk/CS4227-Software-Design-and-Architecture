@@ -1,5 +1,7 @@
 package controllers;
 
+import controllers.frontController.FrontController;
+import display.views.FrontControllScreens;
 import display.views.Screens;
 import framework.context.Context;
 import framework.context.LoginContext;
@@ -19,6 +21,7 @@ public class LoginScreen implements Initializable, ControlledScreen
     @FXML private PasswordField password;
     private ScreensController myController;
 
+
     private static LoginScreen instance; // create a static controller instance,
 
     public LoginScreen() { instance = this; } // no arg constructor
@@ -29,6 +32,10 @@ public class LoginScreen implements Initializable, ControlledScreen
         if (instance == null)
             instance = new LoginScreen();
         return instance;
+    }
+
+    public void show(){
+        System.out.println("Login Screen Page");
     }
 
     @Override
@@ -50,6 +57,7 @@ public class LoginScreen implements Initializable, ControlledScreen
     public void setScreenParent(ScreensController screenParent)
     {
         myController = screenParent;
+        //myController.getFrontController().dispatchRequest("LOGIN"); //front controller pattern, tracking the
     }
     
     public void setMessage(String message)      // get the dialog box for any errors in the validations
@@ -74,7 +82,9 @@ public class LoginScreen implements Initializable, ControlledScreen
             "Going back to main menu",
 		    Screens.MAIN
         ));
-	    
+        FrontController frontController = new FrontController();
+        //frontController.dispatchRequest("HOME"); //front controller pattern, tracking the
+        frontController.dispatchRequest(FrontControllScreens.MAIN);
     }
     
     //Called when user attempts to log-in
@@ -92,6 +102,9 @@ public class LoginScreen implements Initializable, ControlledScreen
         	// Pass Login Context to state machine
 	        LoginContext loginContext = new LoginContext(user, userPassword);
         	myController.getState().executeState(loginContext);
+            FrontController frontController = new FrontController();
+            //frontController.dispatchRequest("MAIN_MENU"); //front controller pattern, tracking the
+            frontController.dispatchRequest(FrontControllScreens.MAIN_MENU);
         }
     }
 }

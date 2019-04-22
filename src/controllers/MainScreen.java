@@ -1,5 +1,7 @@
 package controllers;
 
+import controllers.frontController.FrontController;
+import display.views.FrontControllScreens;
 import display.views.Screens;
 import framework.context.Context;
 import framework.context.ScreenSwitchContext;
@@ -25,7 +27,14 @@ public class MainScreen implements Initializable, ControlledScreen
             instance = new MainScreen();
         return instance;
     }
-    
+    public void show(){
+        System.out.println("Main Screen Page");
+    }
+
+
+
+      //frontController.dispatchRequest("STUDENT");
+
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
@@ -35,7 +44,12 @@ public class MainScreen implements Initializable, ControlledScreen
     public void setScreenParent(ScreensController screenParent)
     {
         myController = screenParent;
+        FrontController frontController = new FrontController();
+        //myController.getFrontController().dispatchRequest("HOME"); //front controller pattern, tracking the
+        //frontController.dispatchRequest("HOME"); //front controller pattern, tracking the
+        frontController.dispatchRequest(FrontControllScreens.MAIN); //front controller pattern, tracking the
     }
+
     
     @FXML
     private void goToLogin(ActionEvent event)
@@ -47,6 +61,9 @@ public class MainScreen implements Initializable, ControlledScreen
             "Switching to Login Screen",
 	        Screens.LOGIN
         ));
+        FrontController frontController = new FrontController();
+        //frontController.dispatchRequest("LOGIN"); //front controller pattern, tracking the
+        frontController.dispatchRequest(FrontControllScreens.LOGIN); //front controller pattern, tracking the
     }
     
     @FXML
@@ -59,5 +76,8 @@ public class MainScreen implements Initializable, ControlledScreen
             "Switching to Registration Screen",
 		    Screens.REGISTRATION
 	    ));
+        FrontController frontController = new FrontController();
+        //frontController.dispatchRequest("REGISTRATION"); //front controller pattern, tracking the
+        frontController.dispatchRequest(FrontControllScreens.REGISTRATION); //front controller pattern, tracking the
     }
 }

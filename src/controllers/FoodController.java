@@ -6,6 +6,8 @@ import consumables.Size;
 import consumables.decorators.*;
 import consumables.factories.FactoryProducer;
 import consumables.food.Food;
+import controllers.frontController.FrontController;
+import display.views.FrontControllScreens;
 import display.views.PopUpScreens;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -37,6 +39,9 @@ public class FoodController implements Initializable, ControlledScreen
         else
             return instance;
     }
+    public void show(){
+        System.out.println("Food Screen Page");
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb)
@@ -53,6 +58,9 @@ public class FoodController implements Initializable, ControlledScreen
     private void goToMainMenu(ActionEvent event)
     {
         ((Button)event.getTarget()).getScene().getWindow().hide();
+        FrontController frontController = new FrontController();
+        //frontController.dispatchRequest("ORDER_TYPE");
+        frontController.dispatchRequest(FrontControllScreens.ORDER_TYPE_CHOICE);
     }
 
     @FXML
@@ -113,6 +121,9 @@ public class FoodController implements Initializable, ControlledScreen
     private void getPizzaTopping(ActionEvent event)
     {
         myController.setPopUpScreen(PopUpScreens.SELECT_TOPPING);
+        FrontController frontController = new FrontController();
+        //frontController.dispatchRequest("TOPPINGS");
+        frontController.dispatchRequest(FrontControllScreens.SELECT_TOPPING);
     }
 
     @FXML
@@ -124,6 +135,9 @@ public class FoodController implements Initializable, ControlledScreen
         food = foodFactory.addFood(Food.KEBAB, food);
         String description = food.accept(visitor);
         myController.setPopUpScreen(PopUpScreens.ITEM_DESCRIPTION);
+        FrontController frontController = new FrontController();
+        //frontController.dispatchRequest("ITEM_DESCRIPTION");
+        frontController.dispatchRequest(FrontControllScreens.ITEM_DESCRIPTION);
 
         /*
         try {

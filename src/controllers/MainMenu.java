@@ -2,6 +2,9 @@ package controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import controllers.frontController.FrontController;
+import display.views.FrontControllScreens;
 import display.views.Screens;
 import framework.context.Context;
 import framework.context.ScreenSwitchContext;
@@ -29,6 +32,10 @@ public class MainMenu implements Initializable, ControlledScreen
         else
             return instance;
     }
+
+    public void show(){
+        System.out.println("Main Menu Screen Page");
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb)
@@ -39,6 +46,7 @@ public class MainMenu implements Initializable, ControlledScreen
     public void setScreenParent(ScreensController screenParent)
     {
         myController = screenParent;
+
     }
 
     @FXML
@@ -50,6 +58,9 @@ public class MainMenu implements Initializable, ControlledScreen
             "Switching to Main Menu Screen",
             Screens.MAIN
         ));
+        FrontController frontController = new FrontController();
+        //frontController.dispatchRequest("MAIN_MENU");
+        frontController.dispatchRequest(FrontControllScreens.MAIN_MENU);
     }
 
     @FXML
@@ -66,5 +77,8 @@ public class MainMenu implements Initializable, ControlledScreen
             "Switching to Make Order Screen",
             Screens.MAKE_ORDER
         ));
+        FrontController frontController = new FrontController();
+        //frontController.dispatchRequest("MAKE_ORDER");
+        frontController.dispatchRequest(FrontControllScreens.MAKE_ORDER);
     }
 }
