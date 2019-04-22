@@ -1,6 +1,7 @@
 package framework.interceptors;
 
 import framework.context.Context;
+import framework.context.ErrorContext;
 
 public class LoggingInterceptor implements Interceptor
 {
@@ -21,6 +22,10 @@ public class LoggingInterceptor implements Interceptor
 	public Context onLogEvent(Context context)
 	{
 		System.out.println("Log: " + context.getMessage());
+		if (context instanceof ErrorContext)
+		{
+			System.out.println(((ErrorContext)context).getException().getMessage());
+		}
 		return context;
 	}
 }

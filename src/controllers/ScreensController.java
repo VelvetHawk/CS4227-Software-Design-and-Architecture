@@ -131,7 +131,7 @@ public class ScreensController extends StackPane implements State
         {
 	        Framework.getInstance().onLogEvent(
 		        new ErrorContext(
-			        "Error loading screen",
+			        "Error loading screen: " + resource,
 			        e
 		        )
 	        );
@@ -163,7 +163,7 @@ public class ScreensController extends StackPane implements State
 	    {
 		    Framework.getInstance().onLogEvent(
 			    new ErrorContext(
-				    "Error loading pop-up screen",
+				    "Error loading pop-up screen: " + resource,
 				    e
 			    )
 		    );

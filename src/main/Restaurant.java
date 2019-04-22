@@ -1,6 +1,6 @@
 package main;
 
-//import biz.paluch.logging.gelf.jul.GelfLogHandler;
+import biz.paluch.logging.gelf.jul.GelfLogHandler;
 import controllers.ScreensController;
 import display.views.PopUpScreens;
 import display.views.Screens;
@@ -80,6 +80,8 @@ public class Restaurant extends Application
 	    framework.registerLoggingInterceptor(loggingInterceptor);
 
         final String fxmlRootPath = "/resources/fxml/";
+    
+        System.out.println(new File(".").getAbsolutePath());
 
         // Screens
         mainContainer.loadScreen(Screens.MAIN, fxmlRootPath + "mainScreen.fxml");
