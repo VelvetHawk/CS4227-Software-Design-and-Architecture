@@ -52,8 +52,7 @@ public class DrinksController implements Initializable, ControlledScreen
     private void goToMainMenu(ActionEvent event)
     {
         ((Button)event.getTarget()).getScene().getWindow().hide();
-        FrontController frontController = new FrontController();
-        frontController.dispatchRequest(FrontControllScreens.ORDER_TYPE_CHOICE);
+        FrontController.getInstance().dispatchRequest(FrontControllScreens.ORDER_TYPE_CHOICE); // front controller pattern
     }
 
     @FXML

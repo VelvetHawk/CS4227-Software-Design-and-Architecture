@@ -44,10 +44,7 @@ public class MainScreen implements Initializable, ControlledScreen
     public void setScreenParent(ScreensController screenParent)
     {
         myController = screenParent;
-        FrontController frontController = new FrontController();
-        //myController.getFrontController().dispatchRequest("HOME"); //front controller pattern, tracking the
-        //frontController.dispatchRequest("HOME"); //front controller pattern, tracking the
-        frontController.dispatchRequest(FrontControllScreens.MAIN); //front controller pattern, tracking the
+        FrontController.getInstance().dispatchRequest(FrontControllScreens.MAIN);
     }
 
     
@@ -61,9 +58,7 @@ public class MainScreen implements Initializable, ControlledScreen
             "Switching to Login Screen",
 	        Screens.LOGIN
         ));
-        FrontController frontController = new FrontController();
-        //frontController.dispatchRequest("LOGIN"); //front controller pattern, tracking the
-        frontController.dispatchRequest(FrontControllScreens.LOGIN); //front controller pattern, tracking the
+        FrontController.getInstance().dispatchRequest(FrontControllScreens.LOGIN);
     }
     
     @FXML
@@ -76,8 +71,6 @@ public class MainScreen implements Initializable, ControlledScreen
             "Switching to Registration Screen",
 		    Screens.REGISTRATION
 	    ));
-        FrontController frontController = new FrontController();
-        //frontController.dispatchRequest("REGISTRATION"); //front controller pattern, tracking the
-        frontController.dispatchRequest(FrontControllScreens.REGISTRATION); //front controller pattern, tracking the
+        FrontController.getInstance().dispatchRequest(FrontControllScreens.REGISTRATION); // front controller pattern
     }
 }

@@ -58,9 +58,7 @@ public class MainMenu implements Initializable, ControlledScreen
             "Switching to Main Menu Screen",
             Screens.MAIN
         ));
-        FrontController frontController = new FrontController();
-        //frontController.dispatchRequest("MAIN_MENU");
-        frontController.dispatchRequest(FrontControllScreens.MAIN_MENU);
+        FrontController.getInstance().dispatchRequest(FrontControllScreens.MAIN);// front controller pattern
     }
 
     @FXML
@@ -77,8 +75,6 @@ public class MainMenu implements Initializable, ControlledScreen
             "Switching to Make Order Screen",
             Screens.MAKE_ORDER
         ));
-        FrontController frontController = new FrontController();
-        //frontController.dispatchRequest("MAKE_ORDER");
-        frontController.dispatchRequest(FrontControllScreens.MAKE_ORDER);
+        FrontController.getInstance().dispatchRequest(FrontControllScreens.MAKE_ORDER);// front controller pattern
     }
 }

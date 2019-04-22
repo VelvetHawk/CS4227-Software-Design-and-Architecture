@@ -53,8 +53,7 @@ public class ToppingsController implements Initializable, ControlledScreen
     private void goToStatic(ActionEvent event)
     {
         ((Button)event.getTarget()).getScene().getWindow().hide();
-        FrontController frontController = new FrontController();
-        frontController.dispatchRequest(FrontControllScreens.SELECT_FOOD);
+        FrontController.getInstance().dispatchRequest(FrontControllScreens.SELECT_FOOD);// front controller pattern
     }
     
     @FXML

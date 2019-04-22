@@ -82,9 +82,7 @@ public class LoginScreen implements Initializable, ControlledScreen
             "Going back to main menu",
 		    Screens.MAIN
         ));
-        FrontController frontController = new FrontController();
-        //frontController.dispatchRequest("HOME"); //front controller pattern, tracking the
-        frontController.dispatchRequest(FrontControllScreens.MAIN);
+        FrontController.getInstance().dispatchRequest(FrontControllScreens.MAIN);// front controller pattern
     }
     
     //Called when user attempts to log-in
@@ -102,9 +100,7 @@ public class LoginScreen implements Initializable, ControlledScreen
         	// Pass Login Context to state machine
 	        LoginContext loginContext = new LoginContext(user, userPassword);
         	myController.getState().executeState(loginContext);
-            FrontController frontController = new FrontController();
-            //frontController.dispatchRequest("MAIN_MENU"); //front controller pattern, tracking the
-            frontController.dispatchRequest(FrontControllScreens.MAIN_MENU);
+            FrontController.getInstance().dispatchRequest(FrontControllScreens.MAIN_MENU);// front controller pattern
         }
     }
 }

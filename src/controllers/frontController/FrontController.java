@@ -6,10 +6,25 @@ import frontController.Dispatcher;
 public class FrontController {
 	
    private Dispatcher dispatcher;
+   private static FrontController instance; // create a static controller instance,
 
-   public FrontController(){
+   public FrontController() {
+      instance = this;
       dispatcher = new Dispatcher();
+   } // no arg constructor
+
+
+   public static FrontController getInstance() // get instance of the controller
+   {
+      if (instance == null)
+      {
+         instance = new FrontController();
+         return instance;
+      }
+      else
+         return instance;
    }
+   
 
    private boolean isAuthenticUser(){
       //System.out.println("User is authenticated successfully.");

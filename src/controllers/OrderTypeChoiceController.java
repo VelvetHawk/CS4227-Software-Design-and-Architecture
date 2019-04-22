@@ -3,6 +3,7 @@ package controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import consumables.food.Food;
 import controllers.frontController.FrontController;
 import display.views.FrontControllScreens;
 import display.views.PopUpScreens;
@@ -59,43 +60,33 @@ public class OrderTypeChoiceController implements Initializable , ControlledScre
     private void foodChoiceClicked(MouseEvent event)
     {
 	    myController.setPopUpScreen(PopUpScreens.SELECT_FOOD);
-		FrontController frontController = new FrontController();
-		//frontController.dispatchRequest("FOODS");
-		frontController.dispatchRequest(FrontControllScreens.SELECT_FOOD);
+		FrontController.getInstance().dispatchRequest(FrontControllScreens.SELECT_FOOD);// front controller pattern
     }
     
 	@FXML
 	private void sideChoiceClicked(MouseEvent event)
 	{
 		myController.setPopUpScreen(PopUpScreens.SELECT_SIDE);
-		FrontController frontController = new FrontController();
-		//frontController.dispatchRequest("SIDE_FOODS");
-		frontController.dispatchRequest(FrontControllScreens.SELECT_SIDE);
+		FrontController.getInstance().dispatchRequest(FrontControllScreens.SELECT_SIDE);// front controller pattern
 	}
 	
 	@FXML
 	private void drinkChoiceClicked(MouseEvent event)
 	{
 		myController.setPopUpScreen(PopUpScreens.SELECT_DRINK);
-		FrontController frontController = new FrontController();
-//		frontController.dispatchRequest("DRINKS");
-		frontController.dispatchRequest(FrontControllScreens.SELECT_DRINK);
+		FrontController.getInstance().dispatchRequest(FrontControllScreens.SELECT_DRINK);// front controller pattern
 	}
 
 	@FXML
 	private void mealChoiceClicked(MouseEvent event){
 		myController.setPopUpScreen(PopUpScreens.SELECT_MEAL);
-		FrontController frontController = new FrontController();
-		//frontController.dispatchRequest("MEALS");
-		frontController.dispatchRequest(FrontControllScreens.SELECT_MEAL);
+		FrontController.getInstance().dispatchRequest(FrontControllScreens.SELECT_MEAL);
 	}
 
     @FXML
     private void backButtonClicked(ActionEvent event)
     {
 	    ((Button)event.getTarget()).getScene().getWindow().hide();
-	    FrontController frontController = new FrontController();
-//	    frontController.dispatchRequest("MAKE_ORDER");
-	    frontController.dispatchRequest(FrontControllScreens.MAKE_ORDER);
+	    FrontController.getInstance().dispatchRequest(FrontControllScreens.MAKE_ORDER);// front controller pattern
     }
 }

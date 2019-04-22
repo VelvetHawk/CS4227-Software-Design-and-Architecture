@@ -62,9 +62,7 @@ public class ItemDescriptionController implements Initializable, ControlledScree
     @FXML
     public void goToMainMenu(ActionEvent event){
         ((Button)event.getTarget()).getScene().getWindow().hide();
-        FrontController frontController = new FrontController();
-        //frontController.dispatchRequest("FOODS");
-        frontController.dispatchRequest(FrontControllScreens.SELECT_FOOD);
+        FrontController.getInstance().dispatchRequest(FrontControllScreens.SELECT_FOOD);// front controller pattern
     }
 
     public void setScreenParent(ScreensController screenParent)

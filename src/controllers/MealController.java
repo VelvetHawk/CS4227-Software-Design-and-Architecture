@@ -33,6 +33,17 @@ public class MealController implements Initializable , ControlledScreen
 
     private ConsumableFactory foodFactory;
 
+    private static MealController instance; // create a static controller instance,
+
+    public MealController() { instance = this; } // no arg constructor
+
+
+    public static MealController getInstance() // get instance of the controller
+    {
+        if (instance == null)
+            instance = new MealController();
+        return instance;
+    }
 
     public void show(){
         System.out.println("Meals Screen Page");
@@ -53,9 +64,7 @@ public class MealController implements Initializable , ControlledScreen
     private void goToMainMenu(ActionEvent event)
     {
         ((Button)event.getTarget()).getScene().getWindow().hide();
-        FrontController frontController = new FrontController();
-        //frontController.dispatchRequest("ORDER_TYPE");
-        frontController.dispatchRequest(FrontControllScreens.ORDER_TYPE_CHOICE);
+        FrontController.getInstance().dispatchRequest(FrontControllScreens.ORDER_TYPE_CHOICE);// front controller pattern
     }
 
     @FXML

@@ -128,9 +128,7 @@ public class Registration implements Initializable , ControlledScreen
             // account type is setup as default to Customers.
             checkRegistration(name, surname, username, password, email, address, phone);
             clearForm();// clear the form once user is registered
-            FrontController frontController = new FrontController();
-            //frontController.dispatchRequest("LOGIN"); //front controller pattern, tracking the
-            frontController.dispatchRequest(FrontControllScreens.LOGIN); //front controller pattern, tracking the
+            FrontController.getInstance().dispatchRequest(FrontControllScreens.LOGIN);
         }
     }
 
@@ -222,9 +220,7 @@ public class Registration implements Initializable , ControlledScreen
     private void goToMainScreen(ActionEvent event)
     {
         myController.setScreen(Screens.MAIN);
-        FrontController frontController = new FrontController();
-//        frontController.dispatchRequest("HOME"); //front controller pattern, tracking the
-        frontController.dispatchRequest(FrontControllScreens.MAIN); //front controller pattern, tracking the
+        FrontController.getInstance().dispatchRequest(FrontControllScreens.MAIN); // front controller pattern
     }
 
     public void printMementos() {

@@ -20,67 +20,21 @@ public class Dispatcher {
    private ItemDescriptionController itemDescriptionController;
 
    public Dispatcher(){
-      mainScreen = new MainScreen();
-      loginScreen = new LoginScreen();
-      registration = new Registration();
-      makeOrderController = new MakeOrderController();
-      mainMenu = new MainMenu();
-      orderTypeChoiceController = new OrderTypeChoiceController();
-      foodController = new FoodController();
-      toppingsController = new ToppingsController();
-      sideFoodController = new SideFoodController();
-      drinksController = new DrinksController();
-      mealController = new MealController();
-      itemDescriptionController = new ItemDescriptionController();
+      mainScreen = MainScreen.getInstance();
+      loginScreen = LoginScreen.getInstance();
+      registration = Registration.getInstance();
+      makeOrderController = MakeOrderController.getInstance();
+      mainMenu = MainMenu.getInstance();
+      orderTypeChoiceController = OrderTypeChoiceController.getInstance();
+      foodController = FoodController.getInstance();
+      toppingsController = ToppingsController.getInstance();
+      sideFoodController = SideFoodController.getInstance();
+      drinksController = DrinksController.getInstance();
+      mealController = MealController.getInstance();
+      itemDescriptionController = ItemDescriptionController.getInstance();
    }
 
    public void dispatch( FrontControllScreens request){
-//      if(request.equalsIgnoreCase("HOME")){
-//         mainScreen.show();
-//      }
-//      else if(request.equalsIgnoreCase("LOGIN"))
-//      {
-//         loginScreen.show();
-//      }
-//      else if(request.equalsIgnoreCase("MAIN_MENU"))
-//      {
-//         mainMenu.show();
-//      }
-//      else if(request.equalsIgnoreCase("MAKE_ORDER"))
-//      {
-//         makeOrderController.show();
-//      }
-//      else if(request.equalsIgnoreCase("ORDER_TYPE"))
-//      {
-//         orderTypeChoiceController.show();
-//      }
-//      else if(request.equalsIgnoreCase("FOODS"))
-//      {
-//         foodController.show();
-//      }
-//      else if(request.equalsIgnoreCase("TOPPINGS"))
-//      {
-//         toppingsController.show();
-//      }
-//      else if(request.equalsIgnoreCase("SIDE_FOODS"))
-//      {
-//         sideFoodController.show();
-//      }
-//      else if(request.equalsIgnoreCase("DRINKS"))
-//      {
-//         drinksController.show();
-//      }
-//      else if(request.equalsIgnoreCase("MEALS"))
-//      {
-//         mealController.show();
-//      }
-//      else if(request.equalsIgnoreCase("ITEM_DESCRIPTION"))
-//      {
-//         itemDescriptionController.show();
-//      }
-//      else{
-//         registration.show();
-//      }
       if(request == FrontControllScreens.MAIN){
          mainScreen.show();
       }

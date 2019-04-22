@@ -88,9 +88,7 @@ public class MakeOrderController implements Initializable, ControlledScreen, Obs
 				"Switching to Main Menu Screen",
 				Screens.MAIN_MENU
 		));
-		FrontController frontController = new FrontController();
-		//frontController.dispatchRequest("MAIN_MENU"); //front controller pattern, tracking the
-		frontController.dispatchRequest(FrontControllScreens.MAIN_MENU); //front controller pattern, tracking the
+		FrontController.getInstance().dispatchRequest(FrontControllScreens.MAIN_MENU); // front controller pattern
 	}
 	
 	@FXML
@@ -99,9 +97,7 @@ public class MakeOrderController implements Initializable, ControlledScreen, Obs
 		myController.setPopUpScreen(PopUpScreens.ORDER_TYPE_CHOICE);
 		myController.setState(MakeOrder.getInstance());
 		myController.getState().executeState(new Context("Idle"));
-		FrontController frontController = new FrontController();
-		//frontController.dispatchRequest("ORDER_TYPE"); //front controller pattern, tracking the
-		frontController.dispatchRequest(FrontControllScreens.ORDER_TYPE_CHOICE); //front controller pattern, tracking the
+		FrontController.getInstance().dispatchRequest(FrontControllScreens.ORDER_TYPE_CHOICE); // front controller pattern
 	}
 	
 	@FXML

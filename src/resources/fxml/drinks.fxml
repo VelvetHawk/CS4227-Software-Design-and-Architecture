@@ -68,6 +68,7 @@
                         <Insets left="50.0" />
                      </opaqueInsets>
                   </Button>
+                  <Label fx:id="label" prefHeight="17.0" prefWidth="180.0" text="Label" />
               </items>
             </ToolBar>
          </children></AnchorPane>
