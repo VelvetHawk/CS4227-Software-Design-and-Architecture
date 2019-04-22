@@ -3,6 +3,7 @@ package consumables.builders;
 import consumables.decorators.Consumable;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 public class Meal implements Cloneable
 {
@@ -21,14 +22,55 @@ public class Meal implements Cloneable
         {
             double cost = item.getCost();
             totalCost += cost;
-            totalCost = totalCost - 2.0;
+            //totalCost = totalCost - 2.0;
         }
         return totalCost;
     }
 
-    public ArrayList<Consumable> getContents()
+    /*public ArrayList<Consumable> getContents()
     {
         return items;
+    }
+    */
+
+    public class Iterator{
+         Meal meal;
+         private java.util.Iterator iterator;
+         private Consumable value;
+
+
+         public Iterator(Meal meal){
+             this.meal = meal;
+         }
+
+         public void first(){
+             iterator = meal.items.iterator();
+             next();
+         }
+
+         public void next(){
+             try{
+                 value = (Consumable)iterator.next();
+             }
+             catch(NoSuchElementException e){
+                 value = null;
+             }
+         }
+
+         public boolean isDone(){
+             return value == null;
+         }
+
+         public Consumable currentValue(){
+             return value;
+         }
+
+
+
+    }
+
+    public Iterator getIterator(){
+        return new Iterator(this);
     }
 
     public void setName(String name){

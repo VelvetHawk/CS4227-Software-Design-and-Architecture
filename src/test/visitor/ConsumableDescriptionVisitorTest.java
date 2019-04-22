@@ -21,7 +21,7 @@ public class ConsumableDescriptionVisitorTest {
         Consumable food = foodFactory.getFood();
         food = foodFactory.addFood(Food.BURGER, food);
         String description = food.accept(visitor);
-        assertEquals(description, "Delicious mode-made beef burger made with 100% Irish beef");
+        assertEquals(description, "Delicious Conor made beef burger made with 100% beef from Conors farm");
     }
 
     @Test

@@ -1,6 +1,6 @@
 package main;
 
-import biz.paluch.logging.gelf.jul.GelfLogHandler;
+//import biz.paluch.logging.gelf.jul.GelfLogHandler;
 import controllers.ScreensController;
 import display.views.PopUpScreens;
 import display.views.Screens;

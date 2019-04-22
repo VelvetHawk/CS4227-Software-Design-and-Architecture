@@ -100,6 +100,7 @@ public class MealController implements Initializable , ControlledScreen
 
     private void addFood(Meal mealType)
     {
+        /*
        ArrayList<Consumable> contents = mealType.getContents();
         for (Consumable item : contents) {
             if (item instanceof FoodDecorator) {
@@ -110,6 +111,20 @@ public class MealController implements Initializable , ControlledScreen
                 myController.getCustomerOrder().addSide((SideDecorator) item);
             }
         }
+        */
+
+        Meal.Iterator itr = mealType.getIterator();
+        for(itr.first();!itr.isDone();itr.next()){
+            Consumable item = itr.currentValue();
+            if (item instanceof FoodDecorator) {
+                myController.getCustomerOrder().addFood((FoodDecorator) item);
+            } else if (item instanceof DrinkDecorator) {
+                myController.getCustomerOrder().addDrink((DrinkDecorator) item);
+            } else if (item instanceof SideDecorator) {
+                myController.getCustomerOrder().addSide((SideDecorator) item);
+            }
+        }
+
 
     }
 }

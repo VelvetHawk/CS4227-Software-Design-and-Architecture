@@ -26,7 +26,7 @@ public class MealBuilderTest
         //Build and test beefburger meal
         MealBuilder mealBuilder = new MealBuilder();
         Meal beefBurgerMeal = mealBuilder.prepareBeefBurgerMeal();
-        assertEquals(7.50, beefBurgerMeal.getCost(), 0 );
+        assertEquals(8.75, beefBurgerMeal.getCost(), 0 );
     }
 
     @Test
@@ -35,11 +35,8 @@ public class MealBuilderTest
         //Build and test beefburger meal
         MealBuilder mealBuilder = new MealBuilder();
         Meal kebabMeal = mealBuilder.prepareKebabMeal();
-        assertEquals(7.50, kebabMeal.getCost(), 0 );
-        ArrayList<Consumable> contents =  kebabMeal.getContents();
-        for (Consumable content : contents) {
-            System.out.println(content);
-        }
+        assertEquals(8.75, kebabMeal.getCost(), 0 );
+
     }
 
     @Test
@@ -50,7 +47,7 @@ public class MealBuilderTest
         Meal cloneKebabMeal;
         try {
             cloneKebabMeal = (Meal)kebabMeal.clone();
-            assertEquals(kebabMeal.getContents(), cloneKebabMeal.getContents());
+            assertEquals(kebabMeal.getCost(), cloneKebabMeal.getCost(), 0);
         }
         catch(Exception e){
             Framework.getInstance().onLogEvent(
@@ -60,5 +57,13 @@ public class MealBuilderTest
                 )
             );
         }
+    }
+
+    @Test
+    public void testMealIterator(){
+        MealBuilder mealBuilder = new MealBuilder();
+        Meal beefBurgerMeal = mealBuilder.prepareBeefBurgerMeal();
+
+
     }
 }
