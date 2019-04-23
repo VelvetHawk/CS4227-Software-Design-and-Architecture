@@ -1,42 +1,50 @@
 package framework.interceptors;
 
+import adapters.AdapterType;
+import adapters.ConsoleAdapter;
+import adapters.GraylogAdapter;
+import adapters.LogAdapter;
 import framework.context.Context;
 import framework.context.ErrorContext;
 
-import java.io.File;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 public class LoggingInterceptor implements Interceptor
 {
-	private Logger log;
+	private LogAdapter logAdapter;
 	
 	private static LoggingInterceptor instance;
 	
-	private LoggingInterceptor()
+	private LoggingInterceptor(LogAdapter logAdapter)
 	{
 		/*
     	    Host: "192.168.56.104",
 			Default Port: 9000
 	        Configured Port: 12201
     	 */
-		System.setProperty("java.util.logging.config.file", new File("cs4227.properties").getAbsolutePath());
-		log = Logger.getLogger("Restaurant");
+		this.logAdapter = logAdapter;
 	}
 	
-	public static LoggingInterceptor getInstance()
+	public static LoggingInterceptor getInstance(AdapterType adapterType)
 	{
 		if (instance == null)
-			instance = new LoggingInterceptor();
+		{
+			switch (adapterType)
+			{
+				case CONSOLE:   instance = new LoggingInterceptor(new ConsoleAdapter());    break;
+				case GRAYLOG:   instance = new LoggingInterceptor(new GraylogAdapter());    break;
+			}
+		}
 		return instance;
 	}
 	
 	public Context onLogEvent(Context context)
 	{
-		log.info(context.getMessage());
+		logAdapter.info(context.getMessage());
 		if (context instanceof ErrorContext)
 		{
-			log.log(Level.SEVERE, ((ErrorContext)context).getException().getMessage());
+			logAdapter.log(Level.SEVERE, ((ErrorContext)context).getException().getMessage());
 		}
 		return context;
 	}

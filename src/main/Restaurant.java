@@ -1,5 +1,6 @@
 package main;
 
+import adapters.AdapterType;
 import controllers.ScreensController;
 import display.views.PopUpScreens;
 import display.views.Screens;
@@ -23,7 +24,7 @@ public class Restaurant extends Application
 	    Framework framework = Framework.getInstance();
 
         // Interceptors
-	    LoggingInterceptor loggingInterceptor = LoggingInterceptor.getInstance();
+	    LoggingInterceptor loggingInterceptor = LoggingInterceptor.getInstance(AdapterType.GRAYLOG);
 
 	    // Register interceptors
 	    framework.registerLoggingInterceptor(loggingInterceptor);
