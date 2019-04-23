@@ -77,15 +77,15 @@ public class MealController implements Initializable , ControlledScreen
 
     @FXML
     private void getDoubleBeefBurgerMeal(ActionEvent e){
-        MealBuilder mealBuilder = new MealBuilder();
-        Meal beefBurgerMeal = mealBuilder.prepareBeefBurgerMeal();
-        addFood(beefBurgerMeal);
 
         //Use Prototype pattern to clone earlier meal
         MealStore mealStore = new MealStore();
         mealStore.load();
         Meal beefBurgerMealClone = mealStore.getMeal("Beef Burger Meal");
         addFood(beefBurgerMealClone);
+
+        Meal beefBurgerMealClone2 = mealStore.getMeal("Beef Burger Meal");
+        addFood(beefBurgerMealClone2);
     }
 
     @FXML
@@ -99,15 +99,15 @@ public class MealController implements Initializable , ControlledScreen
     @FXML
     private void getDoubleKebabMeal(ActionEvent event)
     {
-        MealBuilder mealBuilder = new MealBuilder();
-        Meal kebabMeal = mealBuilder.prepareKebabMeal();
-        addFood(kebabMeal);
 
         //Use Prototype pattern to clone earlier meal
         MealStore mealStore = new MealStore();
         mealStore.load();
         Meal kebabMealClone = mealStore.getMeal("Kebab Meal");
         addFood(kebabMealClone);
+
+        Meal kebabMealClone2 = mealStore.getMeal("Kebab Meal");
+        addFood(kebabMealClone2);
     }
     private void addFood(Food foodType, Size size)
     {
