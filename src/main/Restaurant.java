@@ -1,6 +1,5 @@
 package main;
 
-import biz.paluch.logging.gelf.jul.GelfLogHandler;
 import controllers.ScreensController;
 import display.views.PopUpScreens;
 import display.views.Screens;
@@ -13,61 +12,11 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.Properties;
-import java.util.logging.*;
-
 public class Restaurant extends Application
 {
     @Override
     public void start(Stage primaryStage)
     {
-//    	/*
-//    	    Host: "192.168.56.104",
-//			Default Port: 9000
-//	        Configured Port: 12201
-//    	 */
-//	    Logger log = Logger.getLogger("Restaurant");
-//	    log.setLevel(Level.ALL);
-//	    log.info("initializing - trying to load configuration file ...");
-//
-//
-//	    Properties properties = new Properties();
-//	    try
-//	    {
-//	    	File a = new File("cs4227.properties");
-//		    FileInputStream configFile = new FileInputStream("cs4227.properties");
-//		    properties.load(configFile);
-//		    LogManager.getLogManager().readConfiguration(configFile);
-//	    }
-//	    catch (Exception e)
-//	    {
-//		    System.out.println("WARNING: Could not open configuration file");
-//		    System.out.println("WARNING: Logging not configured (console output only)");
-//	    }
-//
-//	    log.info("Starting Application");
-//	    log.warning("Test warning message");
-//
-//	    GelfLogHandler logHandler = new GelfLogHandler();
-////	    logHandler.setHost("192.168.56.104");
-////	    logHandler.setPort(12201);
-//
-//	    logHandler.setGraylogHost("udp:192.168.56.104");
-//	    logHandler.setGraylogPort(12201);
-//	    logHandler.setFacility("cs4227-application");
-//	    logHandler.publish(new LogRecord(
-//            Level.ALL,
-//		    "This is a test message"
-//	    ));
-//
-//	    logHandler.close();
-//
-//	    // TODO: Remove later
-//	    System.exit(9001);
-//
-//
         ScreensController mainContainer = ScreensController.getInstance();
 
         // Framework
@@ -80,8 +29,6 @@ public class Restaurant extends Application
 	    framework.registerLoggingInterceptor(loggingInterceptor);
 
         final String fxmlRootPath = "/resources/fxml/";
-    
-        System.out.println(new File(".").getAbsolutePath());
 
         // Screens
         mainContainer.loadScreen(Screens.MAIN, fxmlRootPath + "mainScreen.fxml");
