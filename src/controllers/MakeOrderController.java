@@ -69,6 +69,8 @@ public class MakeOrderController implements Initializable, ControlledScreen, Obs
 	public void initialize(URL url, ResourceBundle rb)
 	{
 		scrollPane.setContent(new VBox());
+        undoButton.setDisable(true);
+        redoButton.setDisable(true);
 	}
 	
 	@Override
